@@ -14,7 +14,6 @@ import java.util.Random;
 public class MainTest extends TestCase {
   private static final Logger log = LogManager.getLogger(Main.class);
 
-
   public void testLogger() throws IOException {
     log.info(ConfigurationUtil.getConfigurationEntry(Constants.MAIN_TEST_MESSAGE));
   }
@@ -30,7 +29,6 @@ public class MainTest extends TestCase {
         log.info(Level.ALL);
   }
 
-
   public void testString() throws IOException {
 
     Random random = new Random();
@@ -41,5 +39,4 @@ public class MainTest extends TestCase {
             random.nextInt(bound),
             random.nextInt(bound)));
   }
-
 }
