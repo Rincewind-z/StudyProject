@@ -24,7 +24,14 @@ public class DataProviderCsvTest {
                 1500,
                 Unit.CM,
                 MaterialType.FABRIC,
-                "TestDescription",
+                "TestDescription1",
+                200));
+        Assertions.assertTrue(dataProvider.addMaterial(0,
+                "TestMaterial2",
+                1500,
+                Unit.CM,
+                MaterialType.FABRIC,
+                "TestDescription2",
                 200));
     }
 

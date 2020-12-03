@@ -64,3 +64,12 @@
 2020-12-03 16:07:22 ERROR DataProviderCsv:64 - something is null
 2020-12-03 16:24:57 ERROR DataProviderCsv:64 - something is null
 2020-12-03 16:29:18 ERROR DataProviderCsv:64 - something is null
+2020-12-03 16:40:05 ERROR DataProviderCsv:68 - something is null
+2020-12-03 16:42:01 ERROR DataProviderCsv:72 - something is null
+2020-12-03 16:42:29 ERROR DataProviderCsv:72 - something is null
+2020-12-03 16:44:07 ERROR DataProviderCsv:72 - something is null
+2020-12-03 16:45:45 ERROR DataProviderCsv:72 - something is null
+2020-12-03 16:46:26 ERROR DataProviderCsv:72 - something is null
+2020-12-03 16:47:13 ERROR DataProviderCsv:72 - something is null
+2020-12-03 16:47:13 ERROR DataProviderCsv:120 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-03 16:48:03 ERROR DataProviderCsv:72 - something is null
