@@ -56,6 +56,24 @@ public class DataProviderCsv implements DataProvider {
         return writeToCsv(object.getClass(), Collections.singletonList(object));
     }
 
+    private <T> List<T> readFromCsv (Class<T> tClass) {
+        try {
+            FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(path)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(file_extension));
+
+            CSVReader csvReader = new CSVReader(reader);
+            CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(csvReader)
+                    .withType(tClass)
+                    .withIgnoreLeadingWhiteSpace(true)
+                    .build();
+            return csvToBean.parse();
+        } catch (IOException e) {
+            log.error(e);
+            return new ArrayList<>();
+        }
+    }
+
     @Override
     public boolean addMaterial(long userId,
                                String materialName,
@@ -82,7 +100,6 @@ public class DataProviderCsv implements DataProvider {
         material.setInStock(inStock);
 
         return writeToCsv(material);
-
     }
 
     @Override
@@ -94,29 +111,11 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean deleteMaterial(long userId, Material Material) {
-        if (Material == null) {
-            return false;
-        }
+    public boolean deleteMaterial(long userId, long id) {
+        List<Material> materialList = readFromCsv(Material.class);
+        materialList.removeIf(material -> material.getUserId() == userId && material.getId() == id);
+        writeToCsv(Material.class, materialList, true);
         return true;
-    }
-
-    private <T> List<T> readFromCsv (Class<T> tClass) {
-        try {
-            FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(path)
-                    + tClass.getSimpleName().toLowerCase()
-                    + ConfigurationUtil.getConfigurationEntry(file_extension));
-
-        CSVReader csvReader = new CSVReader(reader);
-        CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(csvReader)
-                .withType(tClass)
-                .withIgnoreLeadingWhiteSpace(true)
-                .build();
-            return csvToBean.parse();
-        } catch (IOException e) {
-            log.error(e);
-            return new ArrayList<>();
-        }
     }
 
     @Override
