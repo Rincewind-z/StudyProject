@@ -21,7 +21,7 @@ public interface DataProvider {
     boolean editMaterial (long userId, Material editedMaterial);
     boolean deleteMaterial (long userId, Material Material);
 
-    Optional<Material> getMaterial (long userId, Long materialId);
+    Optional<Material> getMaterial (long userId, long id);
     List<Material> getMaterial (long userId);
 
     boolean createProject (long userId,

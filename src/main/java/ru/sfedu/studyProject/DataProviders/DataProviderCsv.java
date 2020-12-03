@@ -1,6 +1,9 @@
 package ru.sfedu.studyProject.DataProviders;
 
+import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -11,6 +14,7 @@ import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
@@ -31,6 +35,12 @@ public class DataProviderCsv implements DataProvider {
                                MaterialType materialType,
                                String description,
                                float inStock) throws IOException {
+
+        if (materialName == null || unit == null || materialType == null || description == null) {
+            log.error("something is null");
+            return false;
+        }
+
         Material material = new Material();
         material.setUserId(userId);
         material.setId(0);
@@ -42,12 +52,10 @@ public class DataProviderCsv implements DataProvider {
         material.setUnit(unit);
         material.setInStock(inStock);
 
-        if (materialName == null || unit == null) {
-            return false;
-        };
+
 
         FileWriter writer = new FileWriter(ConfigurationUtil.getConfigurationEntry(path)
-                + materialName.getClass().getSimpleName().toLowerCase()
+                + Material.class.getSimpleName().toLowerCase()
                 + ConfigurationUtil.getConfigurationEntry(file_extension));
         CSVWriter csvWriter = new CSVWriter(writer);
         StatefulBeanToCsv<Material> beanToCsv = new StatefulBeanToCsvBuilder<Material>(csvWriter)
@@ -55,12 +63,12 @@ public class DataProviderCsv implements DataProvider {
                 .build();
         try {
             beanToCsv.write(material);
-        } catch (CsvDataTypeMismatchException e) {
-            e.printStackTrace();
-        } catch (CsvRequiredFieldEmptyException e) {
-            e.printStackTrace();
+        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e) {
+            log.error(e);
+            return false;
+        } finally {
+            csvWriter.close();
         }
-        csvWriter.close();
         return true;
     }
 
@@ -81,8 +89,27 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public Optional<Material> getMaterial(long userId, Long materialId) {
-        return Optional.empty();
+    public Optional<Material> getMaterial(long userId, long id)  {
+        try {
+
+        FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(path)
+                + Material.class.getSimpleName().toLowerCase()
+                + ConfigurationUtil.getConfigurationEntry(file_extension));
+        CSVReader csvReader = new CSVReader(reader);
+        CsvToBean<Material> csvToBean = new CsvToBeanBuilder<Material>(csvReader)
+                .withType(Material.class)
+                .withIgnoreLeadingWhiteSpace(true)
+                .build();
+        List<Material> materialList = csvToBean.parse();
+
+        return materialList.stream()
+                .filter(material -> material.getId() == id && material.getUserId() == userId)
+                .findAny();
+
+        } catch (IOException e) {
+            log.error(e);
+            return Optional.empty();
+        }
     }
 
     @Override

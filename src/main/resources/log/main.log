@@ -53,3 +53,10 @@
 2020-12-03 12:39:51 INFO  Main:21 - 100
 2020-12-03 12:46:44 INFO  Main:20 - test
 2020-12-03 12:46:44 INFO  Main:21 - 100
+2020-12-03 14:39:42 INFO  Main:20 - test
+2020-12-03 14:39:42 INFO  Main:21 - 100
+2020-12-03 15:19:30 ERROR DataProviderCsv:40 - something is null
+2020-12-03 15:20:02 ERROR DataProviderCsv:40 - something is null
+2020-12-03 15:32:50 ERROR DataProviderCsv:41 - something is null
+2020-12-03 15:34:29 ERROR DataProviderCsv:41 - something is null
+2020-12-03 15:42:24 ERROR DataProviderCsv:41 - something is null

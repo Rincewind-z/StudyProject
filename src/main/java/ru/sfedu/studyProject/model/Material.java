@@ -37,7 +37,7 @@ public class Material {
   // Constructors
   //
   public Material () { };
-  
+
   //
   // Methods
   //
