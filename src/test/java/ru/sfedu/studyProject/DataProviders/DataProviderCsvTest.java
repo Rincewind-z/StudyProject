@@ -65,4 +65,18 @@ public class DataProviderCsvTest {
         Assertions.assertFalse(optionalMaterial.isPresent());
     }
 
+    @Test
+    @Order(1)
+    void getMaterialListSuccess(){
+        List<Material> listMaterial = dataProvider.getMaterial(0);
+        Assertions.assertFalse(listMaterial.isEmpty());
+        Assertions.assertEquals("TestMaterial1", listMaterial.get(0).getName());
+    }
+
+    @Test
+    @Order(1)
+    void getMaterialListFailed(){
+        List<Material> listMaterial = dataProvider.getMaterial(8);
+        Assertions.assertTrue(listMaterial.isEmpty());
+    }
 }
