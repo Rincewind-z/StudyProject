@@ -79,4 +79,17 @@ public class DataProviderCsvTest {
         List<Material> listMaterial = dataProvider.getMaterial(8);
         Assertions.assertTrue(listMaterial.isEmpty());
     }
+
+    @Test
+    @Order(2)
+    void  deleteMaterialSuccess() {
+        Assertions.assertTrue(dataProvider.deleteMaterial(0,0));
+    }
+
+    @Test
+    @Order(2)
+    void  deleteMaterialFailed() {
+        Assertions.assertTrue(dataProvider.deleteMaterial(8,0));
+        Assertions.assertTrue(dataProvider.deleteMaterial(0,8));
+    }
 }
