@@ -129,7 +129,10 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public List<Material> getMaterial(long userId) {
-        return null;
+        List<Material> materialList = readFromCsv(Material.class);
+        return materialList.stream()
+                .filter(material -> material.getUserId() == userId)
+                .collect(Collectors.toList());
     }
 
     @Override
