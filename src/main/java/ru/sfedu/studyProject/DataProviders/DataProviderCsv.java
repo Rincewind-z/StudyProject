@@ -1,10 +1,18 @@
 package ru.sfedu.studyProject.DataProviders;
 
+import com.opencsv.CSVWriter;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
+import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -12,12 +20,47 @@ import java.util.Optional;
 
 public class DataProviderCsv implements DataProvider {
     private static final Logger log = LogManager.getLogger(DataProviderCsv.class);
+    private final String path = "csv_path";
+    private final String file_extension = "csv_extension";
 
     @Override
-    public boolean addMaterial(long userId, String materialName, Double cost, Unit units) {
-        if (materialName == null || cost == null || units == null) {
+    public boolean addMaterial(long userId,
+                               String materialName,
+                               float cost,
+                               Unit unit,
+                               MaterialType materialType,
+                               String description,
+                               float inStock) throws IOException {
+        Material material = new Material();
+        material.setUserId(userId);
+        material.setId(0);
+        material.setDateOfCreation(new Date(System.currentTimeMillis()));
+        material.setName(materialName);
+        material.setMaterialType(materialType);
+        material.setCost(cost);
+        material.setDescription(description);
+        material.setUnit(unit);
+        material.setInStock(inStock);
+
+        if (materialName == null || unit == null) {
             return false;
         };
+
+        FileWriter writer = new FileWriter(ConfigurationUtil.getConfigurationEntry(path)
+                + materialName.getClass().getSimpleName().toLowerCase()
+                + ConfigurationUtil.getConfigurationEntry(file_extension));
+        CSVWriter csvWriter = new CSVWriter(writer);
+        StatefulBeanToCsv<Material> beanToCsv = new StatefulBeanToCsvBuilder<Material>(csvWriter)
+                .withApplyQuotesToAll(false)
+                .build();
+        try {
+            beanToCsv.write(material);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        csvWriter.close();
         return true;
     }
 
@@ -183,4 +226,5 @@ public class DataProviderCsv implements DataProvider {
     public Double calculateProjectCost(Map<Material, Double> outgoingMap) {
         return null;
     }
+
 }
