@@ -27,6 +27,35 @@ public class DataProviderCsv implements DataProvider {
     private final String path = "csv_path";
     private final String file_extension = "csv_extension";
 
+    private <T> boolean writeToCsv (Class<?> tClass, List<T> object) {
+        CSVWriter csvWriter;
+        try {
+            FileWriter writer = new FileWriter(ConfigurationUtil.getConfigurationEntry(path)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(file_extension));
+            csvWriter = new CSVWriter(writer);
+            StatefulBeanToCsv<T> beanToCsv = new StatefulBeanToCsvBuilder<T>(csvWriter)
+                    .withApplyQuotesToAll(false)
+                    .build();
+            beanToCsv.write(object);
+            csvWriter.close();
+            return true;
+        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e ) {
+            log.error(e);
+            return false;
+        } finally {
+            csvWriter.close();
+        }
+    }
+
+    private <T> boolean writeToCsv (T object) {
+        if (object == null) {
+            log.error("something is null");
+            return false;
+        }
+        return writeToCsv(object.getClass(), Collections.singletonList(object));
+    }
+
     @Override
     public boolean addMaterial(long userId,
                                String materialName,
@@ -34,7 +63,7 @@ public class DataProviderCsv implements DataProvider {
                                Unit unit,
                                MaterialType materialType,
                                String description,
-                               float inStock) throws IOException {
+                               float inStock) {
 
         if (materialName == null || unit == null || materialType == null || description == null) {
             log.error("something is null");
@@ -52,24 +81,8 @@ public class DataProviderCsv implements DataProvider {
         material.setUnit(unit);
         material.setInStock(inStock);
 
+        return writeToCsv(material);
 
-
-        FileWriter writer = new FileWriter(ConfigurationUtil.getConfigurationEntry(path)
-                + Material.class.getSimpleName().toLowerCase()
-                + ConfigurationUtil.getConfigurationEntry(file_extension));
-        CSVWriter csvWriter = new CSVWriter(writer);
-        StatefulBeanToCsv<Material> beanToCsv = new StatefulBeanToCsvBuilder<Material>(csvWriter)
-                .withApplyQuotesToAll(false)
-                .build();
-        try {
-            beanToCsv.write(material);
-        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e) {
-            log.error(e);
-            return false;
-        } finally {
-            csvWriter.close();
-        }
-        return true;
     }
 
     @Override
@@ -88,28 +101,30 @@ public class DataProviderCsv implements DataProvider {
         return true;
     }
 
-    @Override
-    public Optional<Material> getMaterial(long userId, long id)  {
+    private <T> List<T> readFromCsv (Class<T> tClass) {
         try {
+            FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(path)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(file_extension));
 
-        FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(path)
-                + Material.class.getSimpleName().toLowerCase()
-                + ConfigurationUtil.getConfigurationEntry(file_extension));
         CSVReader csvReader = new CSVReader(reader);
-        CsvToBean<Material> csvToBean = new CsvToBeanBuilder<Material>(csvReader)
-                .withType(Material.class)
+        CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(csvReader)
+                .withType(tClass)
                 .withIgnoreLeadingWhiteSpace(true)
                 .build();
-        List<Material> materialList = csvToBean.parse();
+            return csvToBean.parse();
+        } catch (IOException e) {
+            log.error(e);
+            return new ArrayList<>();
+        }
+    }
 
+    @Override
+    public Optional<Material> getMaterial(long userId, long id)  {
+        List<Material> materialList = readFromCsv(Material.class);
         return materialList.stream()
                 .filter(material -> material.getId() == id && material.getUserId() == userId)
                 .findAny();
-
-        } catch (IOException e) {
-            log.error(e);
-            return Optional.empty();
-        }
     }
 
     @Override
