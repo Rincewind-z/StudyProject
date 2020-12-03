@@ -103,10 +103,30 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean editMaterial(long userId, Material editedMaterial) {
-        if (editedMaterial == null) {
+    public boolean editMaterial(long userId, Material editMaterial) {
+        if (editMaterial == null) {
+            log.error("something is null");
             return false;
         }
+        if (editMaterial.getMaterialType() == null
+                || editMaterial.getName() == null
+                || editMaterial.getDateOfCreation() == null
+                || editMaterial.getDescription() == null
+                || editMaterial.getUnit() == null) {
+            log.error("something is null");
+            return false;
+        }
+        List<Material> materialList = readFromCsv(Material.class);
+        Optional<Material> optMaterial = materialList.stream()
+                .filter(material -> material.getId() == editMaterial.getId() && material.getUserId() == userId)
+                .findAny();
+        if (optMaterial.isEmpty()) {
+            log.error("material not founded");
+            return false;
+        }
+        materialList.remove(optMaterial.get());
+        materialList.add(editMaterial);
+        writeToCsv(Material.class, materialList, true);
         return true;
     }
 
