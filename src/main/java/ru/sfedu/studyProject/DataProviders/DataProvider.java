@@ -19,7 +19,7 @@ public interface DataProvider {
                          String description,
                          float inStock) throws IOException;
     boolean editMaterial (long userId, Material editedMaterial);
-    boolean deleteMaterial (long userId, Material Material);
+    boolean deleteMaterial (long userId, long id);
 
     Optional<Material> getMaterial (long userId, long id);
     List<Material> getMaterial (long userId);
