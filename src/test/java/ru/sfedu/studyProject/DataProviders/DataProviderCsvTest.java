@@ -26,7 +26,7 @@ public class DataProviderCsvTest {
                 MaterialType.FABRIC,
                 "TestDescription1",
                 200));
-        Assertions.assertTrue(dataProvider.addMaterial(0,
+        Assertions.assertTrue(dataProvider.addMaterial(1,
                 "TestMaterial2",
                 1500,
                 Unit.CM,
@@ -91,5 +91,34 @@ public class DataProviderCsvTest {
     void  deleteMaterialFailed() {
         Assertions.assertTrue(dataProvider.deleteMaterial(8,0));
         Assertions.assertTrue(dataProvider.deleteMaterial(0,8));
+    }
+
+    @Test
+    @Order(2)
+    void editMaterialSuccess() {
+        Optional<Material> optionalMaterial = dataProvider.getMaterial(1,0);
+        Assertions.assertTrue(optionalMaterial.isPresent());
+        Material material = optionalMaterial.get();
+        material.setName("edited name");
+        Assertions.assertTrue(dataProvider.editMaterial(1, material));
+        optionalMaterial = dataProvider.getMaterial(1,0);
+        Assertions.assertTrue(optionalMaterial.isPresent());
+        Assertions.assertEquals(material, optionalMaterial.get());
+    }
+
+    @Test
+    @Order(2)
+    void editMaterialFailed() {
+        Optional<Material> optionalMaterial = dataProvider.getMaterial(1,0);
+        Assertions.assertTrue(optionalMaterial.isPresent());
+        Material material = optionalMaterial.get();
+        material.setName(null);
+        Assertions.assertFalse(dataProvider.editMaterial(1, material));
+
+        optionalMaterial = dataProvider.getMaterial(1,0);
+        Assertions.assertTrue(optionalMaterial.isPresent());
+        material = optionalMaterial.get();
+        material.setId(6);
+        Assertions.assertFalse(dataProvider.editMaterial(1, material));
     }
 }
