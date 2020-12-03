@@ -1,5 +1,6 @@
 package ru.sfedu.studyProject.model;
 
+import com.opencsv.bean.CsvBindByName;
 import ru.sfedu.studyProject.enums.MaterialType;
 import ru.sfedu.studyProject.enums.Unit;
 
@@ -13,14 +14,23 @@ public class Material {
   //
   // Fields
   //
-
+  @CsvBindByName
+  private long userId;
+  @CsvBindByName
   private long id;
-  private Date dateOfCreatoion;
-  private String name;
+  @CsvBindByName
+  private Date dateOfCreation;
+  @CsvBindByName
+  private String materialName;
+  @CsvBindByName
   private MaterialType materialType;
+  @CsvBindByName
   private Float cost;
+  @CsvBindByName
   private String description;
+  @CsvBindByName
   private Unit unit;
+  @CsvBindByName
   private float inStock;
   
   //
@@ -54,19 +64,19 @@ public class Material {
   }
 
   /**
-   * Set the value of dateOfCreatoion
-   * @param newVar the new value of dateOfCreatoion
+   * Set the value of dateOfCreation
+   * @param newVar the new value of dateOfCreation
    */
-  public void setDateOfCreatoion (Date newVar) {
-    dateOfCreatoion = newVar;
+  public void setDateOfCreation (Date newVar) {
+    dateOfCreation = newVar;
   }
 
   /**
-   * Get the value of dateOfCreatoion
-   * @return the value of dateOfCreatoion
+   * Get the value of dateOfCreation
+   * @return the value of dateOfCreation
    */
-  public Date getDateOfCreatoion () {
-    return dateOfCreatoion;
+  public Date getDateOfCreation () {
+    return dateOfCreation;
   }
 
   /**
@@ -74,7 +84,7 @@ public class Material {
    * @param newVar the new value of name
    */
   public void setName (String newVar) {
-    name = newVar;
+    materialName = newVar;
   }
 
   /**
@@ -82,7 +92,7 @@ public class Material {
    * @return the value of name
    */
   public String getName () {
-    return name;
+    return materialName;
   }
 
   /**
@@ -163,6 +173,10 @@ public class Material {
    */
   public float getInStock () {
     return inStock;
+  }
+
+  public void setUserId (long newVar) {
+    userId = newVar;
   }
 
   //

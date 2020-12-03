@@ -4,13 +4,20 @@ package ru.sfedu.studyProject.DataProviders;
 import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Date;
 
 public interface DataProvider {
-    boolean addMaterial (long userId, String materialName, Double cost, Unit units);
+    boolean addMaterial (long userId,
+                         String materialName,
+                         float cost,
+                         Unit unit,
+                         MaterialType materialType,
+                         String description,
+                         float inStock) throws IOException;
     boolean editMaterial (long userId, Material editedMaterial);
     boolean deleteMaterial (long userId, Material Material);
 
