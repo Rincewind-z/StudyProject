@@ -215,7 +215,7 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean editFursuitPart(long userId, FursuitPart editedFursuitPart) {
-        if (editedFursuitPart == null) {
+        if (editedFursuitPart == null || editedFursuitPart.getName() == null) {
             log.error("something is null");
             return false;
         }
@@ -252,43 +252,84 @@ public class DataProviderCsv implements DataProvider {
         return fursuitPartList.stream()
                 .filter(fursuitPart -> fursuitPart.getId() == id && fursuitPart.getUserId() == userId)
                 .findAny();
+        if (optionalFursuitPart.isEmpty()) {
+            return Optional.empty();
+        }
+
+        Map<Material, Double> outgoingMap = new HashMap<>();
+        FursuitPart fursuitPart = optionalFursuitPart.get();
+
+        fursuitPart.getOutgoings().forEach((material, aDouble) -> {
+            Optional<Material> optMaterial = getMaterial(userId, material.getId());
+            if (optMaterial.isEmpty()) {
+                return;
+            }
+            outgoingMap.put(optMaterial.get(), aDouble);
+        });
+        fursuitPart.setOutgoings(outgoingMap);
+        return Optional.of(fursuitPart);
     }
 
     @Override
     public List<FursuitPart> getFursuitPart (long userId) {
         List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
-        return fursuitPartList.stream()
+        fursuitPartList = fursuitPartList.stream()
                 .filter(fursuitPart -> fursuitPart.getUserId() == userId)
                 .collect(Collectors.toList());
+
+        Map<Material, Double> outgoingMap = new HashMap<>();
+        fursuitPartList.forEach(fursuitPart -> {
+            fursuitPart.getOutgoings().forEach((material, aDouble) -> {
+                Optional<Material> optMaterial = getMaterial(userId, material.getId());
+                if (optMaterial.isEmpty()) {
+                    return;
+                }
+                outgoingMap.put(optMaterial.get(), aDouble);
+            });
+            fursuitPart.setOutgoings(outgoingMap);
+        });
+
+        return fursuitPartList;
     }
 
     @Override
-    public boolean addOutgoing(long userId, Art artProject, Material material, Double amount) {
-        if (artProject == null || material == null || amount == null) {
+    public boolean addOutgoing(long userId, Art artProject, Material material, double amount) {
+        if (artProject == null || material == null) {
             return false;
         }
         return true;
     }
 
     @Override
-    public boolean addOutgoing(long userId, Toy toyProject, Material material, Double amount) {
-        if (toyProject == null || material == null || amount == null) {
+    public boolean addOutgoing(long userId, Toy toyProject, Material material, double amount) {
+        if (toyProject == null || material == null) {
             return false;
         }
         return true;
     }
 
     @Override
-    public boolean addOutgoing(long userId, FursuitPart fursuitPart, Material material, Double amount) {
-        if (fursuitPart == null || material == null || amount == null) {
+    public boolean addOutgoing(long userId, long fursuitPartId, long materialId, double amount) {
+        Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
+        Optional<Material> optMaterial = getMaterial(userId, materialId);
+        if (optFursuitPart.isEmpty() || optMaterial.isEmpty()) {
+            log.error("Something is empty");
             return false;
         }
-        return true;
+        FursuitPart fursuitPart = optFursuitPart.get();
+        Material material = optMaterial.get();
+        if (fursuitPart.getOutgoings().containsKey(material)) {
+            fursuitPart.getOutgoings().replace(material, fursuitPart.getOutgoings().get(material) + amount);
+        }
+        else {
+            fursuitPart.getOutgoings().put(material, amount);
+        }
+        return saveFursuitPart(userId, fursuitPart);
     }
 
     @Override
-    public boolean editOutgoing(long userId, Project project, Material material, Double amount) {
-        if (project == null || material == null || amount == null) {
+    public boolean editOutgoing(long userId, Project project, Material material, double amount) {
+        if (project == null || material == null) {
             return false;
         }
         return true;
