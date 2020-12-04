@@ -242,4 +242,21 @@ public class DataProviderCsvTest {
         fursuitPart.setId(6);
         Assertions.assertFalse(dataProvider.editFursuitPart(1, fursuitPart));
     }
+
+    @Test
+    @Order(3)
+    void addOutgoingSuccess() {
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(1);
+        Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        FursuitPart fursuitPart = optionalFursuitPart.get();
+
+        List<Material> materialList = dataProvider.getMaterial(1);
+        Optional<Material> optionalMaterial = materialList.stream().findAny();
+        Assertions.assertTrue(optionalMaterial.isPresent());
+        Material material = optionalMaterial.get();
+
+        Assertions.assertTrue(dataProvider.addOutgoing(1, fursuitPart.getId(), material.getId(), 2));
+        Assertions.assertTrue(dataProvider.addOutgoing(1, fursuitPart.getId(), material.getId(), -1.2));
+    }
 }
