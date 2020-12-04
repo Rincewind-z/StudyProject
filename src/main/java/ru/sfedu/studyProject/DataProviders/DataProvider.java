@@ -48,17 +48,17 @@ public interface DataProvider {
 
     boolean editProject (long userId, Project editedProject);
     boolean deleteProject (long userId, Project project);
-    boolean createFursuitPart (long userId, String name/*, Map<Material, Long> outgoings*/);
+    boolean createFursuitPart (long userId, String name);
     boolean editFursuitPart (long userId, FursuitPart editedFursuitPart);
     boolean deleteFursuitPart (long userId, long partId);
 
     Optional<FursuitPart> getFursuitPart (long userId, long id);
     List<FursuitPart> getFursuitPart (long userId);
 
-    boolean addOutgoing (long userId, Art artProject, Material material, Double amount);
-    boolean addOutgoing (long userId, Toy toyProject, Material material, Double amount);
-    boolean addOutgoing (long userId, FursuitPart fursuitPart, Material material, Double amount);
-    boolean editOutgoing (long userId, Project project, Material material, Double amount);
+    boolean addOutgoing (long userId, Art artProject, Material material, double amount);
+    boolean addOutgoing (long userId, Toy toyProject, Material material, double amount);
+    boolean addOutgoing (long userId, long fursuitPartId, long materialId, double amount);
+    boolean editOutgoing (long userId, Project project, Material material, double amount);
     boolean deleteOutgoing (long userId, Project project, Material outgoing);
 
     String getProjectEstimate (long userId);
