@@ -1,7 +1,9 @@
 package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
 import com.opencsv.bean.CsvDate;
+import ru.sfedu.studyProject.Converters.MaterialMapConverter;
 
 import java.util.Date;
 import java.util.Map;
@@ -99,7 +101,7 @@ public class FursuitPart {
    * Get the value of outgoings
    * @return the value of outgoings
    */
-  public Map<Material, Long> getOutgoings () {
+  public Map<Material, Double> getOutgoings () {
     return outgoings;
   }
 
