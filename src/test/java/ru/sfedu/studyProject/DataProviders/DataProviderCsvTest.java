@@ -4,6 +4,7 @@ package ru.sfedu.studyProject.DataProviders;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
+import ru.sfedu.studyProject.Constants;
 import ru.sfedu.studyProject.enums.MaterialType;
 import ru.sfedu.studyProject.enums.Unit;
 import ru.sfedu.studyProject.model.FursuitPart;
@@ -17,6 +18,32 @@ public class DataProviderCsvTest {
     private static final Logger log = LogManager.getLogger(DataProviderCsvTest.class);
     private static final DataProvider dataProvider = new DataProviderCsv();
 
+    private static <T> void deleteFile(Class<T> tClass) {
+        try {
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).delete());
+        } catch (IOException e) {
+            log.error(e);
+        }
+    }
+    private static void deleteAll() {
+        List<Class> classList = new ArrayList<>();
+        classList.add(Art.class);
+        classList.add(Customer.class);
+        classList.add(Fursuit.class);
+        classList.add(FursuitPart.class);
+        classList.add(Material.class);
+        classList.add(Project.class);
+        classList.add(Toy.class);
+        classList.forEach(DataProviderCsvTest::deleteFile);
+    }
+
+    @BeforeAll
+    static void init(){
+        deleteAll();
+    }
+    
     @Test
     @Order(0)
     public void testAddMaterialSuccess() throws Exception {
@@ -97,12 +124,13 @@ public class DataProviderCsvTest {
     @Test
     @Order(2)
     void editMaterialSuccess() {
-        Optional<Material> optionalMaterial = dataProvider.getMaterial(1,0);
+        List<Material> materialList = dataProvider.getMaterial(1);
+        Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
         material.setName("edited name");
         Assertions.assertTrue(dataProvider.editMaterial(1, material));
-        optionalMaterial = dataProvider.getMaterial(1,0);
+        optionalMaterial = dataProvider.getMaterial(1,optionalMaterial.get().getId());
         Assertions.assertTrue(optionalMaterial.isPresent());
         Assertions.assertEquals(material, optionalMaterial.get());
     }
@@ -116,7 +144,7 @@ public class DataProviderCsvTest {
         material.setName(null);
         Assertions.assertFalse(dataProvider.editMaterial(1, material));
 
-        optionalMaterial = dataProvider.getMaterial(1,0);
+        optionalMaterial = dataProvider.getMaterial(1,1);
         Assertions.assertTrue(optionalMaterial.isPresent());
         material = optionalMaterial.get();
         material.setId(6);
@@ -187,7 +215,8 @@ public class DataProviderCsvTest {
     @Test
     @Order(2)
     void editFursuitPartSuccess() {
-        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(1);
+        Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
         fursuitPart.setName("Edited part name");
@@ -200,7 +229,8 @@ public class DataProviderCsvTest {
     @Test
     @Order(2)
     void editFursuitPartFailed() {
-        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(1);
+        Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
         fursuitPart.setName(null);
