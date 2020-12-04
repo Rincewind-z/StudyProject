@@ -58,9 +58,9 @@ public class DataProviderCsv implements DataProvider {
 
     private <T> List<T> readFromCsv (Class<T> tClass) {
         try {
-            FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(path)
+            FileReader reader = new FileReader(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
                     + tClass.getSimpleName().toLowerCase()
-                    + ConfigurationUtil.getConfigurationEntry(file_extension));
+                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION));
 
             CSVReader csvReader = new CSVReader(reader);
             CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(csvReader)
@@ -90,7 +90,7 @@ public class DataProviderCsv implements DataProvider {
 
         Material material = new Material();
         material.setUserId(userId);
-        material.setId(0);
+        material.setId(getNextMaterialId());
         material.setDateOfCreation(new Date(System.currentTimeMillis()));
         material.setName(materialName);
         material.setMaterialType(materialType);
@@ -206,7 +206,7 @@ public class DataProviderCsv implements DataProvider {
 
         FursuitPart fursuitPart = new FursuitPart();
         fursuitPart.setUserId(userId);
-        fursuitPart.setId(0);
+        fursuitPart.setId(getNextFursuitPartId());
         fursuitPart.setDateOfCreation(new Date(System.currentTimeMillis()));
         fursuitPart.setName(name);
 
