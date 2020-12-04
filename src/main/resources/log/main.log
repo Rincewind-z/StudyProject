@@ -84,3 +84,81 @@
 2020-12-03 20:30:22 ERROR DataProviderCsv:76 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
 2020-12-03 21:40:44 ERROR DataProviderCsv:120 - something is null
 2020-12-03 21:40:44 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 19:21:37 ERROR DataProviderCsv:76 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 19:22:11 ERROR DataProviderCsv:207 - something is null
+2020-12-04 19:22:37 ERROR DataProviderCsv:91 - something is null
+2020-12-04 19:22:38 ERROR DataProviderCsv:207 - something is null
+2020-12-04 19:22:39 ERROR DataProviderCsv:120 - something is null
+2020-12-04 19:22:39 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 19:24:17 ERROR DataProviderCsv:91 - something is null
+2020-12-04 19:24:18 ERROR DataProviderCsv:207 - something is null
+2020-12-04 19:24:20 ERROR DataProviderCsv:120 - something is null
+2020-12-04 19:24:20 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 19:24:58 ERROR DataProviderCsv:91 - something is null
+2020-12-04 19:24:59 ERROR DataProviderCsv:207 - something is null
+2020-12-04 19:25:00 ERROR DataProviderCsv:120 - something is null
+2020-12-04 19:25:01 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 19:52:39 ERROR DataProviderCsv:91 - something is null
+2020-12-04 19:52:41 ERROR DataProviderCsv:207 - something is null
+2020-12-04 19:52:42 ERROR DataProviderCsv:120 - something is null
+2020-12-04 19:52:42 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:03:46 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:03:47 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:03:49 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:03:50 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:09:19 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:09:20 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:09:21 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:09:22 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:09:22 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:09:22 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:13:10 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:13:10 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:14:27 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:14:27 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:14:29 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:14:29 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:14:30 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:14:30 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:19:19 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:19:21 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:19:22 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:19:22 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:19:23 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:19:23 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 20:24:07 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:24:08 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:24:10 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:24:10 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:24:10 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:24:10 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 20:25:36 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:25:37 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:25:38 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:25:38 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:25:39 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:25:39 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 20:50:53 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:50:54 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:50:56 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:50:56 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:50:57 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:50:57 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 20:52:50 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:52:51 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:52:52 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:52:53 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:52:54 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:52:54 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 20:53:42 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:53:43 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:53:44 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:53:44 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:53:44 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:53:44 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 20:55:33 ERROR DataProviderCsv:91 - something is null
+2020-12-04 20:55:34 ERROR DataProviderCsv:207 - something is null
+2020-12-04 20:55:35 ERROR DataProviderCsv:120 - something is null
+2020-12-04 20:55:35 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 20:55:35 ERROR DataProviderCsv:226 - something is null
+2020-12-04 20:55:35 ERROR DataProviderCsv:235 - Fursuit part not founded

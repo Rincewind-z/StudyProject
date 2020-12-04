@@ -198,27 +198,68 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean createFursuitPart(long userId, Project project, FursuitType type) {
-        if (project == null || type == null) {
+    public boolean createFursuitPart(long userId, String name/*, Map<Material, Long> outgoings*/) {
+        if (name == null) {
+            log.error("something is null");
             return false;
         }
+
+        FursuitPart fursuitPart = new FursuitPart();
+        fursuitPart.setUserId(userId);
+        fursuitPart.setId(0);
+        fursuitPart.setDateOfCreation(new Date(System.currentTimeMillis()));
+        fursuitPart.setName(name);
+
+        return writeToCsv(fursuitPart);
+    }
+
+    @Override
+    public boolean editFursuitPart(long userId, FursuitPart editedFursuitPart) {
+        if (editedFursuitPart == null) {
+            log.error("something is null");
+            return false;
+        }
+        if (editedFursuitPart.getName() == null) {
+            log.error("something is null");
+            return false;
+        }
+        List<FursuitPart> fursuitPartsList = readFromCsv(FursuitPart.class);
+        Optional<FursuitPart> optFursuitPart = fursuitPartsList.stream()
+                .filter(fursuitParts -> fursuitParts.getId() == editedFursuitPart.getId()
+                        && fursuitParts.getUserId() == userId)
+                .findAny();
+        if (optFursuitPart.isEmpty()) {
+            log.error("Fursuit part not founded");
+            return false;
+        }
+        fursuitPartsList.remove(optFursuitPart.get());
+        fursuitPartsList.add(editedFursuitPart);
+        writeToCsv(FursuitPart.class, fursuitPartsList, true);
         return true;
     }
 
     @Override
-    public boolean editFursuitPart(long userId, Project project, FursuitPart editedFursuitPart) {
-        if (project == null || editedFursuitPart == null) {
-            return false;
-        }
+    public boolean deleteFursuitPart(long userId, long partId) {
+        List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
+        fursuitPartList.removeIf(fursuitPart -> fursuitPart.getUserId() == userId && fursuitPart.getId() == partId);
+        writeToCsv(FursuitPart.class, fursuitPartList, true);
         return true;
     }
 
     @Override
-    public boolean deleteFursuitPart(long userId, Project project, long partId) {
-        if (project == null) {
-            return false;
-        }
-        return true;
+    public Optional<FursuitPart> getFursuitPart (long userId, long id) {
+        List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
+        return fursuitPartList.stream()
+                .filter(fursuitPart -> fursuitPart.getId() == id && fursuitPart.getUserId() == userId)
+                .findAny();
+    }
+
+    @Override
+    public List<FursuitPart> getFursuitPart (long userId) {
+        List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
+        return fursuitPartList.stream()
+                .filter(fursuitPart -> fursuitPart.getUserId() == userId)
+                .collect(Collectors.toList());
     }
 
     @Override

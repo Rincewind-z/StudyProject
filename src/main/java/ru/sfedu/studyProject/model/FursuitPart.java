@@ -1,5 +1,8 @@
 package ru.sfedu.studyProject.model;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
+
 import java.util.Date;
 import java.util.Map;
 
@@ -12,8 +15,12 @@ public class FursuitPart {
   // Fields
   //
 
+  @CsvBindByName
+  private long userId;
+  @CsvBindByName
   private long id;
   private Date dateOfCreation;
+  @CsvBindByName
   private String name;
   private Map<Material, Long> outgoings;
   private float progress;
@@ -112,8 +119,30 @@ public class FursuitPart {
     return progress;
   }
 
+  public void setUserId (long newVar) {
+    userId = newVar;
+  }
+
+  public long getUserId() {
+    return userId;
+  }
   //
   // Other methods
   //
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    FursuitPart that = (FursuitPart) o;
+
+    if (userId != that.userId) return false;
+    if (id != that.id) return false;
+    if (Float.compare(that.progress, progress) != 0) return false;
+    if (!dateOfCreation.equals(that.dateOfCreation)) return false;
+    if (!name.equals(that.name)) return false;
+    return outgoings.equals(that.outgoings);
+  }
 
 }

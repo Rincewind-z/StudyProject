@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
 import ru.sfedu.studyProject.enums.MaterialType;
 import ru.sfedu.studyProject.enums.Unit;
+import ru.sfedu.studyProject.model.FursuitPart;
 import ru.sfedu.studyProject.model.Material;
 
 import java.util.Optional;
@@ -120,5 +121,95 @@ public class DataProviderCsvTest {
         material = optionalMaterial.get();
         material.setId(6);
         Assertions.assertFalse(dataProvider.editMaterial(1, material));
+    }
+
+    @Test
+    @Order(0)
+    public void createFursuitPartSuccess() throws Exception {
+        Assertions.assertTrue(dataProvider.createFursuitPart(0,
+                "Fursuit part name1"));
+        Assertions.assertTrue(dataProvider.createFursuitPart(1,
+                "Fursuit part name2"));
+    }
+
+    @Order(0)
+    @Test
+    public void createFursuitPartFailed() throws Exception {
+        Assertions.assertFalse(dataProvider.createFursuitPart(0, null));
+    }
+
+    @Test
+    @Order(1)
+    void getFursuitPartSuccess(){
+        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(0,0);
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        Assertions.assertEquals("Fursuit part name1", optionalFursuitPart.get().getName());
+    }
+
+    @Test
+    @Order(1)
+    void getFursuitPartFailed(){
+        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(0,8);
+        Assertions.assertFalse(optionalFursuitPart.isPresent());
+
+        optionalFursuitPart = dataProvider.getFursuitPart(8,0);
+        Assertions.assertFalse(optionalFursuitPart.isPresent());
+    }
+
+    @Test
+    @Order(1)
+    void getFursuitPartListSuccess(){
+        List<FursuitPart> listFursuitPart = dataProvider.getFursuitPart(0);
+        Assertions.assertFalse(listFursuitPart.isEmpty());
+        Assertions.assertEquals("Fursuit part name1", listFursuitPart.get(0).getName());
+    }
+
+    @Test
+    @Order(1)
+    void getFursuitPartListFailed(){
+        List<FursuitPart> listFursuitPart = dataProvider.getFursuitPart(8);
+        Assertions.assertTrue(listFursuitPart.isEmpty());
+    }
+
+    @Test
+    @Order(2)
+    void deleteFursuitPartSuccess() {
+        Assertions.assertTrue(dataProvider.deleteFursuitPart(0,0));
+    }
+
+    @Test
+    @Order(2)
+    void deleteFursuitPartFailed() {
+        Assertions.assertTrue(dataProvider.deleteFursuitPart(8,0));
+        Assertions.assertTrue(dataProvider.deleteFursuitPart(0,8));
+    }
+
+    @Test
+    @Order(2)
+    void editFursuitPartSuccess() {
+        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        FursuitPart fursuitPart = optionalFursuitPart.get();
+        fursuitPart.setName("Edited part name");
+        Assertions.assertTrue(dataProvider.editFursuitPart(1, fursuitPart));
+        optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        Assertions.assertEquals(fursuitPart, optionalFursuitPart.get());
+    }
+
+    @Test
+    @Order(2)
+    void editFursuitPartFailed() {
+        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        FursuitPart fursuitPart = optionalFursuitPart.get();
+        fursuitPart.setName(null);
+        Assertions.assertFalse(dataProvider.editFursuitPart(1, fursuitPart));
+
+        optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        fursuitPart = optionalFursuitPart.get();
+        fursuitPart.setId(6);
+        Assertions.assertFalse(dataProvider.editFursuitPart(1, fursuitPart));
     }
 }

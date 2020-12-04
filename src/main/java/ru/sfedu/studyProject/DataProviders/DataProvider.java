@@ -48,9 +48,12 @@ public interface DataProvider {
 
     boolean editProject (long userId, Project editedProject);
     boolean deleteProject (long userId, Project project);
-    boolean createFursuitPart (long userId, Project project, FursuitType type);
-    boolean editFursuitPart (long userId, Project project, FursuitPart editedFursuitPart);
-    boolean deleteFursuitPart (long userId, Project project, long partId);
+    boolean createFursuitPart (long userId, String name/*, Map<Material, Long> outgoings*/);
+    boolean editFursuitPart (long userId, FursuitPart editedFursuitPart);
+    boolean deleteFursuitPart (long userId, long partId);
+
+    Optional<FursuitPart> getFursuitPart (long userId, long id);
+    List<FursuitPart> getFursuitPart (long userId);
 
     boolean addOutgoing (long userId, Art artProject, Material material, Double amount);
     boolean addOutgoing (long userId, Toy toyProject, Material material, Double amount);
