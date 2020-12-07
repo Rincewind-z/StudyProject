@@ -336,4 +336,35 @@ public class DataProviderCsvTest {
         Assertions.assertTrue(dataProvider.deleteCustomer(8,0));
         Assertions.assertTrue(dataProvider.deleteCustomer(0,8));
     }
+
+    @Test
+    @Order(2)
+    void editCustomerSuccess() {
+        List<Customer> customerList = dataProvider.getCustomer(1);
+        Optional<Customer> optionalCustomer = customerList.stream().findAny();
+        Assertions.assertTrue(optionalCustomer.isPresent());
+        Customer customer = optionalCustomer.get();
+        customer.setName("Edited customer name");
+        Assertions.assertTrue(dataProvider.editCustomer(1, customer));
+        optionalCustomer = dataProvider.getCustomer(1, optionalCustomer.get().getId());
+        Assertions.assertTrue(optionalCustomer.isPresent());
+        Assertions.assertEquals(customer, optionalCustomer.get());
+    }
+
+    @Test
+    @Order(2)
+    void editCustomerFailed() {
+        List<Customer> customerList = dataProvider.getCustomer(1);
+        Optional<Customer> optionalCustomer = customerList.stream().findAny();
+        Assertions.assertTrue(optionalCustomer.isPresent());
+        Customer customer = optionalCustomer.get();
+        customer.setName(null);
+        Assertions.assertFalse(dataProvider.editCustomer(1, customer));
+
+        optionalCustomer = dataProvider.getCustomer(1,customer.getId());
+        Assertions.assertTrue(optionalCustomer.isPresent());
+        customer = optionalCustomer.get();
+        customer.setId(6);
+        Assertions.assertFalse(dataProvider.editCustomer(1, customer));
+    }
 }

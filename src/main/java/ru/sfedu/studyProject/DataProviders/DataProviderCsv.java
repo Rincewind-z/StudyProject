@@ -104,11 +104,8 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean editMaterial(long userId, Material editMaterial) {
-        if (editMaterial == null) {
-            log.error("something is null");
-            return false;
-        }
-        if (editMaterial.getMaterialType() == null
+        if (editMaterial == null ||
+                editMaterial.getMaterialType() == null
                 || editMaterial.getName() == null
                 || editMaterial.getDateOfCreation() == null
                 || editMaterial.getDescription() == null
@@ -173,8 +170,25 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean editCustomer(long userId, long customerId) {
-        return false;
+    public boolean editCustomer(long userId, Customer editCustomer) {
+        if (editCustomer == null ||
+            editCustomer.getName() == null ||
+            editCustomer.getDateOfCreation() == null ||
+            editCustomer.getUrl() == null ||
+            editCustomer.getPhoneNumber() == null) {
+            log.error("something is null");
+            return false;
+        }
+        List<Customer> customerList = readFromCsv(Customer.class);
+        Optional<Customer> optCustomer = getCustomer(userId, editCustomer.getId());
+        if (optCustomer.isEmpty()) {
+            log.error("Customer not founded");
+            return false;
+        }
+        customerList.remove(optCustomer.get());
+        customerList.add(editCustomer);
+        writeToCsv(Customer.class, customerList, true);
+        return true;
     }
 
     @Override

@@ -819,3 +819,49 @@
 2020-12-07 21:19:27 ERROR DataProviderCsv:306 - something is null
 2020-12-07 21:19:27 ERROR DataProviderCsv:313 - Fursuit part not founded
 2020-12-07 21:19:27 ERROR DataProviderCsv:406 - Something is empty
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:38:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:38:35 ERROR DataProviderCsv:124 - something is null
+2020-12-07 21:38:35 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 21:38:35 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 21:38:36 ERROR DataProviderCsv:304 - something is null
+2020-12-07 21:38:36 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 21:38:36 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 21:38:37 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 21:38:37 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 21:38:37 ERROR DataProviderCsv:194 - something is null
+2020-12-07 21:38:38 ERROR DataProviderCsv:150 - something is null
+2020-12-07 21:38:38 ERROR DataProviderCsv:158 - material not founded
+2020-12-07 21:38:38 ERROR DataProviderCsv:320 - something is null
+2020-12-07 21:38:38 ERROR DataProviderCsv:327 - Fursuit part not founded
+2020-12-07 21:38:39 ERROR DataProviderCsv:216 - something is null
+2020-12-07 21:38:39 ERROR DataProviderCsv:222 - Customer not founded
+2020-12-07 21:38:39 ERROR DataProviderCsv:420 - Something is empty
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:40:54 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:40:54 ERROR DataProviderCsv:124 - something is null
+2020-12-07 21:40:54 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 21:40:54 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 21:40:56 ERROR DataProviderCsv:304 - something is null
+2020-12-07 21:40:56 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 21:40:56 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 21:40:56 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 21:40:56 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 21:40:56 ERROR DataProviderCsv:194 - something is null
+2020-12-07 21:40:57 ERROR DataProviderCsv:150 - something is null
+2020-12-07 21:40:57 ERROR DataProviderCsv:158 - material not founded
+2020-12-07 21:40:58 ERROR DataProviderCsv:320 - something is null
+2020-12-07 21:40:58 ERROR DataProviderCsv:327 - Fursuit part not founded
+2020-12-07 21:40:58 ERROR DataProviderCsv:216 - something is null
+2020-12-07 21:40:58 ERROR DataProviderCsv:222 - Customer not founded
+2020-12-07 21:40:58 ERROR DataProviderCsv:420 - Something is empty
