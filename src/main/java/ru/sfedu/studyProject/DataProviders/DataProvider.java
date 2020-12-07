@@ -73,7 +73,7 @@ public interface DataProvider {
     Double calculateProjectCost (Map <Material, Double> outgoingMap);
 
     boolean createCustomer (long userId, String name, String url, String phoneNumber);
-    boolean editCustomer (long userId, long customerId);
+    boolean editCustomer (long userId, Customer editCustomer);
     boolean deleteCustomer (long userId, long customerId);
 
     Optional <Customer> getCustomer (long userId, long customerId);
