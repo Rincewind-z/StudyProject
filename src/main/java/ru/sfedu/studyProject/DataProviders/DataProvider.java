@@ -77,5 +77,5 @@ public interface DataProvider {
     boolean deleteCustomer (long userId, long customerId);
 
     Optional <Customer> getCustomer (long userId, long customerId);
-    List <Customer> getCustomer (long usetId);
+    List <Customer> getCustomer (long userId);
 }
