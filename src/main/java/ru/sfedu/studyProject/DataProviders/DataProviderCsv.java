@@ -155,7 +155,47 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean createProject(long userId, String projectName, Date deadline, long customerId, ProjectType type, FursuitType fursuitType, FursuitStyle fursuitStyle) {
+    public boolean createCustomer(long userId, String name, String url, String phoneNumber) {
+        if (name == null || url == null || phoneNumber == null) {
+            log.error("something is null");
+            return false;
+        }
+
+        Customer customer = new Customer();
+        customer.setId(getNextCustomerId());
+        customer.setName(name);
+        customer.setDateOfCreation(new Date(System.currentTimeMillis()));
+        customer.setUrl(url);
+        customer.setPhoneNumber(phoneNumber);
+
+        return writeToCsv(customer);
+    }
+
+    @Override
+    public boolean editCustomer(long userId, long customerId) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteCustomer(long userId, long customerId) {
+        return false;
+    }
+
+    @Override
+    public Optional<Customer> getCustomer(long userId, long customerId) {
+        return null;
+    }
+
+    @Override
+    public List<Customer> getCustomer(long usetId) {
+        return null;
+    }
+
+    @Override
+    public boolean createProject(long userId, String projectName,
+                                 Date deadline, long customerId,
+                                 ProjectType type, FursuitType fursuitType,
+                                 FursuitStyle fursuitStyle) {
         Date date = new Date();
         if (projectName == null || deadline.before(date) || type == null || fursuitType == null || fursuitStyle == null) {
             return false;
@@ -293,23 +333,13 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean addOutgoing(long userId, Art artProject, Material material, double amount) {
-        if (artProject == null || material == null) {
-            return false;
-        }
+    public boolean addOutgoing(long userId, long projectId, long materialId, double amount) {
+
         return true;
     }
 
     @Override
-    public boolean addOutgoing(long userId, Toy toyProject, Material material, double amount) {
-        if (toyProject == null || material == null) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean addOutgoing(long userId, long fursuitPartId, long materialId, double amount) {
+    public boolean addOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId, double amount) {
         Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
         Optional<Material> optMaterial = getMaterial(userId, materialId);
         if (optFursuitPart.isEmpty() || optMaterial.isEmpty()) {

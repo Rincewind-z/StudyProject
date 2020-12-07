@@ -162,3 +162,597 @@
 2020-12-04 20:55:35 ERROR DataProviderCsv:128 - material not founded
 2020-12-04 20:55:35 ERROR DataProviderCsv:226 - something is null
 2020-12-04 20:55:35 ERROR DataProviderCsv:235 - Fursuit part not founded
+2020-12-04 21:03:36 ERROR DataProviderCsv:91 - something is null
+2020-12-04 21:03:36 ERROR DataProviderCsv:76 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:03:37 ERROR DataProviderCsv:207 - something is null
+2020-12-04 21:03:38 ERROR DataProviderCsv:120 - something is null
+2020-12-04 21:03:38 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 21:03:39 ERROR DataProviderCsv:227 - something is null
+2020-12-04 21:03:39 ERROR DataProviderCsv:236 - Fursuit part not founded
+2020-12-04 21:05:57 ERROR DataProviderCsv:91 - something is null
+2020-12-04 21:05:59 ERROR DataProviderCsv:207 - something is null
+2020-12-04 21:06:00 ERROR DataProviderCsv:120 - something is null
+2020-12-04 21:06:01 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 21:06:02 ERROR DataProviderCsv:227 - something is null
+2020-12-04 21:06:02 ERROR DataProviderCsv:236 - Fursuit part not founded
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:17:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:17:19 ERROR DataProviderCsv:91 - something is null
+2020-12-04 21:17:20 ERROR DataProviderCsv:76 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:17:22 ERROR DataProviderCsv:207 - something is null
+2020-12-04 21:17:22 ERROR DataProviderCsv:76 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:17:23 ERROR DataProviderCsv:120 - something is null
+2020-12-04 21:17:23 ERROR DataProviderCsv:128 - material not founded
+2020-12-04 21:17:24 ERROR DataProviderCsv:227 - something is null
+2020-12-04 21:17:24 ERROR DataProviderCsv:236 - Fursuit part not founded
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:33:03 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:33:03 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:33:03 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:33:03 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:33:05 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:33:05 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:33:05 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:34:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:34:24 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:34:24 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:34:24 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:34:28 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:34:28 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:34:28 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:36:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:36:53 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:36:53 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:36:53 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:36:55 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:36:55 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:36:55 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:36:57 ERROR DataProviderCsv:142 - something is null
+2020-12-04 21:36:57 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:37:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:37:23 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:37:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:37:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:37:27 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:37:27 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:37:27 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:37:31 ERROR DataProviderCsv:142 - something is null
+2020-12-04 21:37:31 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:39:21 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:39:21 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:39:22 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:39:22 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:39:23 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:39:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:39:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:39:25 ERROR DataProviderCsv:142 - something is null
+2020-12-04 21:39:25 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 21:39:27 ERROR DataProviderCsv:249 - something is null
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:41:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:41:36 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:41:36 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:41:36 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:41:37 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:41:37 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:41:37 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:41:38 ERROR DataProviderCsv:142 - something is null
+2020-12-04 21:41:38 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 21:41:39 ERROR DataProviderCsv:249 - something is null
+2020-12-04 21:41:39 ERROR DataProviderCsv:258 - Fursuit part not founded
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:43:59 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 21:43:59 ERROR DataProviderCsv:113 - something is null
+2020-12-04 21:43:59 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:43:59 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 21:44:01 ERROR DataProviderCsv:229 - something is null
+2020-12-04 21:44:01 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:44:01 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 21:44:02 ERROR DataProviderCsv:142 - something is null
+2020-12-04 21:44:02 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 21:44:03 ERROR DataProviderCsv:249 - something is null
+2020-12-04 21:44:03 ERROR DataProviderCsv:258 - Fursuit part not founded
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:04:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:04:08 ERROR DataProviderCsv:113 - something is null
+2020-12-04 22:04:08 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:04:08 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:04:10 ERROR DataProviderCsv:229 - something is null
+2020-12-04 22:04:10 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 22:04:10 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 22:04:11 ERROR DataProviderCsv:142 - something is null
+2020-12-04 22:04:11 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:05:22 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:05:22 ERROR DataProviderCsv:113 - something is null
+2020-12-04 22:05:22 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:05:22 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:05:23 ERROR DataProviderCsv:229 - something is null
+2020-12-04 22:05:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 22:05:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 22:05:24 ERROR DataProviderCsv:142 - something is null
+2020-12-04 22:05:24 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:05 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:05 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:06:05 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:06:27 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:27 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:27 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:27 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:06:27 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:27 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:28 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:06:28 ERROR DataProviderCsv:113 - something is null
+2020-12-04 22:07:15 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:07:57 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:09:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:09:17 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:09:17 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:11:04 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:11:04 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:11:04 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:52:46 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 22:52:46 ERROR DataProviderCsv:113 - something is null
+2020-12-04 22:52:46 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:52:46 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 22:52:48 ERROR DataProviderCsv:229 - something is null
+2020-12-04 22:52:48 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 22:52:48 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 22:52:51 ERROR DataProviderCsv:142 - something is null
+2020-12-04 22:52:51 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 22:52:52 ERROR DataProviderCsv:245 - something is null
+2020-12-04 22:52:52 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:21:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:21:35 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:21:35 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:21:35 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:21:37 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:21:37 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:21:37 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:21:38 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:21:38 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:22:10 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:22:10 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:22:10 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:22:10 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:22:12 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:22:12 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:22:12 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:22:13 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:22:13 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:23:34 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:23:34 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:23:34 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:23:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:23:35 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:23:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:23:35 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:23:35 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:23:35 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:23:35 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:23:36 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:23:36 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:23:36 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:23:37 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:23:38 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:23:38 ERROR DataProviderCsv:245 - something is null
+2020-12-04 23:23:38 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:24:14 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:24:14 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:24:15 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:24:15 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:24:16 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:24:16 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:24:16 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:24:47 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:24:48 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:25:28 ERROR DataProviderCsv:245 - something is null
+2020-12-04 23:25:39 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:32:17 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:32:17 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:32:17 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:32:17 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:32:19 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:32:19 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:32:19 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:32:20 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:32:20 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:32:20 ERROR DataProviderCsv:245 - something is null
+2020-12-04 23:32:20 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-04 23:33:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:33:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:33:19 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:33:19 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:33:20 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:33:20 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:33:20 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:33:20 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:33:20 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:33:20 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:33:22 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:33:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:33:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:33:25 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:33:25 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:33:26 ERROR DataProviderCsv:245 - something is null
+2020-12-04 23:33:26 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:38:43 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:38:43 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:38:43 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:38:43 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:38:46 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:38:46 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:38:46 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:38:48 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:38:48 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:38:50 ERROR DataProviderCsv:245 - something is null
+2020-12-04 23:38:50 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - true
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:43:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-04 23:43:47 ERROR DataProviderCsv:113 - something is null
+2020-12-04 23:43:47 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:43:47 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-04 23:43:50 ERROR DataProviderCsv:229 - something is null
+2020-12-04 23:43:50 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:43:50 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-04 23:43:51 ERROR DataProviderCsv:142 - something is null
+2020-12-04 23:43:51 ERROR DataProviderCsv:150 - material not founded
+2020-12-04 23:43:52 ERROR DataProviderCsv:245 - something is null
+2020-12-04 23:43:52 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - true
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - true
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:15:23 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:15:23 ERROR DataProviderCsv:113 - something is null
+2020-12-05 02:15:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-05 02:15:23 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-05 02:15:26 ERROR DataProviderCsv:229 - something is null
+2020-12-05 02:15:26 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-05 02:15:26 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-05 02:15:28 ERROR DataProviderCsv:142 - something is null
+2020-12-05 02:15:28 ERROR DataProviderCsv:150 - material not founded
+2020-12-05 02:15:31 ERROR DataProviderCsv:245 - something is null
+2020-12-05 02:15:31 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - true
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - true
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:17:08 DEBUG DataProviderCsvTest:27 - false
+2020-12-05 02:17:08 ERROR DataProviderCsv:113 - something is null
+2020-12-05 02:17:08 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-05 02:17:08 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-05 02:17:10 ERROR DataProviderCsv:229 - something is null
+2020-12-05 02:17:10 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-05 02:17:10 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-05 02:17:12 ERROR DataProviderCsv:142 - something is null
+2020-12-05 02:17:12 ERROR DataProviderCsv:150 - material not founded
+2020-12-05 02:17:14 ERROR DataProviderCsv:245 - something is null
+2020-12-05 02:17:14 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:20:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:20:29 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:21:52 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:21:52 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:21:52 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:21:55 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:21:55 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:21:55 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:21:56 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:21:57 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:21:58 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:21:58 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:25:31 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:25:31 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:25:32 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:25:32 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:25:34 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:25:34 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:25:34 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:25:39 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:25:40 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:25:41 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:25:41 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:26:48 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:26:48 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:26:48 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:26:48 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:26:50 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:26:50 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:26:50 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:26:51 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:26:51 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:26:52 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:26:52 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:28:36 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:28:36 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:28:36 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:28:36 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:28:38 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:28:38 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:28:38 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:28:39 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:28:39 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:28:40 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:28:40 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:30:12 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:30:13 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:30:13 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:30:13 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:30:16 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:30:16 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:30:16 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:30:17 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:30:17 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:30:18 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:30:18 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:00 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:00 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:31:00 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:31:00 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:31:02 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:31:02 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:31:02 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:31:04 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:31:04 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:31:05 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:31:05 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:31:05 ERROR DataProviderCsv:355 - Something is empty
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:53 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 19:31:54 ERROR DataProviderCsv:113 - something is null
+2020-12-07 19:31:54 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:31:54 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 19:31:55 ERROR DataProviderCsv:229 - something is null
+2020-12-07 19:31:55 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:31:55 ERROR DataProviderCsv:98 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 19:31:57 ERROR DataProviderCsv:142 - something is null
+2020-12-07 19:31:58 ERROR DataProviderCsv:150 - material not founded
+2020-12-07 19:31:59 ERROR DataProviderCsv:245 - something is null
+2020-12-07 19:31:59 ERROR DataProviderCsv:252 - Fursuit part not founded
+2020-12-07 19:31:59 ERROR DataProviderCsv:355 - Something is empty
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:52:37 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:52:37 ERROR DataProviderCsv:124 - something is null
+2020-12-07 20:52:38 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:52:38 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:52:39 ERROR DataProviderCsv:274 - something is null
+2020-12-07 20:52:39 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:52:39 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:52:39 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:52:39 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:52:40 ERROR DataProviderCsv:153 - something is null
+2020-12-07 20:52:40 ERROR DataProviderCsv:161 - material not founded
+2020-12-07 20:52:41 ERROR DataProviderCsv:290 - something is null
+2020-12-07 20:52:41 ERROR DataProviderCsv:297 - Fursuit part not founded
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:53:57 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:53:57 ERROR DataProviderCsv:124 - something is null
+2020-12-07 20:53:57 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:53:57 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:53:58 ERROR DataProviderCsv:279 - something is null
+2020-12-07 20:53:58 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:53:58 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:53:59 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:53:59 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:53:59 ERROR DataProviderCsv:197 - something is null
+2020-12-07 20:53:59 ERROR DataProviderCsv:153 - something is null
+2020-12-07 20:53:59 ERROR DataProviderCsv:161 - material not founded
+2020-12-07 20:54:00 ERROR DataProviderCsv:295 - something is null
+2020-12-07 20:54:00 ERROR DataProviderCsv:302 - Fursuit part not founded
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:57:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:57:16 ERROR DataProviderCsv:124 - something is null
+2020-12-07 20:57:16 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:57:16 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:57:18 ERROR DataProviderCsv:279 - something is null
+2020-12-07 20:57:18 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:57:18 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:57:18 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:57:18 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:57:18 ERROR DataProviderCsv:197 - something is null
+2020-12-07 20:57:19 ERROR DataProviderCsv:153 - something is null
+2020-12-07 20:57:19 ERROR DataProviderCsv:161 - material not founded
+2020-12-07 20:57:20 ERROR DataProviderCsv:295 - something is null
+2020-12-07 20:57:20 ERROR DataProviderCsv:302 - Fursuit part not founded
+2020-12-07 20:57:20 ERROR DataProviderCsv:395 - Something is empty
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:59:28 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 20:59:28 ERROR DataProviderCsv:124 - something is null
+2020-12-07 20:59:28 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:59:28 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 20:59:30 ERROR DataProviderCsv:280 - something is null
+2020-12-07 20:59:30 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:59:30 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 20:59:31 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:59:31 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 20:59:31 ERROR DataProviderCsv:197 - something is null
+2020-12-07 20:59:32 ERROR DataProviderCsv:153 - something is null
+2020-12-07 20:59:32 ERROR DataProviderCsv:161 - material not founded
+2020-12-07 20:59:33 ERROR DataProviderCsv:296 - something is null
+2020-12-07 20:59:33 ERROR DataProviderCsv:303 - Fursuit part not founded
+2020-12-07 20:59:34 ERROR DataProviderCsv:396 - Something is empty
