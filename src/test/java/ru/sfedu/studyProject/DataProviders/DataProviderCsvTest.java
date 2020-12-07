@@ -256,7 +256,38 @@ public class DataProviderCsvTest {
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
 
-        Assertions.assertTrue(dataProvider.addOutgoing(1, fursuitPart.getId(), material.getId(), 2));
-        Assertions.assertTrue(dataProvider.addOutgoing(1, fursuitPart.getId(), material.getId(), -1.2));
+        Assertions.assertTrue(dataProvider.addOutgoing(1, 1, fursuitPart.getId(), material.getId(), 2));
+        Assertions.assertTrue(dataProvider.addOutgoing(1, 1, fursuitPart.getId(), material.getId(), 1.2));
+    }
+
+    @Test
+    @Order(3)
+    void addOutgoingFailed() {
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(1);
+        Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        FursuitPart fursuitPart = optionalFursuitPart.get();
+
+        List<Material> materialList = dataProvider.getMaterial(1);
+        Optional<Material> optionalMaterial = materialList.stream().findAny();
+        Assertions.assertTrue(optionalMaterial.isPresent());
+        Material material = optionalMaterial.get();
+
+        Assertions.assertFalse(dataProvider.addOutgoing(9, 1, fursuitPart.getId(), material.getId(), 2));
+    }
+
+    @Test
+    @Order(0)
+    public void createCustomerSuccess() throws Exception {
+        Assertions.assertTrue(dataProvider.createCustomer(0,
+                "Customer name1", "vk.com/id0**", "+7 999 00 **"));
+        Assertions.assertTrue(dataProvider.createCustomer(1,
+                "Customer name2", "vk.com/id1**", "+7 999 11 **"));
+    }
+
+    @Test
+    @Order(0)
+    public void createCustomerFailed() throws Exception {
+        Assertions.assertFalse(dataProvider.createCustomer(0, null, "vk.com/id***", "+7 999 ** **"));
     }
 }
