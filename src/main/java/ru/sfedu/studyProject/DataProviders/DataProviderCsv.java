@@ -162,6 +162,7 @@ public class DataProviderCsv implements DataProvider {
         }
 
         Customer customer = new Customer();
+        customer.setUserId(userId);
         customer.setId(getNextCustomerId());
         customer.setName(name);
         customer.setDateOfCreation(new Date(System.currentTimeMillis()));
@@ -178,17 +179,26 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean deleteCustomer(long userId, long customerId) {
-        return false;
+        List<Customer> customerList = readFromCsv(Customer.class);
+        customerList.removeIf(customer -> customer.getUserId() == userId && customer.getId() == customerId);
+        writeToCsv(Customer.class, customerList, true);
+        return true;
     }
 
     @Override
     public Optional<Customer> getCustomer(long userId, long customerId) {
-        return null;
+        List<Customer> customerList = readFromCsv(Customer.class);
+        return customerList.stream()
+                .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
+                .findAny();
     }
 
     @Override
-    public List<Customer> getCustomer(long usetId) {
-        return null;
+    public List<Customer> getCustomer(long userId) {
+        List<Customer> customerList = readFromCsv(Customer.class);
+        return customerList.stream()
+                .filter(customer -> customer.getUserId() == userId)
+                .collect(Collectors.toList());
     }
 
     @Override
