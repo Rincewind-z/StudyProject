@@ -1,7 +1,12 @@
 package ru.sfedu.studyProject.model;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
+import ru.sfedu.studyProject.Converters.FursuitPartListConverter;
 import ru.sfedu.studyProject.enums.FursuitStyle;
 import ru.sfedu.studyProject.enums.FursuitType;
+
+import java.util.List;
 
 /**
  * Class Fursuit
@@ -11,7 +16,7 @@ public class Fursuit extends Project {
   //
   // Fields
   //
-
+  @CsvBindByName
   private FursuitType fursuitType;
   private FursuitPart partList;
   private FursuitStyle fursuitStyle;
@@ -58,7 +63,7 @@ public class Fursuit extends Project {
    * Get the value of partList
    * @return the value of partList
    */
-  public FursuitPart getPartList () {
+  public List<FursuitPart> getPartList () {
     return partList;
   }
 

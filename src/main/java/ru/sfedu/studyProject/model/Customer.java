@@ -1,5 +1,8 @@
 package ru.sfedu.studyProject.model;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
+
 import java.util.Date;
 
 /**
@@ -11,10 +14,16 @@ public class Customer {
   // Fields
   //
 
+  @CsvBindByName
   private long id;
+  @CsvBindByName
+  @CsvDate("dd.MM.yyyy HH:mm:ss z")
   private Date dateOfCreation;
+  @CsvBindByName
   private String name;
+  @CsvBindByName
   private String url;
+  @CsvBindByName
   private String phoneNumber;
   
   //

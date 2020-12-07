@@ -1,5 +1,7 @@
 package ru.sfedu.studyProject.model;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 import ru.sfedu.studyProject.enums.PaymentType;
 import ru.sfedu.studyProject.enums.ProjectType;
 
@@ -13,14 +15,23 @@ abstract public class Project {
   //
   // Fields
   //
-
+  @CsvBindByName
   private long id;
+  @CsvBindByName
   private Customer customer;
+  @CsvBindByName
+  @CsvDate("dd.MM.yyyy HH:mm:ss z")
   private Date dateOfCreation;
+  @CsvBindByName
+  @CsvDate("dd.MM.yyyy HH:mm:ss z")
   private Date deadline;
+  @CsvBindByName
   private String name;
+  @CsvBindByName
   private float progress;
+  @CsvBindByName
   private PaymentType paymentType;
+  @CsvBindByName
   private ProjectType projectType;
   
   //
