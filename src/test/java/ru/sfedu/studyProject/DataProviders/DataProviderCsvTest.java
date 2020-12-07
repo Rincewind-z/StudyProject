@@ -290,4 +290,50 @@ public class DataProviderCsvTest {
     public void createCustomerFailed() throws Exception {
         Assertions.assertFalse(dataProvider.createCustomer(0, null, "vk.com/id***", "+7 999 ** **"));
     }
+
+    @Test
+    @Order(1)
+    void getCustomerSuccess(){
+        Optional<Customer> optionalCustomer = dataProvider.getCustomer(0,0);
+        Assertions.assertTrue(optionalCustomer.isPresent());
+        Assertions.assertEquals("Customer name1", optionalCustomer.get().getName());
+    }
+
+    @Test
+    @Order(1)
+    void getCustomerFailed(){
+        Optional<Customer> optionalCustomer = dataProvider.getCustomer(0,8);
+        Assertions.assertFalse(optionalCustomer.isPresent());
+
+        optionalCustomer = dataProvider.getCustomer(8,0);
+        Assertions.assertFalse(optionalCustomer.isPresent());
+    }
+
+    @Test
+    @Order(1)
+    void getCustomerListSuccess(){
+        List<Customer> customerList = dataProvider.getCustomer(0);
+        Assertions.assertFalse(customerList.isEmpty());
+        Assertions.assertEquals("Customer name1", customerList.get(0).getName());
+    }
+
+    @Test
+    @Order(1)
+    void getCustomerListFailed(){
+        List<Customer> customerList = dataProvider.getCustomer(8);
+        Assertions.assertTrue(customerList.isEmpty());
+    }
+
+    @Test
+    @Order(2)
+    void deleteCustomerSuccess() {
+        Assertions.assertTrue(dataProvider.deleteCustomer(0,0));
+    }
+
+    @Test
+    @Order(2)
+    void deleteCustomerFailed() {
+        Assertions.assertTrue(dataProvider.deleteCustomer(8,0));
+        Assertions.assertTrue(dataProvider.deleteCustomer(0,8));
+    }
 }
