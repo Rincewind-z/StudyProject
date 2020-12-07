@@ -4,6 +4,7 @@ import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Class Customer
@@ -133,4 +134,16 @@ public class Customer {
   // Other methods
   //
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Customer customer = (Customer) o;
+    return userId == customer.userId && id == customer.id && Objects.equals(dateOfCreation, customer.dateOfCreation) && Objects.equals(name, customer.name) && Objects.equals(url, customer.url) && Objects.equals(phoneNumber, customer.phoneNumber);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(userId, id, dateOfCreation, name, url, phoneNumber);
+  }
 }
