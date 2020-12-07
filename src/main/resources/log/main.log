@@ -756,3 +756,24 @@
 2020-12-07 20:59:33 ERROR DataProviderCsv:296 - something is null
 2020-12-07 20:59:33 ERROR DataProviderCsv:303 - Fursuit part not founded
 2020-12-07 20:59:34 ERROR DataProviderCsv:396 - Something is empty
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - true
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:11:29 DEBUG DataProviderCsvTest:27 - false
+2020-12-07 21:11:29 ERROR DataProviderCsv:124 - something is null
+2020-12-07 21:11:29 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 21:11:29 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-07 21:11:31 ERROR DataProviderCsv:284 - something is null
+2020-12-07 21:11:31 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 21:11:31 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-07 21:11:31 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 21:11:31 ERROR DataProviderCsv:109 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-07 21:11:31 ERROR DataProviderCsv:197 - something is null
+2020-12-07 21:11:32 ERROR DataProviderCsv:153 - something is null
+2020-12-07 21:11:32 ERROR DataProviderCsv:161 - material not founded
+2020-12-07 21:11:32 ERROR DataProviderCsv:300 - something is null
+2020-12-07 21:11:33 ERROR DataProviderCsv:307 - Fursuit part not founded
+2020-12-07 21:11:33 ERROR DataProviderCsv:400 - Something is empty

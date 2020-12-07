@@ -15,6 +15,8 @@ public class Customer {
   //
 
   @CsvBindByName
+  private long userId;
+  @CsvBindByName
   private long id;
   @CsvBindByName
   @CsvDate("dd.MM.yyyy HH:mm:ss z")
@@ -120,6 +122,13 @@ public class Customer {
     return phoneNumber;
   }
 
+  public void setUserId (long newVar) {
+    userId = newVar;
+  }
+
+  public long getUserId() {
+    return userId;
+  }
   //
   // Other methods
   //
