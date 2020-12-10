@@ -7,6 +7,7 @@ import ru.sfedu.studyProject.enums.FursuitStyle;
 import ru.sfedu.studyProject.enums.FursuitType;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Class Fursuit
@@ -16,6 +17,7 @@ public class Fursuit extends Project {
   //
   // Fields
   //
+
   @CsvBindByName
   private FursuitType fursuitType;
   private FursuitPart partList;
@@ -87,4 +89,26 @@ public class Fursuit extends Project {
   // Other methods
   //
 
+  @Override
+  public String toString() {
+    return "Fursuit{" +
+            "fursuitType=" + fursuitType +
+            ", partList=" + partList +
+            ", fursuitStyle=" + fursuitStyle +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    Fursuit fursuit = (Fursuit) o;
+    return fursuitType == fursuit.fursuitType && Objects.equals(partList, fursuit.partList) && fursuitStyle == fursuit.fursuitStyle;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), fursuitType, partList, fursuitStyle);
+  }
 }
