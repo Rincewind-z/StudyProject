@@ -290,9 +290,17 @@ public class DataProviderCsvTest {
 
 
     @Test
-    @Order(5)
+    @Order(9)
     void  deleteOutgoingSuccess() {
+        Assertions.assertTrue(dataProvider.deleteOutgoing(0, 3, 1));
+        Assertions.assertTrue(dataProvider.deleteOutgoing(0, 1, 1, 1));
+    }
 
+    @Test
+    @Order(9)
+    void  deleteOutgoingFailed() {
+        Assertions.assertFalse(dataProvider.deleteOutgoing(8, 3, 1));
+        Assertions.assertFalse(dataProvider.deleteOutgoing(0, 0, 8, 1));
     }
 
     @Test
@@ -407,7 +415,7 @@ public class DataProviderCsvTest {
                 new Date(1608039900000L),
                 1,
                 ArtType.HEADSHOT,
-                ArtStyle.STANDARD,
+                ArtStyle.STANDARD, 500,
                 PaymentType.FIFTY_FIFTY));
         Assertions.assertTrue(dataProvider.createProject(0,
                 "ToyProject name1",
@@ -435,8 +443,6 @@ public class DataProviderCsvTest {
         Optional<Project> optionalProject = dataProvider.getProject(0, 0);
         Assertions.assertFalse(optionalProject.isEmpty());
         Assertions.assertEquals("FurProject name1", optionalProject.get().getName());
-
-
     }
 
     @Test
@@ -506,5 +512,52 @@ public class DataProviderCsvTest {
         project = optionalProject.get();
         project.setId(6);
         Assertions.assertFalse(dataProvider.editProject(0, project));
+    }
+
+    @Test
+    @Order(8)
+    void getProjectEstimateSuccess() {
+        String singleProjectEstimate = dataProvider.getProjectEstimate(0, 1);
+        Assertions.assertNotNull(singleProjectEstimate);
+        log.info(singleProjectEstimate);
+        singleProjectEstimate = dataProvider.getProjectEstimate(0, 2);
+        Assertions.assertNotNull(singleProjectEstimate);
+        log.info(singleProjectEstimate);
+        singleProjectEstimate = dataProvider.getProjectEstimate(0, 3);
+        Assertions.assertNotNull(singleProjectEstimate);
+        log.info(singleProjectEstimate);
+    }
+
+    @Test
+    @Order(8)
+    void getProjectEstimateFailed() {
+        String singleProjectEstimate = dataProvider.getProjectEstimate(8, 1);
+        Assertions.assertTrue(singleProjectEstimate.isEmpty());
+    }
+
+    @Test
+    @Order(8)
+    void getProjectListEstimateSuccess() {
+        String projectListEstimate = dataProvider.getProjectEstimate(0);
+        Assertions.assertNotNull(projectListEstimate);
+        log.info(projectListEstimate);
+    }
+
+    @Test
+    @Order(8)
+    void getProjectListEstimateFailed() {
+        String projectListEstimate = dataProvider.getProjectEstimate(8);
+        Assertions.assertTrue(projectListEstimate.isEmpty());
+    }
+
+    @Test
+    @Order(8)
+    void calculateProjectCostSuccess() {
+        Double projectCost = dataProvider.calculateProjectCost(0, 1);
+        log.info(projectCost);
+        projectCost = dataProvider.calculateProjectCost(0, 2);
+        log.info(projectCost);
+        projectCost = dataProvider.calculateProjectCost(0, 3);
+        log.info(projectCost);
     }
 }
