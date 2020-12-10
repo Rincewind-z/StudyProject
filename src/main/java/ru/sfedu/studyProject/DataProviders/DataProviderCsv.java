@@ -250,6 +250,7 @@ public class DataProviderCsv implements DataProvider {
                                  long customerId,
                                  ArtType artType,
                                  ArtStyle artStyle,
+                                 double cost,
                                  PaymentType paymentType) {
         Date date = new Date(System.currentTimeMillis());
         if (projectName == null
@@ -538,14 +539,137 @@ public class DataProviderCsv implements DataProvider {
         return saveFursuitPart(userId, fursuitPart);
     }
 
+    private String customerToString(Customer customer){
+        return String.format("ФИО: %s\n" +
+                "Ссылка: %s\n" +
+                "Номер телефона: %s\n",
+                customer.getName(),
+                customer.getUrl(),
+                customer.getPhoneNumber());
+    }
+
+    private String projectToString(Project project){
+        String stringProject = String.format("Тип проекта: %s\n" +
+                        "Название: %s\n" +
+                        "Заказчик: \n%s" +
+                        "Тип оплаты: %s\n" +
+                        "Дата создания: %s\n" +
+                        "Дедлайн: %s\n" +
+                        "Прогресс: %.2f\n",
+                project.getProjectType().toString(),
+                project.getName(),
+                customerToString(project.getCustomer()),
+                project.getPaymentType().toString(),
+                project.getDateOfCreation().toString(),
+                project.getDeadline().toString(),
+                project.getProgress() * 100);
+        switch (project.getProjectType()) {
+            case ART -> {
+                Art artProject = (Art) project;
+                stringProject += String.format("Тип рисунка: %s\n" +
+                                "Стиль рисунка: %s\n" +
+                                "Стоимость: %.2s\n",
+                        artProject.getArtType().toString(),
+                        artProject.getArtStyle().toString(),
+                        artProject.getCost());
+                return stringProject;
+            }
+            case TOY -> {
+                Toy toyProject = (Toy) project;
+                stringProject += String.format("Тип игрушки: %s\n" +
+                        "Стиль игрушки: %s\n",
+                        toyProject.getToyType().toString(),
+                        toyProject.getToyStyle().toString());
+            }
+            case FURSUIT -> {
+                Fursuit fursuitProject = (Fursuit) project;
+                stringProject += String.format("Тип фурсьюта: %s\n" +
+                        "Стиль исполения: %s\n",
+                        fursuitProject.getFursuitType().toString(),
+                        fursuitProject.getFursuitStyle().toString());
+            }
+        }
+        return stringProject;
+    }
+
+    private String fursuitPartToString(FursuitPart fursuitPart){
+        return String.format("Название части: %s\n" +
+                        "Процент выполнения: %.2f\n" +
+                        "Дата создания %s\n",
+                fursuitPart.getName(),
+                fursuitPart.getProgress() * 100,
+                fursuitPart.getDateOfCreation().toString());
+    }
+
+    private String outgoingsWithCostsToString(Map<Material, Double> outgoingMap, Map<Material, Double> costsMap){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Название, цена, количество, стоимость\n");
+        outgoingMap.forEach((material, aDouble) ->
+                stringBuilder.append(String.format("%s, %.2f, %.2f, %.2f\n",
+                        material.getName(),
+                        material.getCost(),
+                        aDouble,
+                        costsMap.get(material))));
+        return stringBuilder.toString();
+    }
+
+    private Map<Material, Double> calculateCosts(Map<Material, Double> outgoingMap) {
+        Map<Material, Double> calculatedCosts = new HashMap<>();
+        outgoingMap.forEach((material, aDouble) ->
+             calculatedCosts.put(material, material.getCost() * aDouble));
+        return calculatedCosts;
+    }
+
     @Override
     public String getProjectEstimate(long userId) {
-        return null;
+        List<Project> projectList = getProject(userId);
+        StringBuilder stringBuilder = new StringBuilder();
+        projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
+        return stringBuilder.toString();
     }
 
     @Override
     public String getProjectEstimate(long userId, long projectId) {
-        return null;
+        Optional<Project> project = getProject(userId, projectId);
+        if (project.isEmpty()) {
+            log.error("Project not founded");
+            return "";
+        }
+        switch (project.get().getProjectType()) {
+            case ART -> {
+                return projectToString(project.get());
+            }
+            case TOY -> {
+                Toy toyProject = (Toy) project.get();
+                Map<Material, Double> costsMap = calculateCosts(toyProject.getOutgoings());
+                return projectToString(toyProject) +
+                        "Смета:\n" +
+                        outgoingsWithCostsToString(toyProject.getOutgoings(), costsMap) +
+                        "Сумма: " +
+                        calculateProjectCost(userId, projectId) +
+                        "\n";
+            }
+            case FURSUIT -> {
+                Fursuit fursuitProject = (Fursuit) project.get();
+                Map<FursuitPart, Map<Material, Double>> outgoingMapList = new HashMap<>();
+                fursuitProject.getPartList().forEach(fursuitPart ->
+                        outgoingMapList.put(fursuitPart, calculateCosts(fursuitPart.getOutgoings())));
+                StringBuilder estimateBuilder = new StringBuilder();
+                estimateBuilder.append(projectToString(fursuitProject));
+                estimateBuilder.append("Части фурсьюта:\n");
+                outgoingMapList.forEach((fursuitPart, costsMap) ->
+                {
+                        estimateBuilder.append(fursuitPartToString(fursuitPart));
+                        estimateBuilder.append("Смета:\n");
+                        estimateBuilder.append(outgoingsWithCostsToString(fursuitPart.getOutgoings(), costsMap));
+                });
+                estimateBuilder.append("Сумма: ");
+                estimateBuilder.append(calculateProjectCost(userId, projectId));
+                estimateBuilder.append("\n");
+                return estimateBuilder.toString();
+            }
+        }
+        return  "";
     }
 
     @Override
