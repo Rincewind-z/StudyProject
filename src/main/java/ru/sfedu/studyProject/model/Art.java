@@ -1,9 +1,13 @@
 package ru.sfedu.studyProject.model;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
+import ru.sfedu.studyProject.Converters.MaterialMapConverter;
 import ru.sfedu.studyProject.enums.ArtStyle;
 import ru.sfedu.studyProject.enums.ArtType;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Class Art
@@ -13,9 +17,9 @@ public class Art extends Project {
   //
   // Fields
   //
-
+  @CsvBindByName
   private ArtType artType;
-  private Map<Material, Long> outgoings;
+  @CsvBindByName
   private ArtStyle artStyle;
   
   //
@@ -48,21 +52,6 @@ public class Art extends Project {
     return artType;
   }
 
-  /**
-   * Set the value of outgoings
-   * @param newVar the new value of outgoings
-   */
-  public void setOutgoings (Map<Material, Long> newVar) {
-    outgoings = newVar;
-  }
-
-  /**
-   * Get the value of outgoings
-   * @return the value of outgoings
-   */
-  public Map<Material, Long> getOutgoings () {
-    return outgoings;
-  }
 
   /**
    * Set the value of artStyle
@@ -84,4 +73,26 @@ public class Art extends Project {
   // Other methods
   //
 
+  @Override
+  public String toString() {
+    return "Art{" +
+            "artType=" + artType +
+            ", outgoings=" +
+            ", artStyle=" + artStyle +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    Art art = (Art) o;
+    return artType == art.artType && artStyle == art.artStyle;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), artType, artStyle);
+  }
 }
