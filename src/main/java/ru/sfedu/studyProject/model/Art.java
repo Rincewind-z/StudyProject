@@ -21,7 +21,8 @@ public class Art extends Project {
   private ArtType artType;
   @CsvBindByName
   private ArtStyle artStyle;
-  
+  @CsvBindByName
+  private double cost;
   //
   // Constructors
   //
@@ -69,16 +70,26 @@ public class Art extends Project {
     return artStyle;
   }
 
+
+  public double getCost() {
+    return cost;
+  }
+
+  public void setCost(double cost) {
+    this.cost = cost;
+  }
+
   //
   // Other methods
   //
+
 
   @Override
   public String toString() {
     return "Art{" +
             "artType=" + artType +
-            ", outgoings=" +
             ", artStyle=" + artStyle +
+            ", cost=" + cost +
             '}';
   }
 
@@ -88,11 +99,11 @@ public class Art extends Project {
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     Art art = (Art) o;
-    return artType == art.artType && artStyle == art.artStyle;
+    return Double.compare(art.cost, cost) == 0 && artType == art.artType && artStyle == art.artStyle;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), artType, artStyle);
+    return Objects.hash(super.hashCode(), artType, artStyle, cost);
   }
 }
