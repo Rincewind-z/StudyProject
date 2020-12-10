@@ -75,7 +75,7 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean addMaterial(long userId,
+    public boolean createMaterial(long userId,
                                String materialName,
                                float cost,
                                Unit unit,
@@ -216,41 +216,137 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean createProject(long userId, String projectName,
-                                 Date deadline, long customerId,
-                                 ProjectType type, FursuitType fursuitType,
-                                 FursuitStyle fursuitStyle) {
-        Date date = new Date();
-        if (projectName == null || deadline.before(date) || type == null || fursuitType == null || fursuitStyle == null) {
+    public boolean createProject(long userId,
+                                 String projectName,
+                                 Date deadline,
+                                 long customerId,
+                                 FursuitType fursuitType,
+                                 FursuitStyle fursuitStyle,
+                                 PaymentType paymentType) {
+
+        Date date = new Date(System.currentTimeMillis());
+        if (projectName == null
+                || deadline.before(date)
+                || fursuitType == null
+                || fursuitStyle == null) {
+            log.error("Something is null");
             return false;
         }
-        return true;
+
+        Fursuit project = new Fursuit();
+        if (!setBasicProject(project, userId, projectName, customerId, deadline, paymentType, ProjectType.FURSUIT)) {
+            return false;
+        }
+        project.setFursuitType(fursuitType);
+        project.setFursuitStyle(fursuitStyle);
+        project.setPartList(new ArrayList<>());
+    return writeToCsv(project);
     }
 
     @Override
-    public boolean createProject(long userId, String projectName, Date deadline, long customerId, ProjectType type, ArtType artType, ArtStyle artStyle) {
-        Date date = new Date();
-        if (projectName == null || deadline.before(date) || type == null || artType == null || artStyle == null) {
+    public boolean createProject(long userId,
+                                 String projectName,
+                                 Date deadline,
+                                 long customerId,
+                                 ArtType artType,
+                                 ArtStyle artStyle,
+                                 PaymentType paymentType) {
+        Date date = new Date(System.currentTimeMillis());
+        if (projectName == null
+                || deadline.before(date)
+                || artStyle == null
+                || artType == null) {
+            log.error("Something is null");
             return false;
         }
-        return true;
+
+        Art project = new Art();
+        if (!setBasicProject(project, userId, projectName, customerId, deadline, paymentType, ProjectType.ART)) {
+            return false;
+        }
+        project.setArtStyle(artStyle);
+        project.setArtType(artType);
+        project.setPaymentType(paymentType);
+        return writeToCsv(project);
     }
 
     @Override
-    public boolean createProject(long userId, String projectName, Date deadline, long customerId, ProjectType type, ToyType toyType, ToyStyle toyStyle) {
-        Date date = new Date();
-        if (projectName == null || deadline.before(date) || type == null || toyType == null || toyStyle == null) {
+    public boolean createProject(long userId,
+                                 String projectName,
+                                 Date deadline,
+                                 long customerId,
+                                 ToyType toyType,
+                                 ToyStyle toyStyle,
+                                 PaymentType paymentType) {
+
+        Date date = new Date(System.currentTimeMillis());
+        if (projectName == null
+                || deadline.before(date)
+                || toyType == null
+                || toyStyle == null) {
+            log.error("Something is null");
             return false;
         }
-        return true;
+
+        Toy project = new Toy();
+        if (!setBasicProject(project, userId, projectName, customerId, deadline, paymentType, ProjectType.TOY)) {
+            return false;
+        }
+        project.setToyStyle(toyStyle);
+        project.setToyType(toyType);
+        project.setPaymentType(paymentType);
+        project.setOutgoings(new HashMap<>());
+        return writeToCsv(project);
     }
 
     @Override
     public boolean editProject(long userId, Project editedProject) {
-        if (editedProject == null) {
+        if (editedProject == null
+            || editedProject.getProjectType() == null
+            || editedProject.getDateOfCreation() == null
+            || editedProject.getName() == null
+            || editedProject.getDeadline() == null
+            || editedProject.getCustomer() == null
+            || editedProject.getPaymentType() == null) {
+            log.error("something is null");
             return false;
         }
-        return true;
+        Optional<Project> optionalProject = getProject(userId, editedProject.getId());
+        if (optionalProject.isEmpty()) {
+            log.error("project not founded");
+            return false;
+        }
+        if (!optionalProject.get().getProjectType().equals(editedProject.getProjectType())){
+            log.error("wrong project type");
+            return false;
+        }
+
+        switch (optionalProject.get().getProjectType()) {
+            case FURSUIT -> {
+                Fursuit project = (Fursuit) optionalProject.get();
+                Fursuit editedFursuit = (Fursuit) editedProject;
+                if (!editedFursuit.getPartList().equals(project.getPartList())) {
+                    log.error("Forbidden");
+                    return false;
+                }
+                return saveProject(Fursuit.class, editedFursuit);
+            }
+
+            case ART -> {
+                return saveProject(Art.class,(Art) editedProject);
+            }
+
+            case TOY -> {
+                Toy project = (Toy) optionalProject.get();
+                Toy editedToy = (Toy) editedProject;
+                if (!editedToy.getOutgoings().equals(project.getOutgoings())) {
+                    log.error("Forbidden");
+                    return false;
+                }
+                return saveProject(Toy.class, editedToy);
+            }
+        }
+        return false;
     }
 
     @Override
@@ -267,6 +363,11 @@ public class DataProviderCsv implements DataProvider {
             log.error("something is null");
             return false;
         }
+        if (!optionalProject.get().getProjectType().equals(ProjectType.FURSUIT)) {
+            log.error("Wrong project type");
+            return false;
+        }
+        Fursuit fursuit = (Fursuit) optionalProject.get();
 
         FursuitPart fursuitPart = new FursuitPart();
         fursuitPart.setUserId(userId);
@@ -398,22 +499,52 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
+    public boolean deleteOutgoing(long userId, long toyId, long materialId) {
+        Optional<Project> optionalToy = getProject(userId, toyId);
+        Optional<Material> optMaterial = getMaterial(userId, materialId);
+        if (optionalToy.isEmpty() || optMaterial.isEmpty()) {
+            log.error("Something not founded");
+            return false;
+        }
+        if (!optionalToy.get().getProjectType().equals(ProjectType.TOY)){
+            log.error("Wrong project type");
+            return false;
+        }
+        Toy toy = (Toy) optionalToy.get();
+        Material material = optMaterial.get();
+        if (!toy.getOutgoings().containsKey(material)) {
+            log.error("Outgoing not founded");
+            return false;
+        }
+        toy.getOutgoings().remove(material);
+        return saveProject(Toy.class, toy);
+    }
+
+    @Override
+    public boolean deleteOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId) {
+        Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
+        Optional<Material> optMaterial = getMaterial(userId, materialId);
+        if (optFursuitPart.isEmpty() || optMaterial.isEmpty()) {
+            log.error("Something is empty");
+            return false;
+        }
+        FursuitPart fursuitPart = optFursuitPart.get();
+        Material material = optMaterial.get();
+        if (!fursuitPart.getOutgoings().containsKey(material)) {
+            log.error("Outgoing not founded");
+            return false;
+        }
+        fursuitPart.getOutgoings().remove(material);
+        return saveFursuitPart(userId, fursuitPart);
+    }
+
+    @Override
     public String getProjectEstimate(long userId) {
         return null;
     }
 
     @Override
     public String getProjectEstimate(long userId, long projectId) {
-        return null;
-    }
-
-    @Override
-    public Optional<Project> getProject(long userId, long projectId) {
-        return Optional.empty();
-    }
-
-    @Override
-    public List<Project> getProject(long userId) {
         return null;
     }
 
@@ -426,5 +557,4 @@ public class DataProviderCsv implements DataProvider {
     public Double calculateProjectCost(Map<Material, Double> outgoingMap) {
         return null;
     }
-
 }
