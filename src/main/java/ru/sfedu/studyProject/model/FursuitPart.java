@@ -133,6 +133,18 @@ public class FursuitPart {
   //
 
   @Override
+  public String toString() {
+    return "FursuitPart{" +
+            "userId=" + userId +
+            ", id=" + id +
+            ", dateOfCreation=" + dateOfCreation +
+            ", name='" + name + '\'' +
+            ", outgoings=" + outgoings +
+            ", progress=" + progress +
+            '}';
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;

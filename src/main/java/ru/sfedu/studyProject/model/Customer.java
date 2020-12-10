@@ -135,6 +135,18 @@ public class Customer {
   //
 
   @Override
+  public String toString() {
+    return "Customer{" +
+            "userId=" + userId +
+            ", id=" + id +
+            ", dateOfCreation=" + dateOfCreation +
+            ", name='" + name + '\'' +
+            ", url='" + url + '\'' +
+            ", phoneNumber='" + phoneNumber + '\'' +
+            '}';
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
