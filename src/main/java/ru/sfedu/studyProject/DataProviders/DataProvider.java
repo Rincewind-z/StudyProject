@@ -38,6 +38,7 @@ public interface DataProvider {
                            ProjectType type,
                            ArtType artType,
                            ArtStyle artStyle,
+                           double cost,
                            PaymentType paymentType);
     boolean createProject (long userId,
                            String projectName,
@@ -68,7 +69,7 @@ public interface DataProvider {
     List <Project> getProject (long userId);
     String getPreviewPrice (long userId, Map <Material, Double> outgoingMap);
 
-    Double calculateProjectCost (Map <Material, Double> outgoingMap);
+    double calculateProjectCost (long userId, long projectId);
 
     boolean createCustomer (long userId, String customerName, String url, String phoneNumber);
     boolean editCustomer (long userId, Customer editCustomer);
