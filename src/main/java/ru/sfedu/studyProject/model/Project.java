@@ -6,6 +6,7 @@ import ru.sfedu.studyProject.enums.PaymentType;
 import ru.sfedu.studyProject.enums.ProjectType;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Class Project
@@ -15,6 +16,8 @@ abstract public class Project {
   //
   // Fields
   //
+  @CsvBindByName
+  private long userId;
   @CsvBindByName
   private long id;
   @CsvBindByName
@@ -180,4 +183,31 @@ abstract public class Project {
   // Other methods
   //
 
+  @Override
+  public String toString() {
+    return "Project{" +
+            "userId=" + userId +
+            ", id=" + id +
+            ", customer=" + customer +
+            ", dateOfCreation=" + dateOfCreation +
+            ", deadline=" + deadline +
+            ", name='" + name + '\'' +
+            ", progress=" + progress +
+            ", paymentType=" + paymentType +
+            ", projectType=" + projectType +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Project project = (Project) o;
+    return userId == project.userId && id == project.id && Float.compare(project.progress, progress) == 0 && Objects.equals(customer, project.customer) && Objects.equals(dateOfCreation, project.dateOfCreation) && Objects.equals(deadline, project.deadline) && Objects.equals(name, project.name) && paymentType == project.paymentType && projectType == project.projectType;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(userId, id, customer, dateOfCreation, deadline, name, progress, paymentType, projectType);
+  }
 }
