@@ -19,10 +19,5 @@ public class Main {
   public static void main(String[] args) throws IOException {
     log.info(ConfigurationUtil.getConfigurationEntry(Constants.MAIN_TEST_MESSAGE));
     log.info(ConfigurationUtil.getConfigurationEntry(Constants.FORMAT_BOUND));
-
-    DataProviderCsv providerCsv = new DataProviderCsv();
-    providerCsv.addMaterial(0, "TestMaterial1", 1500,
-            Unit.CM, MaterialType.FABRIC, "TestDescription",
-            200);
   }
 }
