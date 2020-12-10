@@ -21,23 +21,12 @@ public class Toy extends Project {
   //
 
   @CsvBindByName
-  private long userId;
-  @CsvBindByName
-  private long id;
-  @CsvBindByName
   private ToyStyle toyStyle;
   @CsvBindByName
   private ToyType toyType;
-  @CsvBindByName
-  @CsvDate("dd.MM.yyyy HH:mm:ss z")
-  private Date dateOfCreation;
-  @CsvBindByName
-  private String name;
   @CsvCustomBindByName(converter = MaterialMapConverter.class)
   private Map<Material, Double> outgoings;
-  @CsvBindByName
-  private float progress;
-  
+
   //
   // Constructors
   //
@@ -156,36 +145,26 @@ public class Toy extends Project {
     return outgoings;
   }
 
-  /**
-   * Set the value of progress
-   * @param newVar the new value of progress
-   */
-  public void setProgress (float newVar) {
-    progress = newVar;
+  @Override
+  public String toString() {
+    return "Toy{" +
+            "toyStyle=" + toyStyle +
+            ", toyType=" + toyType +
+            ", outgoings=" + outgoings +
+            '}';
   }
-
-  /**
-   * Get the value of progress
-   * @return the value of progress
-   */
-  public float getProgress () {
-    return progress;
-  }
-
-  //
-  // Other methods
-  //
 
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     Toy toy = (Toy) o;
-    return userId == toy.userId && id == toy.id && Float.compare(toy.progress, progress) == 0 && toyStyle == toy.toyStyle && toyType == toy.toyType && Objects.equals(dateOfCreation, toy.dateOfCreation) && Objects.equals(name, toy.name) && Objects.equals(outgoings, toy.outgoings);
+    return toyStyle == toy.toyStyle && toyType == toy.toyType && Objects.equals(outgoings, toy.outgoings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, id, toyStyle, toyType, dateOfCreation, name, outgoings, progress);
+    return Objects.hash(super.hashCode(), toyStyle, toyType, outgoings);
   }
 }
