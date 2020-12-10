@@ -1,5 +1,8 @@
 package ru.sfedu.studyProject.enums;
 
 public enum Unit {
-    CM
+    CM,
+    RUNNING_METER,
+    KG
+
 }
