@@ -23,10 +23,10 @@ abstract public class Project {
   @CsvBindByName
   private Customer customer;
   @CsvBindByName
-  @CsvDate("dd.MM.yyyy HH:mm:ss z")
+  @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
   @CsvBindByName
-  @CsvDate("dd.MM.yyyy HH:mm:ss z")
+  @CsvDate(value = Constants.DATE_FORMAT)
   private Date deadline;
   @CsvBindByName
   private String name;

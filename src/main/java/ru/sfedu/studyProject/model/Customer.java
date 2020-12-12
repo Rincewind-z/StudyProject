@@ -2,6 +2,7 @@ package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
+import ru.sfedu.studyProject.Constants;
 
 import java.util.Date;
 import java.util.Objects;
@@ -20,7 +21,7 @@ public class Customer {
   @CsvBindByName
   private long id;
   @CsvBindByName
-  @CsvDate("dd.MM.yyyy HH:mm:ss z")
+  @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
   @CsvBindByName
   private String name;

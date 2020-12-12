@@ -49,8 +49,9 @@ public class DataProviderCsv implements DataProvider {
     }
 
     private <T> boolean writeToCsv (T object) {
+        try {
         if (object == null) {
-            log.error("something is null");
+           log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
         return writeToCsv(object.getClass(), Collections.singletonList(object));
@@ -83,11 +84,11 @@ public class DataProviderCsv implements DataProvider {
                                String description,
                                float inStock) {
 
+        try {
         if (materialName == null || unit == null || materialType == null || description == null) {
-            log.error("something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
-
         Material material = new Material();
         material.setUserId(userId);
         material.setId(getNextMaterialId());
@@ -100,17 +101,22 @@ public class DataProviderCsv implements DataProvider {
         material.setInStock(inStock);
 
         return writeToCsv(material);
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public boolean editMaterial(long userId, Material editMaterial) {
+        try {
         if (editMaterial == null ||
                 editMaterial.getMaterialType() == null
                 || editMaterial.getName() == null
                 || editMaterial.getDateOfCreation() == null
                 || editMaterial.getDescription() == null
                 || editMaterial.getUnit() == null) {
-            log.error("something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
         List<Material> materialList = readFromCsv(Material.class);
@@ -118,13 +124,17 @@ public class DataProviderCsv implements DataProvider {
                 .filter(material -> material.getId() == editMaterial.getId() && material.getUserId() == userId)
                 .findAny();
         if (optMaterial.isEmpty()) {
-            log.error("material not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
             return false;
         }
         materialList.remove(optMaterial.get());
         materialList.add(editMaterial);
         writeToCsv(Material.class, materialList, true);
         return true;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -153,8 +163,9 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean createCustomer(long userId, String name, String url, String phoneNumber) {
+        try {
         if (name == null || url == null || phoneNumber == null) {
-            log.error("something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
 
@@ -167,28 +178,37 @@ public class DataProviderCsv implements DataProvider {
         customer.setPhoneNumber(phoneNumber);
 
         return writeToCsv(customer);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
     public boolean editCustomer(long userId, Customer editCustomer) {
+        try {
         if (editCustomer == null ||
             editCustomer.getName() == null ||
             editCustomer.getDateOfCreation() == null ||
             editCustomer.getUrl() == null ||
             editCustomer.getPhoneNumber() == null) {
-            log.error("something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
         List<Customer> customerList = readFromCsv(Customer.class);
         Optional<Customer> optCustomer = getCustomer(userId, editCustomer.getId());
         if (optCustomer.isEmpty()) {
-            log.error("Customer not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
             return false;
         }
         customerList.remove(optCustomer.get());
         customerList.add(editCustomer);
         writeToCsv(Customer.class, customerList, true);
         return true;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -223,13 +243,13 @@ public class DataProviderCsv implements DataProvider {
                                  FursuitType fursuitType,
                                  FursuitStyle fursuitStyle,
                                  PaymentType paymentType) {
-
+        try {
         Date date = new Date(System.currentTimeMillis());
         if (projectName == null
                 || deadline.before(date)
                 || fursuitType == null
                 || fursuitStyle == null) {
-            log.error("Something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
 
@@ -241,6 +261,10 @@ public class DataProviderCsv implements DataProvider {
         project.setFursuitStyle(fursuitStyle);
         project.setPartList(new ArrayList<>());
     return writeToCsv(project);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -252,12 +276,13 @@ public class DataProviderCsv implements DataProvider {
                                  ArtStyle artStyle,
                                  double cost,
                                  PaymentType paymentType) {
+        try {
         Date date = new Date(System.currentTimeMillis());
         if (projectName == null
                 || deadline.before(date)
                 || artStyle == null
                 || artType == null) {
-            log.error("Something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
 
@@ -269,6 +294,10 @@ public class DataProviderCsv implements DataProvider {
         project.setArtType(artType);
         project.setPaymentType(paymentType);
         return writeToCsv(project);
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
@@ -279,13 +308,13 @@ public class DataProviderCsv implements DataProvider {
                                  ToyType toyType,
                                  ToyStyle toyStyle,
                                  PaymentType paymentType) {
-
+        try {
         Date date = new Date(System.currentTimeMillis());
         if (projectName == null
                 || deadline.before(date)
                 || toyType == null
                 || toyStyle == null) {
-            log.error("Something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
 
@@ -298,10 +327,15 @@ public class DataProviderCsv implements DataProvider {
         project.setPaymentType(paymentType);
         project.setOutgoings(new HashMap<>());
         return writeToCsv(project);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
     public boolean editProject(long userId, Project editedProject) {
+        try {
         if (editedProject == null
             || editedProject.getProjectType() == null
             || editedProject.getDateOfCreation() == null
@@ -309,16 +343,16 @@ public class DataProviderCsv implements DataProvider {
             || editedProject.getDeadline() == null
             || editedProject.getCustomer() == null
             || editedProject.getPaymentType() == null) {
-            log.error("something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
         Optional<Project> optionalProject = getProject(userId, editedProject.getId());
         if (optionalProject.isEmpty()) {
-            log.error("project not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
             return false;
         }
         if (!optionalProject.get().getProjectType().equals(editedProject.getProjectType())){
-            log.error("wrong project type");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
             return false;
         }
 
@@ -327,7 +361,7 @@ public class DataProviderCsv implements DataProvider {
                 Fursuit project = (Fursuit) optionalProject.get();
                 Fursuit editedFursuit = (Fursuit) editedProject;
                 if (!editedFursuit.getPartList().equals(project.getPartList())) {
-                    log.error("Forbidden");
+                    log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
                     return false;
                 }
                 return saveProject(Fursuit.class, editedFursuit);
@@ -341,13 +375,17 @@ public class DataProviderCsv implements DataProvider {
                 Toy project = (Toy) optionalProject.get();
                 Toy editedToy = (Toy) editedProject;
                 if (!editedToy.getOutgoings().equals(project.getOutgoings())) {
-                    log.error("Forbidden");
+                    log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
                     return false;
                 }
                 return saveProject(Toy.class, editedToy);
             }
         }
         return false;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -365,7 +403,7 @@ public class DataProviderCsv implements DataProvider {
             return false;
         }
         if (!optionalProject.get().getProjectType().equals(ProjectType.FURSUIT)) {
-            log.error("Wrong project type");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
             return false;
         }
         Fursuit fursuit = (Fursuit) optionalProject.get();
@@ -377,12 +415,17 @@ public class DataProviderCsv implements DataProvider {
         fursuitPart.setName(name);
 
         return writeToCsv(fursuitPart);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
     public boolean editFursuitPart(long userId, FursuitPart editedFursuitPart) {
+        try {
         if (editedFursuitPart == null || editedFursuitPart.getName() == null) {
-            log.error("something is null");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
         if (editedFursuitPart.getName() == null) {
@@ -395,13 +438,17 @@ public class DataProviderCsv implements DataProvider {
                         && fursuitParts.getUserId() == userId)
                 .findAny();
         if (optFursuitPart.isEmpty()) {
-            log.error("Fursuit part not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FURSUIT_PART_NOT_FOUNDED));
             return false;
         }
         fursuitPartsList.remove(optFursuitPart.get());
         fursuitPartsList.add(editedFursuitPart);
         writeToCsv(FursuitPart.class, fursuitPartsList, true);
         return true;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -410,6 +457,10 @@ public class DataProviderCsv implements DataProvider {
         fursuitPartList.removeIf(fursuitPart -> fursuitPart.getUserId() == userId && fursuitPart.getId() == partId);
         writeToCsv(FursuitPart.class, fursuitPartList, true);
         return true;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -469,7 +520,7 @@ public class DataProviderCsv implements DataProvider {
         Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
         Optional<Material> optMaterial = getMaterial(userId, materialId);
         if (optFursuitPart.isEmpty() || optMaterial.isEmpty()) {
-            log.error("Something is empty");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
             return false;
         }
         FursuitPart fursuitPart = optFursuitPart.get();
@@ -481,6 +532,10 @@ public class DataProviderCsv implements DataProvider {
             fursuitPart.getOutgoings().put(material, amount);
         }
         return saveFursuitPart(userId, fursuitPart);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
@@ -501,61 +556,63 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean deleteOutgoing(long userId, long toyId, long materialId) {
+        try {
         Optional<Project> optionalToy = getProject(userId, toyId);
         Optional<Material> optMaterial = getMaterial(userId, materialId);
         if (optionalToy.isEmpty() || optMaterial.isEmpty()) {
-            log.error("Something not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
             return false;
         }
         if (!optionalToy.get().getProjectType().equals(ProjectType.TOY)){
-            log.error("Wrong project type");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
             return false;
         }
         Toy toy = (Toy) optionalToy.get();
         Material material = optMaterial.get();
         if (!toy.getOutgoings().containsKey(material)) {
-            log.error("Outgoing not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_OUTGOINGS_NOT_FOUNDED));
             return false;
         }
         toy.getOutgoings().remove(material);
         return saveProject(Toy.class, toy);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
     @Override
     public boolean deleteOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId) {
-        Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
+        try {
+            Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
         Optional<Material> optMaterial = getMaterial(userId, materialId);
         if (optFursuitPart.isEmpty() || optMaterial.isEmpty()) {
-            log.error("Something is empty");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
             return false;
         }
         FursuitPart fursuitPart = optFursuitPart.get();
         Material material = optMaterial.get();
         if (!fursuitPart.getOutgoings().containsKey(material)) {
-            log.error("Outgoing not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_OUTGOINGS_NOT_FOUNDED));
             return false;
         }
         fursuitPart.getOutgoings().remove(material);
         return saveFursuitPart(userId, fursuitPart);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
     }
 
-    private String customerToString(Customer customer){
-        return String.format("ФИО: %s\n" +
-                "Ссылка: %s\n" +
-                "Номер телефона: %s\n",
+    private String customerToString(Customer customer) throws IOException {
+        return String.format(ConfigurationUtil.getConfigurationEntry(Constants.CUSTOMER_TO_STRING),
                 customer.getName(),
                 customer.getUrl(),
                 customer.getPhoneNumber());
     }
 
-    private String projectToString(Project project){
-        String stringProject = String.format("Тип проекта: %s\n" +
-                        "Название: %s\n" +
-                        "Заказчик: \n%s" +
-                        "Тип оплаты: %s\n" +
-                        "Дата создания: %s\n" +
-                        "Дедлайн: %s\n" +
-                        "Прогресс: %.2f\n",
+    private String projectToString(Project project) throws IOException {
+        String stringProject = String.format(ConfigurationUtil.getConfigurationEntry(Constants.PROJECT_BASE_TO_STRING),
                 project.getProjectType().toString(),
                 project.getName(),
                 customerToString(project.getCustomer()),
@@ -566,9 +623,7 @@ public class DataProviderCsv implements DataProvider {
         switch (project.getProjectType()) {
             case ART -> {
                 Art artProject = (Art) project;
-                stringProject += String.format("Тип рисунка: %s\n" +
-                                "Стиль рисунка: %s\n" +
-                                "Стоимость: %.2s\n",
+                stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.ART_PROJECT_TO_STRING),
                         artProject.getArtType().toString(),
                         artProject.getArtStyle().toString(),
                         artProject.getCost());
@@ -576,15 +631,13 @@ public class DataProviderCsv implements DataProvider {
             }
             case TOY -> {
                 Toy toyProject = (Toy) project;
-                stringProject += String.format("Тип игрушки: %s\n" +
-                        "Стиль игрушки: %s\n",
+                stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.TOY_PROJECT_TO_STRING),
                         toyProject.getToyType().toString(),
                         toyProject.getToyStyle().toString());
             }
             case FURSUIT -> {
                 Fursuit fursuitProject = (Fursuit) project;
-                stringProject += String.format("Тип фурсьюта: %s\n" +
-                        "Стиль исполения: %s\n",
+                stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.FURSUIT_PROJECT_TO_STRING),
                         fursuitProject.getFursuitType().toString(),
                         fursuitProject.getFursuitStyle().toString());
             }
@@ -592,24 +645,28 @@ public class DataProviderCsv implements DataProvider {
         return stringProject;
     }
 
-    private String fursuitPartToString(FursuitPart fursuitPart){
-        return String.format("Название части: %s\n" +
-                        "Процент выполнения: %.2f\n" +
-                        "Дата создания %s\n",
+    private String fursuitPartToString(FursuitPart fursuitPart) throws IOException {
+        return String.format(ConfigurationUtil.getConfigurationEntry(Constants.FURSUIT_PART_TO_STRING),
                 fursuitPart.getName(),
                 fursuitPart.getProgress() * 100,
                 fursuitPart.getDateOfCreation().toString());
     }
 
-    private String outgoingsWithCostsToString(Map<Material, Double> outgoingMap, Map<Material, Double> costsMap){
+    private String outgoingsWithCostsToString(Map<Material, Double> outgoingMap, Map<Material, Double> costsMap) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Название, цена, количество, стоимость\n");
+        stringBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.OUTGOING_TITLES));
         outgoingMap.forEach((material, aDouble) ->
-                stringBuilder.append(String.format("%s, %.2f, %.2f, %.2f\n",
+        {
+            try {
+                stringBuilder.append(String.format(ConfigurationUtil.getConfigurationEntry(Constants.OUTGOINGS_TO_STRING),
                         material.getName(),
                         material.getCost(),
                         aDouble,
-                        costsMap.get(material))));
+                        costsMap.get(material)));
+            } catch (IOException e) {
+                log.error(e);
+            }
+        });
         return stringBuilder.toString();
     }
 
@@ -630,9 +687,10 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public String getProjectEstimate(long userId, long projectId) {
+        try {
         Optional<Project> project = getProject(userId, projectId);
         if (project.isEmpty()) {
-            log.error("Project not founded");
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
             return "";
         }
         switch (project.get().getProjectType()) {
@@ -643,11 +701,11 @@ public class DataProviderCsv implements DataProvider {
                 Toy toyProject = (Toy) project.get();
                 Map<Material, Double> costsMap = calculateCosts(toyProject.getOutgoings());
                 return projectToString(toyProject) +
-                        "Смета:\n" +
+                        ConfigurationUtil.getConfigurationEntry(Constants.ESTIMATE_TITLE) +
                         outgoingsWithCostsToString(toyProject.getOutgoings(), costsMap) +
-                        "Сумма: " +
+                        ConfigurationUtil.getConfigurationEntry(Constants.AMOUNT_TITLE) +
                         calculateProjectCost(userId, projectId) +
-                        "\n";
+                        ConfigurationUtil.getConfigurationEntry(Constants.NEW_LINE);
             }
             case FURSUIT -> {
                 Fursuit fursuitProject = (Fursuit) project.get();
@@ -656,20 +714,28 @@ public class DataProviderCsv implements DataProvider {
                         outgoingMapList.put(fursuitPart, calculateCosts(fursuitPart.getOutgoings())));
                 StringBuilder estimateBuilder = new StringBuilder();
                 estimateBuilder.append(projectToString(fursuitProject));
-                estimateBuilder.append("Части фурсьюта:\n");
+                estimateBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.FURSUIT_PARTS_TITLE));
                 outgoingMapList.forEach((fursuitPart, costsMap) ->
                 {
+                    try {
                         estimateBuilder.append(fursuitPartToString(fursuitPart));
-                        estimateBuilder.append("Смета:\n");
+                        estimateBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.ESTIMATE_TITLE));
                         estimateBuilder.append(outgoingsWithCostsToString(fursuitPart.getOutgoings(), costsMap));
+                    } catch (IOException e) {
+                        log.error(e);
+                    }
                 });
-                estimateBuilder.append("Сумма: ");
+                estimateBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.AMOUNT_TITLE));
                 estimateBuilder.append(calculateProjectCost(userId, projectId));
-                estimateBuilder.append("\n");
+                estimateBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.NEW_LINE));
                 return estimateBuilder.toString();
             }
         }
         return  "";
+        } catch (IOException e) {
+            log.error(e);
+            return "";
+        }
     }
 
     @Override
