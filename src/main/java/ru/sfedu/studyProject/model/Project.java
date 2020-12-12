@@ -1,7 +1,10 @@
 package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
 import com.opencsv.bean.CsvDate;
+import ru.sfedu.studyProject.Constants;
+import ru.sfedu.studyProject.Converters.CustomerConverter;
 import ru.sfedu.studyProject.enums.PaymentType;
 import ru.sfedu.studyProject.enums.ProjectType;
 
@@ -20,7 +23,7 @@ abstract public class Project {
   private long userId;
   @CsvBindByName
   private long id;
-  @CsvBindByName
+  @CsvCustomBindByName(converter = CustomerConverter.class)
   private Customer customer;
   @CsvBindByName
   @CsvDate(value = Constants.DATE_FORMAT)
@@ -177,6 +180,14 @@ abstract public class Project {
    */
   public ProjectType getProjectType () {
     return projectType;
+  }
+
+  public void setUserId (long newVar) {
+    userId = newVar;
+  }
+
+  public long getUserId() {
+    return userId;
   }
 
   //

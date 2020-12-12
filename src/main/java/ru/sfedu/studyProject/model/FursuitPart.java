@@ -22,10 +22,14 @@ public class FursuitPart {
   private long userId;
   @CsvBindByName
   private long id;
+  @CsvBindByName
+  @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
   @CsvBindByName
   private String name;
-  private Map<Material, Long> outgoings;
+  @CsvCustomBindByName(converter = MaterialMapConverter.class)
+  private Map<Material, Double> outgoings;
+  @CsvBindByName
   private float progress;
   
   //
@@ -94,7 +98,7 @@ public class FursuitPart {
    * Set the value of outgoings
    * @param newVar the new value of outgoings
    */
-  public void setOutgoings (Map<Material, Long> newVar) {
+  public void setOutgoings (Map<Material, Double> newVar) {
     outgoings = newVar;
   }
 
@@ -156,8 +160,7 @@ public class FursuitPart {
     if (id != that.id) return false;
     if (Float.compare(that.progress, progress) != 0) return false;
     if (!dateOfCreation.equals(that.dateOfCreation)) return false;
-    if (!name.equals(that.name)) return false;
-    return outgoings.equals(that.outgoings);
+    return name.equals(that.name);
   }
 
 }

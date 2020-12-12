@@ -9,6 +9,11 @@ import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -124,7 +129,7 @@ public class DataProviderCsvTest {
     @Test
     @Order(2)
     void editMaterialSuccess() {
-        List<Material> materialList = dataProvider.getMaterial(1);
+        List<Material> materialList = dataProvider.getMaterial(0);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
@@ -138,7 +143,8 @@ public class DataProviderCsvTest {
     @Test
     @Order(2)
     void editMaterialFailed() {
-        Optional<Material> optionalMaterial = dataProvider.getMaterial(1,0);
+        List<Material> materialList = dataProvider.getMaterial(0);
+        Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
         material.setName(null);
@@ -215,13 +221,13 @@ public class DataProviderCsvTest {
     @Test
     @Order(3)
     void editFursuitPartSuccess() {
-        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(1);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(0);
         Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
         fursuitPart.setName("Edited part name");
-        Assertions.assertTrue(dataProvider.editFursuitPart(1, fursuitPart));
-        optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        Assertions.assertTrue(dataProvider.editFursuitPart(0, fursuitPart));
+        optionalFursuitPart = dataProvider.getFursuitPart(0, optionalFursuitPart.get().getId());
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         Assertions.assertEquals(fursuitPart, optionalFursuitPart.get());
     }
@@ -236,7 +242,7 @@ public class DataProviderCsvTest {
         fursuitPart.setName(null);
         Assertions.assertFalse(dataProvider.editFursuitPart(0, fursuitPart));
 
-        optionalFursuitPart = dataProvider.getFursuitPart(1,0);
+        optionalFursuitPart = dataProvider.getFursuitPart(0, fursuitPart.getId());
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         fursuitPart = optionalFursuitPart.get();
         fursuitPart.setId(6);
@@ -251,7 +257,7 @@ public class DataProviderCsvTest {
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
 
-        List<Material> materialList = dataProvider.getMaterial(1);
+        List<Material> materialList = dataProvider.getMaterial(0);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
@@ -280,12 +286,12 @@ public class DataProviderCsvTest {
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
 
-        List<Material> materialList = dataProvider.getMaterial(1);
+        List<Material> materialList = dataProvider.getMaterial(0);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
 
-        Assertions.assertFalse(dataProvider.addOutgoing(9, 1, fursuitPart.getId(), material.getId(), 2));
+        Assertions.assertFalse(dataProvider.setOutgoing(9, 1, fursuitPart.getId(), material.getId(), 2));
     }
 
 
@@ -308,7 +314,7 @@ public class DataProviderCsvTest {
     public void createCustomerSuccess() throws Exception {
         Assertions.assertTrue(dataProvider.createCustomer(0,
                 "Customer name1", "vk.com/id0**", "+7 999 00 **"));
-        Assertions.assertTrue(dataProvider.createCustomer(1,
+        Assertions.assertTrue(dataProvider.createCustomer(0,
                 "Customer name2", "vk.com/id1**", "+7 999 11 **"));
     }
 
@@ -367,13 +373,13 @@ public class DataProviderCsvTest {
     @Test
     @Order(2)
     void editCustomerSuccess() {
-        List<Customer> customerList = dataProvider.getCustomer(1);
+        List<Customer> customerList = dataProvider.getCustomer(0);
         Optional<Customer> optionalCustomer = customerList.stream().findAny();
         Assertions.assertTrue(optionalCustomer.isPresent());
         Customer customer = optionalCustomer.get();
         customer.setName("Edited customer name");
-        Assertions.assertTrue(dataProvider.editCustomer(1, customer));
-        optionalCustomer = dataProvider.getCustomer(1, optionalCustomer.get().getId());
+        Assertions.assertTrue(dataProvider.editCustomer(0, customer));
+        optionalCustomer = dataProvider.getCustomer(0, optionalCustomer.get().getId());
         Assertions.assertTrue(optionalCustomer.isPresent());
         Assertions.assertEquals(customer, optionalCustomer.get());
     }

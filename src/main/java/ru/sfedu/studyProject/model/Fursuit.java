@@ -20,7 +20,9 @@ public class Fursuit extends Project {
 
   @CsvBindByName
   private FursuitType fursuitType;
-  private FursuitPart partList;
+  @CsvCustomBindByName(converter = FursuitPartListConverter.class)
+  private List<FursuitPart> partList;
+  @CsvBindByName
   private FursuitStyle fursuitStyle;
   
   //
@@ -57,7 +59,7 @@ public class Fursuit extends Project {
    * Set the value of partList
    * @param newVar the new value of partList
    */
-  public void setPartList (FursuitPart newVar) {
+  public void setPartList (List<FursuitPart> newVar) {
     partList = newVar;
   }
 

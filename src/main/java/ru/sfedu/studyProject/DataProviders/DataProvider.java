@@ -32,9 +32,25 @@ public interface DataProvider {
                          Unit unit,
                          MaterialType materialType,
                          String description,
-                         float inStock) throws IOException;
-    boolean editMaterial (long userId, Material editedMaterial);
-    boolean deleteMaterial (long userId, long id);
+                         float inStock);
+
+    /**
+     * Changing any material information.
+     *
+     * @param userId       the user id
+     * @param editMaterial the edit material
+     * @return the boolean
+     */
+    boolean editMaterial (long userId, Material editMaterial);
+
+    /**
+     * Deleting a specific material from the list.
+     *
+     * @param userId     the user id
+     * @param materialId the material id
+     * @return the boolean
+     */
+    boolean deleteMaterial (long userId, long materialId);
 
     /**
      * Getting information about a specific material from the list.
@@ -67,16 +83,28 @@ public interface DataProvider {
      */
     boolean createProject (long userId,
                            String projectName,
-                           Date deadline,
-                           long customerId,
-                           ProjectType type,
+                           Date deadline, long customerId,
                            FursuitType fursuitType,
-                           FursuitStyle fursuitStyle);
+                           FursuitStyle fursuitStyle,
+                           PaymentType paymentType);
+
+    /**
+     * Creating an Art project for drawing-related projects.
+     *
+     * @param userId      the user id
+     * @param projectName the project name
+     * @param deadline    the deadline
+     * @param customerId  the customer id
+     * @param artType     the art type
+     * @param artStyle    the art style
+     * @param cost        the cost
+     * @param paymentType the payment type
+     * @return the boolean
+     */
     boolean createProject (long userId,
                            String projectName,
                            Date deadline,
                            long customerId,
-                           ProjectType type,
                            ArtType artType,
                            ArtStyle artStyle,
                            double cost,
@@ -98,13 +126,27 @@ public interface DataProvider {
                            String projectName,
                            Date deadline,
                            long customerId,
-                           ProjectType type,
                            ToyType toyType,
                            ToyStyle toyStyle,
                            PaymentType paymentType);
 
+    /**
+     * Edit information about the project.
+     *
+     * @param userId        the user id
+     * @param editedProject the edited project
+     * @return the boolean
+     */
     boolean editProject (long userId, Project editedProject);
-    boolean deleteProject (long userId, Project project);
+
+    /**
+     * Deleting a project.
+     *
+     * @param userId    the user id
+     * @param projectId the project id
+     * @return the boolean
+     */
+    boolean deleteProject (long userId,  long projectId);
 
     /**
      * Creating a part in a Fursuit project.
@@ -221,8 +263,14 @@ public interface DataProvider {
      * @return the project
      */
     Optional <Project> getProject (long userId, long projectId);
+
+    /**
+     * Getting information about all the projects that the user has.
+     *
+     * @param userId the user id
+     * @return the project
+     */
     List <Project> getProject (long userId);
-    String getPreviewPrice (long userId, Map <Material, Double> outgoingMap);
 
     /**
      * Calculation of project costs by adding the cost of materials and work.

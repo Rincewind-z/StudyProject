@@ -1,6 +1,8 @@
 package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
+import ru.sfedu.studyProject.Constants;
 import ru.sfedu.studyProject.enums.MaterialType;
 import ru.sfedu.studyProject.enums.Unit;
 
@@ -20,6 +22,7 @@ public class Material {
   @CsvBindByName
   private long id;
   @CsvBindByName
+  @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
   @CsvBindByName
   private String materialName;
@@ -180,8 +183,39 @@ public class Material {
     userId = newVar;
   }
 
-  //
+  public long getUserId() {
+    return userId;
+  }
+//
   // Other methods
   //
 
+
+  @Override
+  public String toString() {
+    return "Material{" +
+            "userId=" + userId +
+            ", id=" + id +
+            ", dateOfCreation=" + dateOfCreation +
+            ", materialName='" + materialName + '\'' +
+            ", materialType=" + materialType +
+            ", cost=" + cost +
+            ", description='" + description + '\'' +
+            ", unit=" + unit +
+            ", inStock=" + inStock +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Material material = (Material) o;
+    return userId == material.userId && id == material.id && Float.compare(material.inStock, inStock) == 0 && dateOfCreation.equals(material.dateOfCreation) && materialName.equals(material.materialName) && materialType == material.materialType && cost.equals(material.cost) && description.equals(material.description) && unit == material.unit;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(userId, id, dateOfCreation, materialName, materialType, cost, description, unit, inStock);
+  }
 }

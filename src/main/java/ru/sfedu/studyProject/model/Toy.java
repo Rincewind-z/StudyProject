@@ -41,62 +41,6 @@ public class Toy extends Project {
   // Accessor methods
   //
 
-  public void setUserId (long newVar) {
-    userId = newVar;
-  }
-
-  public long getUserId() {
-    return userId;
-  }
-
-  /**
-   * Set the value of id
-   * @param newVar the new value of id
-   */
-  public void setId (long newVar) {
-    id = newVar;
-  }
-
-  /**
-   * Get the value of id
-   * @return the value of id
-   */
-  public long getId () {
-    return id;
-  }
-
-  /**
-   * Set the value of dateOfCreation
-   * @param newVar the new value of dateOfCreation
-   */
-  public void setDateOfCreation (Date newVar) {
-    dateOfCreation = newVar;
-  }
-
-  /**
-   * Get the value of dateOfCreation
-   * @return the value of dateOfCreation
-   */
-  public Date getDateOfCreation () {
-    return dateOfCreation;
-  }
-
-  /**
-   * Set the value of name
-   * @param newVar the new value of name
-   */
-  public void setName (String newVar) {
-    name = newVar;
-  }
-
-  /**
-   * Get the value of name
-   * @return the value of name
-   */
-  public String getName () {
-    return name;
-  }
-
   /**
    * Set the value of toyStyle
    * @param newVar the new value of toyStyle

@@ -10,6 +10,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.sfedu.studyProject.Constants;
 import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 import ru.sfedu.studyProject.utils.ConfigurationUtil;
@@ -17,34 +18,84 @@ import ru.sfedu.studyProject.utils.ConfigurationUtil;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DataProviderCsv implements DataProvider {
     private static final Logger log = LogManager.getLogger(DataProviderCsv.class);
-    private final String path = "csv_path";
-    private final String file_extension = "csv_extension";
 
-    private <T> boolean writeToCsv (Class<?> tClass, List<T> object) {
+
+    private long getNextMaterialId(){
+        List<Material> objectList = readFromCsv(Material.class);
+        long maxId = -1;
+        for (Material material : objectList) {
+            if (maxId < material.getId()) {
+                maxId = material.getId();
+            }
+        }
+        return maxId + 1;
+    }
+
+    private long getNextFursuitPartId(){
+        List<FursuitPart> objectList = readFromCsv(FursuitPart.class);
+        long maxId = -1;
+        for (FursuitPart fursuitPart : objectList) {
+            if (maxId < fursuitPart.getId()) {
+                maxId = fursuitPart.getId();
+            }
+        }
+        return maxId + 1;
+    }
+
+    private long getNextCustomerId(){
+        List<Customer> objectList = readFromCsv(Customer.class);
+        long maxId = -1;
+        for (Customer customer : objectList) {
+            if (maxId < customer.getId()) {
+                maxId = customer.getId();
+            }
+        }
+        return maxId + 1;
+    }
+
+    private long getNextProjectId(){
+        List<Project> objectList = new ArrayList<>();
+         objectList.addAll(readFromCsv(Fursuit.class));
+        objectList.addAll(readFromCsv(Art.class));
+        objectList.addAll(readFromCsv(Toy.class));
+        long maxId = -1;
+        for (Project project : objectList) {
+            if (maxId < project.getId()) {
+                maxId = project.getId();
+            }
+        }
+        return maxId + 1;
+    }
+
+    private <T> boolean writeToCsv (Class<?> tClass, List<T> object, boolean overwrite) {
+        List<T> fileObjectList;
+        if (!overwrite) {
+            fileObjectList = (List<T>) readFromCsv(tClass);
+            fileObjectList.addAll(object);
+        }
+        else {
+            fileObjectList = new ArrayList<>(object);
+        }
         CSVWriter csvWriter;
         try {
-            FileWriter writer = new FileWriter(ConfigurationUtil.getConfigurationEntry(path)
+            FileWriter writer = new FileWriter(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
                     + tClass.getSimpleName().toLowerCase()
-                    + ConfigurationUtil.getConfigurationEntry(file_extension));
+                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION));
             csvWriter = new CSVWriter(writer);
             StatefulBeanToCsv<T> beanToCsv = new StatefulBeanToCsvBuilder<T>(csvWriter)
                     .withApplyQuotesToAll(false)
                     .build();
-            beanToCsv.write(object);
+            beanToCsv.write(fileObjectList);
             csvWriter.close();
             return true;
         } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e ) {
             log.error(e);
             return false;
-        } finally {
-            csvWriter.close();
         }
     }
 
@@ -54,7 +105,11 @@ public class DataProviderCsv implements DataProvider {
            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
-        return writeToCsv(object.getClass(), Collections.singletonList(object));
+        return writeToCsv(object.getClass(), Collections.singletonList(object), false);
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     private <T> List<T> readFromCsv (Class<T> tClass) {
@@ -235,6 +290,36 @@ public class DataProviderCsv implements DataProvider {
                 .collect(Collectors.toList());
     }
 
+
+    private boolean setBasicProject(Project project,
+                                    long userId,
+                                    String projectName,
+                                    long customerId,
+                                    Date deadline,
+                                    PaymentType paymentType,
+                                    ProjectType projectType) {
+        try {
+        Optional<Customer> optionalCustomer = getCustomer(userId, customerId);
+        if (optionalCustomer.isEmpty()){
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+            return false;
+        }
+        project.setId(getNextProjectId());
+        project.setUserId(userId);
+        project.setName(projectName);
+        project.setDateOfCreation(new Date(System.currentTimeMillis()));
+        project.setCustomer(optionalCustomer.get());
+        project.setDeadline(deadline);
+        project.setProjectType(projectType);
+        project.setPaymentType(paymentType);
+        project.setProgress(0);
+        return true;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
+    }
+
     @Override
     public boolean createProject(long userId,
                                  String projectName,
@@ -388,18 +473,93 @@ public class DataProviderCsv implements DataProvider {
     }
     }
 
-    @Override
-    public boolean deleteProject(long userId, Project project) {
-        if (project == null) {
-            return false;
-        }
-        return true;
+    private <T extends Project> boolean saveProject(Class<T> tClass, T project) {
+        List<T> projectList = readFromCsv(tClass);
+        projectList.removeIf(tProject -> tProject.getId() == project.getId());
+        projectList.add(project);
+        return writeToCsv(tClass, projectList, true);
     }
 
     @Override
-    public boolean createFursuitPart(long userId, String name/*, Map<Material, Long> outgoings*/) {
-        if (name == null) {
-            log.error("something is null");
+    public boolean deleteProject(long userId, long projectId) {
+        try {
+        Optional<Project> optionalProject = getProject(userId, projectId);
+        if (optionalProject.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+            return false;
+        }
+        switch (optionalProject.get().getProjectType()) {
+            case FURSUIT -> {
+                Fursuit fursuit = (Fursuit) optionalProject.get();
+                fursuit.getPartList().forEach(fursuitPart -> deleteFursuitPart(userId, projectId, fursuitPart.getId()));
+                return deleteProject(Fursuit.class, fursuit);
+            }
+            case ART -> {
+                return deleteProject(Art.class, (Art) optionalProject.get());
+            }
+            case TOY ->{
+                return deleteProject(Toy.class, (Toy) optionalProject.get());
+            }
+        }
+        return false;
+    } catch (IOException e) {
+        log.error(e);
+        return false;
+    }
+    }
+
+    private <T extends Project> boolean deleteProject(Class<T> tClass, T project) {
+        List<T> projectList = readFromCsv(tClass);
+        projectList.removeIf(tProject -> tProject.getId() == project.getId());
+        return writeToCsv(tClass, projectList, true);
+    }
+
+    @Override
+    public Optional<Project> getProject(long userId, long projectId) {
+        List<Project> projectList = getProject(userId);
+        return projectList.stream()
+                .filter(project -> project.getId() == projectId)
+                .findAny();
+    }
+
+    @Override
+    public List<Project> getProject(long userId) {
+        List<Project> projectList = new ArrayList<>();
+        projectList.addAll(readFromCsv(Fursuit.class));
+        projectList.addAll(readFromCsv(Art.class));
+        projectList.addAll(readFromCsv(Toy.class));
+        projectList = projectList.stream()
+                .filter(customer -> customer.getUserId() == userId)
+                .collect(Collectors.toList());
+        projectList.forEach(project -> {
+            project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
+            switch (project.getProjectType()) {
+                case FURSUIT -> {
+                    Fursuit fursuit = (Fursuit) project;
+                    List<FursuitPart> fursuitPartList = new ArrayList<>();
+                    fursuit.getPartList().forEach(fursuitPart ->
+                            fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
+                    fursuit.setPartList(fursuitPartList);
+                }
+                case TOY -> {
+                    Toy toy = (Toy) project;
+                    Map<Material, Double> materialMap = new HashMap<>();
+                    toy.getOutgoings().forEach((material, aDouble) ->
+                            materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
+                    toy.setOutgoings(materialMap);
+                }
+
+            }
+        });
+        return projectList;
+    }
+
+    @Override
+    public boolean createFursuitPart(long userId, long fursuitId, String name) {
+        try {
+        Optional<Project> optionalProject = getProject(userId, fursuitId);
+        if (name == null || optionalProject.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
         if (!optionalProject.get().getProjectType().equals(ProjectType.FURSUIT)) {
@@ -413,7 +573,12 @@ public class DataProviderCsv implements DataProvider {
         fursuitPart.setId(getNextFursuitPartId());
         fursuitPart.setDateOfCreation(new Date(System.currentTimeMillis()));
         fursuitPart.setName(name);
+        fursuitPart.setOutgoings(new HashMap<>());
 
+        fursuit.getPartList().add(fursuitPart);
+        if (!saveProject(Fursuit.class, fursuit)){
+            return false;
+        }
         return writeToCsv(fursuitPart);
     } catch (IOException e) {
         log.error(e);
@@ -428,15 +593,33 @@ public class DataProviderCsv implements DataProvider {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
             return false;
         }
-        if (editedFursuitPart.getName() == null) {
-            log.error("something is null");
+
+        List<FursuitPart> fursuitPartsList = readFromCsv(FursuitPart.class);
+        Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, editedFursuitPart.getId());
+        if (optFursuitPart.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FURSUIT_PART_NOT_FOUNDED));
             return false;
         }
+
+        if (!editedFursuitPart.getOutgoings().equals(optFursuitPart.get().getOutgoings())){
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
+            return false;
+        }
+
+        fursuitPartsList.remove(optFursuitPart.get());
+        fursuitPartsList.add(editedFursuitPart);
+        writeToCsv(FursuitPart.class, fursuitPartsList, true);
+        return true;
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
+    }
+
+    private boolean saveFursuitPart(long userId , FursuitPart editedFursuitPart){
+        try {
         List<FursuitPart> fursuitPartsList = readFromCsv(FursuitPart.class);
-        Optional<FursuitPart> optFursuitPart = fursuitPartsList.stream()
-                .filter(fursuitParts -> fursuitParts.getId() == editedFursuitPart.getId()
-                        && fursuitParts.getUserId() == userId)
-                .findAny();
+        Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, editedFursuitPart.getId());
         if (optFursuitPart.isEmpty()) {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FURSUIT_PART_NOT_FOUNDED));
             return false;
@@ -452,8 +635,25 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean deleteFursuitPart(long userId, long partId) {
+    public boolean deleteFursuitPart(long userId, long projectId, long partId) {
+        try {
         List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
+        Optional<Project> optionalFursuit = getProject(userId, projectId);
+        if (optionalFursuit.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+            return false;
+        }
+        if (!optionalFursuit.get().getProjectType().equals(ProjectType.FURSUIT)) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
+            return false;
+        }
+        Fursuit fursuit = (Fursuit) optionalFursuit.get();
+        if (fursuit.getPartList().stream().noneMatch(fursuitPart -> fursuitPart.getId() == partId)) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
+            return false;
+        }
+        fursuit.getPartList().removeIf(fursuitPart -> fursuitPart.getId() == partId);
+        saveProject(Fursuit.class, fursuit);
         fursuitPartList.removeIf(fursuitPart -> fursuitPart.getUserId() == userId && fursuitPart.getId() == partId);
         writeToCsv(FursuitPart.class, fursuitPartList, true);
         return true;
@@ -466,7 +666,7 @@ public class DataProviderCsv implements DataProvider {
     @Override
     public Optional<FursuitPart> getFursuitPart (long userId, long id) {
         List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
-        return fursuitPartList.stream()
+        Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream()
                 .filter(fursuitPart -> fursuitPart.getId() == id && fursuitPart.getUserId() == userId)
                 .findAny();
         if (optionalFursuitPart.isEmpty()) {
@@ -510,13 +710,8 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public boolean addOutgoing(long userId, long projectId, long materialId, double amount) {
-
-        return true;
-    }
-
-    @Override
-    public boolean addOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId, double amount) {
+    public boolean setOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId, double amount) {
+        try {
         Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, fursuitPartId);
         Optional<Material> optMaterial = getMaterial(userId, materialId);
         if (optFursuitPart.isEmpty() || optMaterial.isEmpty()) {
@@ -538,21 +733,34 @@ public class DataProviderCsv implements DataProvider {
     }
     }
 
-    @Override
-    public boolean editOutgoing(long userId, Project project, Material material, double amount) {
-        if (project == null || material == null) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
-    public boolean deleteOutgoing(long userId, Project project, Material outgoing) {
-        if (project == null || outgoing == null) {
+    public boolean setOutgoing(long userId, long toyId, long materialId, double amount) {
+        try {
+        Optional<Project> optionalToy = getProject(userId, toyId);
+        Optional<Material> optMaterial = getMaterial(userId, materialId);
+        if (optionalToy.isEmpty() || optMaterial.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
             return false;
         }
-        return true;
+        if (!optionalToy.get().getProjectType().equals(ProjectType.TOY)) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
+            return false;
+        }
+        Toy toy = (Toy) optionalToy.get();
+        Material material = optMaterial.get();
+        if (!toy.getOutgoings().containsKey(material)) {
+            toy.getOutgoings().put(material, amount);
+        } else {
+            toy.getOutgoings().replace(material, amount);
+        }
+        return saveProject(Toy.class, toy);
+    } catch (IOException e) {
+        log.error(e);
+        return false;
     }
+    }
+
 
     @Override
     public boolean deleteOutgoing(long userId, long toyId, long materialId) {
@@ -739,12 +947,39 @@ public class DataProviderCsv implements DataProvider {
     }
 
     @Override
-    public String getPreviewPrice(long userId, Map<Material, Double> outgoingMap) {
-        return null;
-    }
-
-    @Override
-    public Double calculateProjectCost(Map<Material, Double> outgoingMap) {
-        return null;
+    public double calculateProjectCost (long userId, long projectId) {
+        try {
+        Optional<Project> optionalProject = getProject(userId, projectId);
+        if (optionalProject.isEmpty()){
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+            return 0;
+        }
+        switch (optionalProject.get().getProjectType()){
+            case ART -> {
+                return ((Art)optionalProject.get()).getCost();
+            }
+            case TOY -> {
+                return calculateCosts(((Toy)optionalProject.get()).getOutgoings()).values().stream()
+                        .mapToDouble(value -> value)
+                        .sum();
+            }
+            case FURSUIT -> {
+                return ((Fursuit)optionalProject.get())
+                        .getPartList()
+                        .stream()
+                        .mapToDouble(fursuitPart ->
+                                calculateCosts(fursuitPart.getOutgoings())
+                                        .values()
+                                        .stream()
+                                        .mapToDouble(value -> value)
+                                        .sum())
+                        .sum();
+            }
+        }
+        return 0;
+        } catch (IOException e) {
+            log.error(e);
+            return 0;
+        }
     }
 }
