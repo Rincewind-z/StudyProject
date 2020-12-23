@@ -3,6 +3,8 @@ package ru.sfedu.studyProject.model;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 import com.opencsv.bean.CsvDate;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.ElementMap;
 import ru.sfedu.studyProject.Converters.MaterialMapConverter;
 import ru.sfedu.studyProject.enums.ToyStyle;
 import ru.sfedu.studyProject.enums.ToyType;
@@ -19,11 +21,13 @@ public class Toy extends Project {
   //
   // Fields
   //
-
+  @Attribute
   @CsvBindByName
   private ToyStyle toyStyle;
+  @Attribute
   @CsvBindByName
   private ToyType toyType;
+  @ElementMap
   @CsvCustomBindByName(converter = MaterialMapConverter.class)
   private Map<Material, Double> outgoings;
 

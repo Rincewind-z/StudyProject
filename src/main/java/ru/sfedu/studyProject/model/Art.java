@@ -2,6 +2,7 @@ package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
+import org.simpleframework.xml.Attribute;
 import ru.sfedu.studyProject.Converters.MaterialMapConverter;
 import ru.sfedu.studyProject.enums.ArtStyle;
 import ru.sfedu.studyProject.enums.ArtType;
@@ -17,10 +18,13 @@ public class Art extends Project {
   //
   // Fields
   //
+  @Attribute
   @CsvBindByName
   private ArtType artType;
+  @Attribute
   @CsvBindByName
   private ArtStyle artStyle;
+  @Attribute
   @CsvBindByName
   private double cost;
   //

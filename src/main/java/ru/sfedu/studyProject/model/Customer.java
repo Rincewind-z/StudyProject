@@ -2,6 +2,7 @@ package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
+import org.simpleframework.xml.Attribute;
 import ru.sfedu.studyProject.Constants;
 
 import java.util.Date;
@@ -15,18 +16,23 @@ public class Customer {
   //
   // Fields
   //
-
+  @Attribute
   @CsvBindByName
   private long userId;
+  @Attribute
   @CsvBindByName
   private long id;
+  @Attribute
   @CsvBindByName
   @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
+  @Attribute
   @CsvBindByName
   private String name;
+  @Attribute
   @CsvBindByName
   private String url;
+  @Attribute
   @CsvBindByName
   private String phoneNumber;
   

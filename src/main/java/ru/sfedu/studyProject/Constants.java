@@ -7,6 +7,8 @@ public class Constants {
   public static final String FORMAT_BOUND = "format.bound";
   public static final String CSV_PATH = "csv.path";
   public static final String FILE_EXTENSION = "csv.extension";
+  public static final String XML_PATH = "xml.path";
+  public static final String XML_FILE_EXTENSION = "xml.extension";
   public static final String NULL_MSG = "msg.null";
   public static final String MSG_MATERIAL_NOT_FOUNDED = "msg.material_not_founded";
   public static final String MSG_CUSTOMER_NOT_FOUNDED = "msg.customer_not_founded";
@@ -16,7 +18,7 @@ public class Constants {
   public static final String MSG_FURSUIT_PART_NOT_FOUNDED = "msg.fursuit_part_not_founded";
   public static final String MSG_EMPTY = "msg.empty";
   public static final String MSG_OUTGOINGS_NOT_FOUNDED = "msg.outgoings_not_founded";
-  public static final String DATE_FORMAT = "format.date";
+  public static final String DATE_FORMAT = "dd.MM.yyyy HH:mm:ss z";
   public static final String NEW_LINE = "new_line";
   public static final String CUSTOMER_TO_STRING = "format.customer.toString";
   public static final String PROJECT_BASE_TO_STRING = "format.project_base.toString";

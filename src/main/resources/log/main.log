@@ -3388,3 +3388,2391 @@ Amount: 1500.0
 
 2020-12-12 02:31:01 ERROR DataProviderCsv:771 - Something is empty
 2020-12-12 02:31:01 ERROR DataProviderCsv:798 - Something is empty
+2020-12-14 10:33:09 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:33:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:33:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:33:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:33:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:33:10 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:33:10 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:33:10 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:33:10 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:337 - Something is null
+2020-12-14 10:33:11 ERROR DataProviderCsv:223 - Something is null
+2020-12-14 10:33:11 ERROR DataProviderCsv:144 - Something is null
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:562 - Something is null
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:11 ERROR DataProviderCsv:562 - Something is null
+2020-12-14 10:33:12 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:12 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:13 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:14 INFO  DataProviderCsvTest:549 - 
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:954 - Project not founded
+2020-12-14 10:33:15 INFO  DataProviderCsvTest:563 - 0.0
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:954 - Project not founded
+2020-12-14 10:33:15 INFO  DataProviderCsvTest:565 - 0.0
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:954 - Project not founded
+2020-12-14 10:33:15 INFO  DataProviderCsvTest:567 - 0.0
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:33:15 INFO  DataProviderCsvTest:528 - 
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:33:15 INFO  DataProviderCsvTest:531 - 
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:33:15 INFO  DataProviderCsvTest:534 - 
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:33:15 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:34:47 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:34:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:34:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:337 - Something is null
+2020-12-14 10:34:48 ERROR DataProviderCsv:223 - Something is null
+2020-12-14 10:34:48 ERROR DataProviderCsv:144 - Something is null
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:562 - Something is null
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:48 ERROR DataProviderCsv:562 - Something is null
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:49 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 INFO  DataProviderCsvTest:549 - 
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:954 - Project not founded
+2020-12-14 10:34:50 INFO  DataProviderCsvTest:563 - 0.0
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:954 - Project not founded
+2020-12-14 10:34:50 INFO  DataProviderCsvTest:565 - 0.0
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:954 - Project not founded
+2020-12-14 10:34:50 INFO  DataProviderCsvTest:567 - 0.0
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:50 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:34:50 INFO  DataProviderCsvTest:528 - 
+2020-12-14 10:34:50 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:34:51 INFO  DataProviderCsvTest:531 - 
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:34:51 INFO  DataProviderCsvTest:534 - 
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:34:51 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:38:16 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:38:16 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:38:16 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:38:18 ERROR DataProviderCsv:337 - Something is null
+2020-12-14 10:38:18 ERROR DataProviderCsv:223 - Something is null
+2020-12-14 10:38:18 ERROR DataProviderCsv:144 - Something is null
+2020-12-14 10:38:18 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:38:18 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:38:18 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:38:18 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:38:18 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:38:18 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:38:19 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:38:20 ERROR DataProviderCsv:562 - Something is null
+2020-12-14 10:38:21 ERROR DataProviderCsv:174 - Something is null
+2020-12-14 10:38:21 ERROR DataProviderCsv:182 - Material not founded
+2020-12-14 10:38:22 ERROR DataProviderCsv:250 - Something is null
+2020-12-14 10:38:22 ERROR DataProviderCsv:256 - Customer not founded
+2020-12-14 10:38:22 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:38:22 ERROR DataProviderCsv:652 - Forbidden
+2020-12-14 10:38:22 ERROR DataProviderCsv:593 - Something is null
+2020-12-14 10:38:23 ERROR DataProviderCsv:600 - Fursuit part not founded
+2020-12-14 10:38:23 ERROR DataProviderCsv:718 - Something is empty
+2020-12-14 10:38:24 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:38:24 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:38:25 ERROR DataProviderCsv:431 - Something is null
+2020-12-14 10:38:25 ERROR DataProviderCsv:436 - Project not founded
+2020-12-14 10:38:26 INFO  DataProviderCsvTest:549 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:38:19 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 14 10:38:20 MSK 2020
+Estimate:
+Name	Cost	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:38:19 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:38:19 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Cost	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-14 10:38:26 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:38:27 INFO  DataProviderCsvTest:563 - 4800.0
+2020-12-14 10:38:27 INFO  DataProviderCsvTest:565 - 0.0
+2020-12-14 10:38:27 INFO  DataProviderCsvTest:567 - 1500.0
+2020-12-14 10:38:27 INFO  DataProviderCsvTest:528 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:38:19 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 14 10:38:20 MSK 2020
+Estimate:
+Name	Cost	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-14 10:38:27 INFO  DataProviderCsvTest:531 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:38:19 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-14 10:38:28 INFO  DataProviderCsvTest:534 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:38:19 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Cost	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-14 10:38:28 ERROR DataProviderCsv:771 - Something is empty
+2020-12-14 10:38:28 ERROR DataProviderCsv:798 - Something is empty
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - false
+2020-12-14 10:45:05 DEBUG DataProviderCsvTest:27 - true
+2020-12-14 10:45:05 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:45:05 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-14 10:45:07 ERROR DataProviderCsv:337 - Something is null
+2020-12-14 10:45:07 ERROR DataProviderCsv:223 - Something is null
+2020-12-14 10:45:07 ERROR DataProviderCsv:144 - Something is null
+2020-12-14 10:45:07 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:45:07 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-14 10:45:07 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:45:07 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:45:07 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:45:07 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:45:08 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-14 10:45:09 ERROR DataProviderCsv:562 - Something is null
+2020-12-14 10:45:09 ERROR DataProviderCsv:174 - Something is null
+2020-12-14 10:45:09 ERROR DataProviderCsv:182 - Material not founded
+2020-12-14 10:45:10 ERROR DataProviderCsv:250 - Something is null
+2020-12-14 10:45:10 ERROR DataProviderCsv:256 - Customer not founded
+2020-12-14 10:45:10 ERROR DataProviderCsv:643 - Project not founded
+2020-12-14 10:45:10 ERROR DataProviderCsv:652 - Forbidden
+2020-12-14 10:45:10 ERROR DataProviderCsv:593 - Something is null
+2020-12-14 10:45:10 ERROR DataProviderCsv:600 - Fursuit part not founded
+2020-12-14 10:45:11 ERROR DataProviderCsv:718 - Something is empty
+2020-12-14 10:45:11 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:45:12 ERROR DataProviderCsv:488 - Project not founded
+2020-12-14 10:45:12 ERROR DataProviderCsv:431 - Something is null
+2020-12-14 10:45:12 ERROR DataProviderCsv:436 - Project not founded
+2020-12-14 10:45:13 INFO  DataProviderCsvTest:549 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 14 10:45:09 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-14 10:45:13 ERROR DataProviderCsv:901 - Project not founded
+2020-12-14 10:45:13 INFO  DataProviderCsvTest:563 - 4800.0
+2020-12-14 10:45:13 INFO  DataProviderCsvTest:565 - 0.0
+2020-12-14 10:45:14 INFO  DataProviderCsvTest:567 - 1500.0
+2020-12-14 10:45:14 INFO  DataProviderCsvTest:528 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 14 10:45:09 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-14 10:45:14 INFO  DataProviderCsvTest:531 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-14 10:45:15 INFO  DataProviderCsvTest:534 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-14 10:45:15 ERROR DataProviderCsv:771 - Something is empty
+2020-12-14 10:45:15 ERROR DataProviderCsv:798 - Something is empty
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:51 DEBUG DataProviderCsvTest:25 - false
+2020-12-17 20:36:53 ERROR DataProviderCsv:337 - Something is null
+2020-12-17 20:36:53 ERROR DataProviderCsv:223 - Something is null
+2020-12-17 20:36:53 ERROR DataProviderCsv:144 - Something is null
+2020-12-17 20:36:53 ERROR DataProviderCsv:337 - Something is null
+2020-12-17 20:36:54 ERROR DataProviderCsv:562 - Something is null
+2020-12-17 20:36:54 ERROR DataProviderCsv:562 - Something is null
+2020-12-17 20:36:54 ERROR DataProviderCsv:174 - Something is null
+2020-12-17 20:36:55 ERROR DataProviderCsv:182 - Material not founded
+2020-12-17 20:36:55 ERROR DataProviderCsv:250 - Something is null
+2020-12-17 20:36:55 ERROR DataProviderCsv:256 - Customer not founded
+2020-12-17 20:36:55 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:36:56 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:36:56 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:36:56 ERROR DataProviderCsv:593 - Something is null
+2020-12-17 20:36:56 ERROR DataProviderCsv:600 - Fursuit part not founded
+2020-12-17 20:36:57 ERROR DataProviderCsv:718 - Something is empty
+2020-12-17 20:36:59 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:37:01 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:37:02 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:37:06 ERROR DataProviderCsv:431 - Something is null
+2020-12-17 20:37:07 ERROR DataProviderCsv:436 - Project not founded
+2020-12-17 20:37:08 INFO  DataProviderCsvTest:547 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 14 10:45:09 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+TestMaterial1, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+TestMaterial1, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 20:37:09 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:37:09 INFO  DataProviderCsvTest:561 - 4800.0
+2020-12-17 20:37:09 INFO  DataProviderCsvTest:563 - 0.0
+2020-12-17 20:37:09 INFO  DataProviderCsvTest:565 - 1500.0
+2020-12-17 20:37:10 INFO  DataProviderCsvTest:526 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 14 10:45:09 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+TestMaterial1, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-17 20:37:10 INFO  DataProviderCsvTest:529 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-17 20:37:10 INFO  DataProviderCsvTest:532 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 14 10:45:08 MSK 2020
+Deadline: Tue Dec 15 16:45:00 MSK 2020
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+TestMaterial1, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 20:37:10 ERROR DataProviderCsv:781 - Outgoings not founded
+2020-12-17 20:37:10 ERROR DataProviderCsv:771 - Something is empty
+2020-12-17 20:37:10 ERROR DataProviderCsv:798 - Something is empty
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - false
+2020-12-17 20:39:28 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 20:39:28 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-17 20:39:28 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-17 20:39:30 ERROR DataProviderCsv:337 - Something is null
+2020-12-17 20:39:30 ERROR DataProviderCsv:223 - Something is null
+2020-12-17 20:39:30 ERROR DataProviderCsv:144 - Something is null
+2020-12-17 20:39:30 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-17 20:39:30 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:337 - Something is null
+2020-12-17 20:39:31 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:562 - Something is null
+2020-12-17 20:39:31 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:31 ERROR DataProviderCsv:562 - Something is null
+2020-12-17 20:39:32 ERROR DataProviderCsv:174 - Something is null
+2020-12-17 20:39:32 ERROR DataProviderCsv:182 - Material not founded
+2020-12-17 20:39:32 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:32 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:250 - Something is null
+2020-12-17 20:39:33 ERROR DataProviderCsv:256 - Customer not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:33 INFO  DataProviderCsvTest:549 - 
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:954 - Project not founded
+2020-12-17 20:39:34 INFO  DataProviderCsvTest:563 - 0.0
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:954 - Project not founded
+2020-12-17 20:39:34 INFO  DataProviderCsvTest:565 - 0.0
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:954 - Project not founded
+2020-12-17 20:39:34 INFO  DataProviderCsvTest:567 - 0.0
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:39:34 INFO  DataProviderCsvTest:528 - 
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:39:34 INFO  DataProviderCsvTest:531 - 
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:39:34 INFO  DataProviderCsvTest:534 - 
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:771 - Something is empty
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:771 - Something is empty
+2020-12-17 20:39:34 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:39:34 ERROR DataProviderCsv:798 - Something is empty
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:44:44 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-17 20:44:44 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\customer.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:337 - Something is null
+2020-12-17 20:44:45 ERROR DataProviderCsv:223 - Something is null
+2020-12-17 20:44:45 ERROR DataProviderCsv:144 - Something is null
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\material.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:337 - Something is null
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:562 - Something is null
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:45 ERROR DataProviderCsv:562 - Something is null
+2020-12-17 20:44:46 ERROR DataProviderCsv:174 - Something is null
+2020-12-17 20:44:46 ERROR DataProviderCsv:182 - Material not founded
+2020-12-17 20:44:46 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:46 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:46 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:46 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:250 - Something is null
+2020-12-17 20:44:47 ERROR DataProviderCsv:256 - Customer not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:643 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:488 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:547 - 
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:954 - Project not founded
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:561 - 0.0
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:954 - Project not founded
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:563 - 0.0
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:954 - Project not founded
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:565 - 0.0
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:526 - 
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:529 - 
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:901 - Project not founded
+2020-12-17 20:44:47 INFO  DataProviderXmlTest:532 - 
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:771 - Something is empty
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuit.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\art.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\toy.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:771 - Something is empty
+2020-12-17 20:44:47 ERROR DataProviderCsv:128 - java.io.FileNotFoundException: src\main\resources\data\csv\fursuitpart.csv (Не удается найти указанный файл)
+2020-12-17 20:44:47 ERROR DataProviderCsv:798 - Something is empty
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:49:57 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:50:00 ERROR DataProviderCsv:343 - Something is null
+2020-12-17 20:50:00 ERROR DataProviderCsv:229 - Something is null
+2020-12-17 20:50:00 ERROR DataProviderCsv:150 - Something is null
+2020-12-17 20:50:01 ERROR DataProviderCsv:343 - Something is null
+2020-12-17 20:50:01 ERROR DataProviderCsv:568 - Something is null
+2020-12-17 20:50:02 ERROR DataProviderCsv:568 - Something is null
+2020-12-17 20:50:03 ERROR DataProviderCsv:180 - Something is null
+2020-12-17 20:50:04 ERROR DataProviderCsv:188 - Material not founded
+2020-12-17 20:50:08 ERROR DataProviderCsv:256 - Something is null
+2020-12-17 20:50:08 ERROR DataProviderCsv:262 - Customer not founded
+2020-12-17 20:50:08 ERROR DataProviderCsv:649 - Project not founded
+2020-12-17 20:50:08 ERROR DataProviderCsv:649 - Project not founded
+2020-12-17 20:50:09 ERROR DataProviderCsv:649 - Project not founded
+2020-12-17 20:50:13 ERROR DataProviderCsv:494 - Project not founded
+2020-12-17 20:50:13 ERROR DataProviderCsv:494 - Project not founded
+2020-12-17 20:50:13 ERROR DataProviderCsv:494 - Project not founded
+2020-12-17 20:50:14 INFO  DataProviderXmlTest:547 - 
+2020-12-17 20:50:14 ERROR DataProviderCsv:907 - Project not founded
+2020-12-17 20:50:14 ERROR DataProviderCsv:960 - Project not founded
+2020-12-17 20:50:14 INFO  DataProviderXmlTest:561 - 0.0
+2020-12-17 20:50:14 ERROR DataProviderCsv:960 - Project not founded
+2020-12-17 20:50:14 INFO  DataProviderXmlTest:563 - 0.0
+2020-12-17 20:50:14 ERROR DataProviderCsv:960 - Project not founded
+2020-12-17 20:50:14 INFO  DataProviderXmlTest:565 - 0.0
+2020-12-17 20:50:15 ERROR DataProviderCsv:907 - Project not founded
+2020-12-17 20:50:15 INFO  DataProviderXmlTest:526 - 
+2020-12-17 20:50:15 ERROR DataProviderCsv:907 - Project not founded
+2020-12-17 20:50:15 INFO  DataProviderXmlTest:529 - 
+2020-12-17 20:50:16 ERROR DataProviderCsv:907 - Project not founded
+2020-12-17 20:50:16 INFO  DataProviderXmlTest:532 - 
+2020-12-17 20:50:16 ERROR DataProviderCsv:777 - Something is empty
+2020-12-17 20:50:17 ERROR DataProviderCsv:777 - Something is empty
+2020-12-17 20:50:17 ERROR DataProviderCsv:804 - Something is empty
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:52:00 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:00 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:01 ERROR DataProviderXml:340 - Something is null
+2020-12-17 20:52:01 ERROR DataProviderXml:226 - Something is null
+2020-12-17 20:52:01 ERROR DataProviderXml:147 - Something is null
+2020-12-17 20:52:01 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:01 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:01 ERROR DataProviderXml:340 - Something is null
+2020-12-17 20:52:01 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:01 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:01 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:01 ERROR DataProviderXml:565 - Something is null
+2020-12-17 20:52:02 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:02 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:02 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:02 ERROR DataProviderXml:565 - Something is null
+2020-12-17 20:52:02 ERROR DataProviderXml:177 - Something is null
+2020-12-17 20:52:02 ERROR DataProviderXml:185 - Material not founded
+2020-12-17 20:52:02 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:02 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:253 - Something is null
+2020-12-17 20:52:03 ERROR DataProviderXml:259 - Customer not founded
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:646 - Project not founded
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:646 - Project not founded
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:646 - Project not founded
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:491 - Project not founded
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:03 ERROR DataProviderXml:491 - Project not founded
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:491 - Project not founded
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:547 - 
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:957 - Project not founded
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:561 - 0.0
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:957 - Project not founded
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:563 - 0.0
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:957 - Project not founded
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:565 - 0.0
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:526 - 
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:529 - 
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:52:04 INFO  DataProviderXmlTest:532 - 
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:774 - Something is empty
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:774 - Something is empty
+2020-12-17 20:52:04 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:52:04 ERROR DataProviderXml:801 - Something is empty
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 20:56:21 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 20:56:22 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:22 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:25 ERROR DataProviderXml:340 - Something is null
+2020-12-17 20:56:25 ERROR DataProviderXml:226 - Something is null
+2020-12-17 20:56:25 ERROR DataProviderXml:147 - Something is null
+2020-12-17 20:56:25 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:25 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:25 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:25 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:25 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:25 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:26 ERROR DataProviderXml:100 - org.simpleframework.xml.transform.TransformException: Transform of class ru.sfedu.studyProject.model.Customer not supported
+2020-12-17 20:56:26 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:26 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:26 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:26 ERROR DataProviderXml:565 - Something is null
+2020-12-17 20:56:26 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:26 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:26 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:26 ERROR DataProviderXml:565 - Something is null
+2020-12-17 20:56:27 ERROR DataProviderXml:177 - Something is null
+2020-12-17 20:56:27 ERROR DataProviderXml:185 - Material not founded
+2020-12-17 20:56:27 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:27 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:28 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:28 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:28 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:253 - Something is null
+2020-12-17 20:56:29 ERROR DataProviderXml:259 - Customer not founded
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:646 - Project not founded
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:646 - Project not founded
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:646 - Project not founded
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:29 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:491 - Project not founded
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:491 - Project not founded
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:491 - Project not founded
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:30 INFO  DataProviderXmlTest:547 - 
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:957 - Project not founded
+2020-12-17 20:56:31 INFO  DataProviderXmlTest:561 - 0.0
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:957 - Project not founded
+2020-12-17 20:56:31 INFO  DataProviderXmlTest:563 - 0.0
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:31 ERROR DataProviderXml:957 - Project not founded
+2020-12-17 20:56:31 INFO  DataProviderXmlTest:565 - 0.0
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:31 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:56:32 INFO  DataProviderXmlTest:526 - 
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:56:32 INFO  DataProviderXmlTest:529 - 
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:904 - Project not founded
+2020-12-17 20:56:32 INFO  DataProviderXmlTest:532 - 
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:774 - Something is empty
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:774 - Something is empty
+2020-12-17 20:56:32 ERROR DataProviderXml:131 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1]
+Message: Premature end of file.
+2020-12-17 20:56:32 ERROR DataProviderXml:801 - Something is empty
+2020-12-17 21:04:00 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:04:00 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:04:00 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:04:00 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:04:01 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:04:01 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 21:04:01 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:04:02 ERROR DataProviderXml:350 - Something is null
+2020-12-17 21:04:02 ERROR DataProviderXml:236 - Something is null
+2020-12-17 21:04:02 ERROR DataProviderXml:157 - Something is null
+2020-12-17 21:04:03 ERROR DataProviderXml:110 - org.simpleframework.xml.transform.TransformException: Transform of class ru.sfedu.studyProject.model.Customer not supported
+2020-12-17 21:04:03 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:03 ERROR DataProviderXml:575 - Something is null
+2020-12-17 21:04:03 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:03 ERROR DataProviderXml:575 - Something is null
+2020-12-17 21:04:03 ERROR DataProviderXml:187 - Something is null
+2020-12-17 21:04:03 ERROR DataProviderXml:195 - Material not founded
+2020-12-17 21:04:04 ERROR DataProviderXml:263 - Something is null
+2020-12-17 21:04:04 ERROR DataProviderXml:269 - Customer not founded
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:656 - Project not founded
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:656 - Project not founded
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:656 - Project not founded
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:04 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:553 - 
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:967 - Project not founded
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:567 - 0.0
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:967 - Project not founded
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:569 - 0.0
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:967 - Project not founded
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:571 - 0.0
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:532 - 
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:535 - 
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:04:05 INFO  DataProviderXmlTest:538 - 
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:784 - Something is empty
+2020-12-17 21:04:05 ERROR DataProviderXml:141 - javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,13]
+Message: XML document structures must start and end within the same entity.
+2020-12-17 21:04:05 ERROR DataProviderXml:784 - Something is empty
+2020-12-17 21:04:05 ERROR DataProviderXml:811 - Something is empty
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 21:06:59 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:07:00 ERROR DataProviderXml:350 - Something is null
+2020-12-17 21:07:00 ERROR DataProviderXml:236 - Something is null
+2020-12-17 21:07:00 ERROR DataProviderXml:157 - Something is null
+2020-12-17 21:07:02 ERROR DataProviderXml:575 - Something is null
+2020-12-17 21:07:02 ERROR DataProviderXml:187 - Something is null
+2020-12-17 21:07:02 ERROR DataProviderXml:195 - Material not founded
+2020-12-17 21:07:02 ERROR DataProviderXml:263 - Something is null
+2020-12-17 21:07:03 ERROR DataProviderXml:269 - Customer not founded
+2020-12-17 21:07:03 ERROR DataProviderXml:656 - Project not founded
+2020-12-17 21:07:03 ERROR DataProviderXml:665 - Forbidden
+2020-12-17 21:07:03 ERROR DataProviderXml:606 - Something is null
+2020-12-17 21:07:03 ERROR DataProviderXml:613 - Fursuit part not founded
+2020-12-17 21:07:04 ERROR DataProviderXml:731 - Something is empty
+2020-12-17 21:07:04 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:07:04 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:07:04 ERROR DataProviderXml:444 - Something is null
+2020-12-17 21:07:04 ERROR DataProviderXml:449 - Project not founded
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:553 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:07:00 MSK 2020
+Deadline: Mon Sep 04 10:00:00 MSK 7065
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Thu Dec 17 21:07:01 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:07:01 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:07:01 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 21:07:05 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:567 - 4800.0
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:569 - 0.0
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:571 - 1500.0
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:532 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:07:00 MSK 2020
+Deadline: Mon Sep 04 10:00:00 MSK 7065
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Thu Dec 17 21:07:01 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:535 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:07:01 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-17 21:07:05 INFO  DataProviderXmlTest:538 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:07:01 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 21:07:06 ERROR DataProviderXml:784 - Something is empty
+2020-12-17 21:07:06 ERROR DataProviderXml:811 - Something is empty
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 21:09:13 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:09:15 ERROR DataProviderXml:350 - Something is null
+2020-12-17 21:09:15 ERROR DataProviderXml:236 - Something is null
+2020-12-17 21:09:15 ERROR DataProviderXml:157 - Something is null
+2020-12-17 21:09:16 ERROR DataProviderXml:187 - Something is null
+2020-12-17 21:09:16 ERROR DataProviderXml:195 - Material not founded
+2020-12-17 21:09:17 ERROR DataProviderXml:263 - Something is null
+2020-12-17 21:09:17 ERROR DataProviderXml:269 - Customer not founded
+2020-12-17 21:09:17 ERROR DataProviderXml:656 - Project not founded
+2020-12-17 21:09:18 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:09:19 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:09:19 ERROR DataProviderXml:784 - Something is empty
+2020-12-17 21:09:19 ERROR DataProviderXml:811 - Something is empty
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - false
+2020-12-17 21:13:14 DEBUG DataProviderCsvTest:27 - true
+2020-12-17 21:13:15 ERROR DataProviderCsv:353 - Something is null
+2020-12-17 21:13:15 ERROR DataProviderCsv:239 - Something is null
+2020-12-17 21:13:15 ERROR DataProviderCsv:160 - Something is null
+2020-12-17 21:13:17 ERROR DataProviderCsv:578 - Something is null
+2020-12-17 21:13:18 ERROR DataProviderCsv:190 - Something is null
+2020-12-17 21:13:18 ERROR DataProviderCsv:198 - Material not founded
+2020-12-17 21:13:19 ERROR DataProviderCsv:266 - Something is null
+2020-12-17 21:13:19 ERROR DataProviderCsv:272 - Customer not founded
+2020-12-17 21:13:19 ERROR DataProviderCsv:659 - Project not founded
+2020-12-17 21:13:19 ERROR DataProviderCsv:668 - Forbidden
+2020-12-17 21:13:19 ERROR DataProviderCsv:609 - Something is null
+2020-12-17 21:13:19 ERROR DataProviderCsv:616 - Fursuit part not founded
+2020-12-17 21:13:20 ERROR DataProviderCsv:734 - Something is empty
+2020-12-17 21:13:20 ERROR DataProviderCsv:504 - Project not founded
+2020-12-17 21:13:20 ERROR DataProviderCsv:504 - Project not founded
+2020-12-17 21:13:21 ERROR DataProviderCsv:447 - Something is null
+2020-12-17 21:13:22 ERROR DataProviderCsv:452 - Project not founded
+2020-12-17 21:13:22 INFO  DataProviderCsvTest:551 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:16 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Thu Dec 17 21:13:17 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:17 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:17 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 21:13:22 ERROR DataProviderCsv:917 - Project not founded
+2020-12-17 21:13:23 INFO  DataProviderCsvTest:565 - 4800.0
+2020-12-17 21:13:23 INFO  DataProviderCsvTest:567 - 0.0
+2020-12-17 21:13:23 INFO  DataProviderCsvTest:569 - 1500.0
+2020-12-17 21:13:23 INFO  DataProviderCsvTest:530 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:16 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Thu Dec 17 21:13:17 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-17 21:13:23 INFO  DataProviderCsvTest:533 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:17 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-17 21:13:23 INFO  DataProviderCsvTest:536 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:17 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 21:13:24 ERROR DataProviderCsv:787 - Something is empty
+2020-12-17 21:13:24 ERROR DataProviderCsv:814 - Something is empty
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - false
+2020-12-17 21:13:24 DEBUG DataProviderXmlTest:25 - true
+2020-12-17 21:13:24 ERROR DataProviderXml:350 - Something is null
+2020-12-17 21:13:24 ERROR DataProviderXml:236 - Something is null
+2020-12-17 21:13:24 ERROR DataProviderXml:157 - Something is null
+2020-12-17 21:13:25 ERROR DataProviderXml:575 - Something is null
+2020-12-17 21:13:25 ERROR DataProviderXml:187 - Something is null
+2020-12-17 21:13:25 ERROR DataProviderXml:195 - Material not founded
+2020-12-17 21:13:26 ERROR DataProviderXml:263 - Something is null
+2020-12-17 21:13:26 ERROR DataProviderXml:269 - Customer not founded
+2020-12-17 21:13:26 ERROR DataProviderXml:656 - Project not founded
+2020-12-17 21:13:26 ERROR DataProviderXml:665 - Forbidden
+2020-12-17 21:13:26 ERROR DataProviderXml:606 - Something is null
+2020-12-17 21:13:26 ERROR DataProviderXml:613 - Fursuit part not founded
+2020-12-17 21:13:27 ERROR DataProviderXml:731 - Something is empty
+2020-12-17 21:13:27 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:13:27 ERROR DataProviderXml:501 - Project not founded
+2020-12-17 21:13:28 ERROR DataProviderXml:444 - Something is null
+2020-12-17 21:13:28 ERROR DataProviderXml:449 - Project not founded
+2020-12-17 21:13:28 INFO  DataProviderXmlTest:553 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:24 MSK 2020
+Deadline: Mon Sep 04 10:00:00 MSK 7065
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Thu Dec 17 21:13:25 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:24 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:25 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 21:13:28 ERROR DataProviderXml:914 - Project not founded
+2020-12-17 21:13:28 INFO  DataProviderXmlTest:567 - 4800.0
+2020-12-17 21:13:29 INFO  DataProviderXmlTest:569 - 0.0
+2020-12-17 21:13:29 INFO  DataProviderXmlTest:571 - 1500.0
+2020-12-17 21:13:29 INFO  DataProviderXmlTest:532 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:24 MSK 2020
+Deadline: Mon Sep 04 10:00:00 MSK 7065
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Thu Dec 17 21:13:25 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-17 21:13:29 INFO  DataProviderXmlTest:535 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:24 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-17 21:13:29 INFO  DataProviderXmlTest:538 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Thu Dec 17 21:13:25 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-17 21:13:29 ERROR DataProviderXml:784 - Something is empty
+2020-12-17 21:13:29 ERROR DataProviderXml:811 - Something is empty
+2020-12-17 21:13:29 INFO  Main:22 - OFF
+2020-12-17 21:13:29 INFO  Main:23 - FATAL
+2020-12-17 21:13:29 INFO  Main:24 - ERROR
+2020-12-17 21:13:30 INFO  Main:25 - WARN
+2020-12-17 21:13:30 INFO  Main:26 - INFO
+2020-12-17 21:13:30 INFO  Main:27 - DEBUG
+2020-12-17 21:13:30 INFO  Main:28 - TRACE
+2020-12-17 21:13:30 INFO  Main:29 - ALL
+2020-12-17 21:13:30 INFO  Main:17 - test
+2020-12-17 21:13:30 INFO  Main:39 - First random number is 46 and second is 51
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - true
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - true
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - true
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - true
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - true
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - false
+2020-12-19 15:46:52 DEBUG DataProviderCsvTest:27 - true
+2020-12-19 15:46:54 ERROR DataProviderCsv:353 - Something is null
+2020-12-19 15:46:54 ERROR DataProviderCsv:239 - Something is null
+2020-12-19 15:46:54 ERROR DataProviderCsv:160 - Something is null
+2020-12-19 15:46:58 ERROR DataProviderCsv:578 - Something is null
+2020-12-19 15:46:59 ERROR DataProviderCsv:190 - Something is null
+2020-12-19 15:46:59 ERROR DataProviderCsv:198 - Material not founded
+2020-12-19 15:47:00 ERROR DataProviderCsv:266 - Something is null
+2020-12-19 15:47:00 ERROR DataProviderCsv:272 - Customer not founded
+2020-12-19 15:47:01 ERROR DataProviderCsv:659 - Project not founded
+2020-12-19 15:47:01 ERROR DataProviderCsv:668 - Forbidden
+2020-12-19 15:47:01 ERROR DataProviderCsv:609 - Something is null
+2020-12-19 15:47:01 ERROR DataProviderCsv:616 - Fursuit part not founded
+2020-12-19 15:47:03 ERROR DataProviderCsv:734 - Something is empty
+2020-12-19 15:47:05 ERROR DataProviderCsv:504 - Project not founded
+2020-12-19 15:47:05 ERROR DataProviderCsv:504 - Project not founded
+2020-12-19 15:47:07 ERROR DataProviderCsv:447 - Something is null
+2020-12-19 15:47:08 ERROR DataProviderCsv:452 - Project not founded
+2020-12-19 15:47:09 INFO  DataProviderCsvTest:551 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Sat Dec 19 15:46:56 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Sat Dec 19 15:46:58 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Sat Dec 19 15:46:56 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Sat Dec 19 15:46:57 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-19 15:47:10 ERROR DataProviderCsv:917 - Project not founded
+2020-12-19 15:47:10 INFO  DataProviderCsvTest:565 - 4800.0
+2020-12-19 15:47:10 INFO  DataProviderCsvTest:567 - 0.0
+2020-12-19 15:47:10 INFO  DataProviderCsvTest:569 - 1500.0
+2020-12-19 15:47:12 INFO  DataProviderCsvTest:530 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Sat Dec 19 15:46:56 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Sat Dec 19 15:46:58 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-19 15:47:13 INFO  DataProviderCsvTest:533 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Sat Dec 19 15:46:56 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-19 15:47:13 INFO  DataProviderCsvTest:536 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Sat Dec 19 15:46:57 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-19 15:47:15 ERROR DataProviderCsv:787 - Something is empty
+2020-12-19 15:47:15 ERROR DataProviderCsv:814 - Something is empty
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - true
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - true
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - true
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - true
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - true
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - false
+2020-12-21 02:09:01 DEBUG DataProviderCsvTest:27 - true
+2020-12-21 02:09:04 ERROR DataProviderCsv:353 - Something is null
+2020-12-21 02:09:04 ERROR DataProviderCsv:239 - Something is null
+2020-12-21 02:09:04 ERROR DataProviderCsv:160 - Something is null
+2020-12-21 02:09:07 ERROR DataProviderCsv:578 - Something is null
+2020-12-21 02:09:10 ERROR DataProviderCsv:190 - Something is null
+2020-12-21 02:09:10 ERROR DataProviderCsv:198 - Material not founded
+2020-12-21 02:09:17 ERROR DataProviderCsv:266 - Something is null
+2020-12-21 02:09:17 ERROR DataProviderCsv:272 - Customer not founded
+2020-12-21 02:09:24 ERROR DataProviderCsv:659 - Project not founded
+2020-12-21 02:09:25 ERROR DataProviderCsv:668 - Forbidden
+2020-12-21 02:09:27 ERROR DataProviderCsv:609 - Something is null
+2020-12-21 02:09:27 ERROR DataProviderCsv:616 - Fursuit part not founded
+2020-12-21 02:09:37 ERROR DataProviderCsv:734 - Something is empty
+2020-12-21 02:09:39 ERROR DataProviderCsv:504 - Project not founded
+2020-12-21 02:09:40 ERROR DataProviderCsv:504 - Project not founded
+2020-12-21 02:09:42 ERROR DataProviderCsv:447 - Something is null
+2020-12-21 02:09:43 ERROR DataProviderCsv:452 - Project not founded
+2020-12-21 02:09:44 INFO  DataProviderCsvTest:551 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:06 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 21 02:09:07 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:06 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:06 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-21 02:09:45 ERROR DataProviderCsv:917 - Project not founded
+2020-12-21 02:09:45 INFO  DataProviderCsvTest:565 - 4800.0
+2020-12-21 02:09:45 INFO  DataProviderCsvTest:567 - 0.0
+2020-12-21 02:09:45 INFO  DataProviderCsvTest:569 - 1500.0
+2020-12-21 02:09:45 INFO  DataProviderCsvTest:530 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:06 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 21 02:09:07 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-21 02:09:46 INFO  DataProviderCsvTest:533 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:06 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-21 02:09:46 INFO  DataProviderCsvTest:536 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:06 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-21 02:09:47 ERROR DataProviderCsv:787 - Something is empty
+2020-12-21 02:09:47 ERROR DataProviderCsv:814 - Something is empty
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - true
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - true
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - true
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - true
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - true
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - false
+2020-12-21 02:09:47 DEBUG DataProviderXmlTest:25 - true
+2020-12-21 02:09:48 ERROR DataProviderXml:350 - Something is null
+2020-12-21 02:09:48 ERROR DataProviderXml:236 - Something is null
+2020-12-21 02:09:48 ERROR DataProviderXml:157 - Something is null
+2020-12-21 02:09:49 ERROR DataProviderXml:575 - Something is null
+2020-12-21 02:09:50 ERROR DataProviderXml:187 - Something is null
+2020-12-21 02:09:50 ERROR DataProviderXml:195 - Material not founded
+2020-12-21 02:09:50 ERROR DataProviderXml:263 - Something is null
+2020-12-21 02:09:50 ERROR DataProviderXml:269 - Customer not founded
+2020-12-21 02:09:50 ERROR DataProviderXml:656 - Project not founded
+2020-12-21 02:09:50 ERROR DataProviderXml:665 - Forbidden
+2020-12-21 02:09:51 ERROR DataProviderXml:606 - Something is null
+2020-12-21 02:09:51 ERROR DataProviderXml:613 - Fursuit part not founded
+2020-12-21 02:09:51 ERROR DataProviderXml:731 - Something is empty
+2020-12-21 02:09:52 ERROR DataProviderXml:501 - Project not founded
+2020-12-21 02:09:52 ERROR DataProviderXml:501 - Project not founded
+2020-12-21 02:09:53 ERROR DataProviderXml:444 - Something is null
+2020-12-21 02:09:53 ERROR DataProviderXml:449 - Project not founded
+2020-12-21 02:09:54 INFO  DataProviderXmlTest:553 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:48 MSK 2020
+Deadline: Mon Sep 04 10:00:00 MSK 7065
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 21 02:09:49 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:48 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:48 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-21 02:09:54 ERROR DataProviderXml:914 - Project not founded
+2020-12-21 02:09:54 INFO  DataProviderXmlTest:567 - 4800.0
+2020-12-21 02:09:54 INFO  DataProviderXmlTest:569 - 0.0
+2020-12-21 02:09:54 INFO  DataProviderXmlTest:571 - 1500.0
+2020-12-21 02:09:54 INFO  DataProviderXmlTest:532 - Project type: FURSUIT
+Name: Edited name
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:48 MSK 2020
+Deadline: Mon Sep 04 10:00:00 MSK 7065
+Progress: 0,00
+Fursuit type: DIGIGRADE_FULL
+Fursuit style: KEMONO
+Fursuit parts:
+Part name: Edited part name
+Progress: 0,00
+Date of creation Mon Dec 21 02:09:49 MSK 2020
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 3,20, 4800,00
+Amount: 4800.0
+
+2020-12-21 02:09:54 INFO  DataProviderXmlTest:535 - Project type: ART
+Name: ArtProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:48 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Art type: HEADSHOT
+Art style: STANDARD
+Cost: 0.
+
+2020-12-21 02:09:55 INFO  DataProviderXmlTest:538 - Project type: TOY
+Name: ToyProject name1
+Customer: 
+Name: Edited customer name
+URL: vk.com/id1**
+Phone number: +7 999 11 **
+Payment type: FIFTY_FIFTY
+Date of creation: Mon Dec 21 02:09:48 MSK 2020
+Deadline: Wed Jul 26 20:30:00 MSK 2479
+Progress: 0,00
+Toy type: FUR_TREE
+Toy style: SOLID
+Estimate:
+Name	Price	Quantity	Cost
+edited name, 1500,00, 1,00, 1500,00
+Amount: 1500.0
+
+2020-12-21 02:09:55 ERROR DataProviderXml:784 - Something is empty
+2020-12-21 02:09:55 ERROR DataProviderXml:811 - Something is empty
+2020-12-21 02:09:55 INFO  Main:22 - OFF
+2020-12-21 02:09:55 INFO  Main:23 - FATAL
+2020-12-21 02:09:55 INFO  Main:24 - ERROR
+2020-12-21 02:09:55 INFO  Main:25 - WARN
+2020-12-21 02:09:55 INFO  Main:26 - INFO
+2020-12-21 02:09:55 INFO  Main:27 - DEBUG
+2020-12-21 02:09:55 INFO  Main:28 - TRACE
+2020-12-21 02:09:55 INFO  Main:29 - ALL
+2020-12-21 02:09:55 INFO  Main:17 - test
+2020-12-21 02:09:55 INFO  Main:39 - First random number is 31 and second is 112

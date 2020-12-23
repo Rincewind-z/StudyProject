@@ -1,6 +1,5 @@
 package ru.sfedu.studyProject.DataProviders;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
@@ -17,16 +16,15 @@ import java.util.List;
 import java.util.Optional;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class DataProviderCsvTest {
-
-    private static final Logger log = LogManager.getLogger(DataProviderCsvTest.class);
-    private static final DataProvider dataProvider = new DataProviderCsv();
+public class DataProviderXmlTest {
+    private static final Logger log = LogManager.getLogger(DataProviderXmlTest.class);
+    private static final DataProvider dataProvider = new DataProviderXml();
 
     private static <T> void deleteFile(Class<T> tClass) {
         try {
-            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.XML_PATH)
                     + tClass.getSimpleName().toLowerCase()
-                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).delete());
+                    + ConfigurationUtil.getConfigurationEntry(Constants.XML_FILE_EXTENSION)).delete());
         } catch (IOException e) {
             log.error(e);
         }
@@ -41,13 +39,19 @@ public class DataProviderCsvTest {
         classList.add(Material.class);
         classList.add(Project.class);
         classList.add(Toy.class);
-        classList.forEach(DataProviderCsvTest::deleteFile);
+        classList.forEach(DataProviderXmlTest::deleteFile);
     }
+
+
 
     @BeforeAll
     static void init() {
         deleteAll();
+        DataProviderXml dataProviderXml = new DataProviderXml();
+        dataProviderXml.createFiles();
     }
+
+
 
     @Test
     @Order(0)
@@ -406,13 +410,13 @@ public class DataProviderCsvTest {
     void createProjectSuccess() {
         Assertions.assertTrue(dataProvider.createProject(0,
                 "FurProject name1",
-                new Date(16080399000000L),
+                new Date(160803990000000L),
                 1,
                 FursuitType.MINI_PARTIAL,
                 FursuitStyle.TOONY, PaymentType.FIFTY_FIFTY));
         Assertions.assertTrue(dataProvider.createProject(0,
                 "FurProject name2",
-                new Date(16080399000000L),
+                new Date(160803990000000L),
                 1,
                 FursuitType.DIGIGRADE_FULL,
                 FursuitStyle.KEMONO, PaymentType.FIFTY_FIFTY));

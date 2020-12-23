@@ -2,6 +2,7 @@ package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
+import org.simpleframework.xml.Attribute;
 import ru.sfedu.studyProject.Constants;
 import ru.sfedu.studyProject.enums.MaterialType;
 import ru.sfedu.studyProject.enums.Unit;
@@ -17,23 +18,32 @@ public class Material {
   //
   // Fields
   //
+  @Attribute
   @CsvBindByName
   private long userId;
+  @Attribute
   @CsvBindByName
   private long id;
+  @Attribute
   @CsvBindByName
   @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
+  @Attribute
   @CsvBindByName
   private String materialName;
+  @Attribute
   @CsvBindByName
   private MaterialType materialType;
+  @Attribute
   @CsvBindByName
   private Float cost;
+  @Attribute
   @CsvBindByName
   private String description;
+  @Attribute
   @CsvBindByName
   private Unit unit;
+  @Attribute
   @CsvBindByName
   private float inStock;
   

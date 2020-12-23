@@ -2,6 +2,8 @@ package ru.sfedu.studyProject.model;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.ElementList;
 import ru.sfedu.studyProject.Converters.FursuitPartListConverter;
 import ru.sfedu.studyProject.enums.FursuitStyle;
 import ru.sfedu.studyProject.enums.FursuitType;
@@ -18,10 +20,13 @@ public class Fursuit extends Project {
   // Fields
   //
 
+  @Attribute
   @CsvBindByName
   private FursuitType fursuitType;
+  @ElementList
   @CsvCustomBindByName(converter = FursuitPartListConverter.class)
   private List<FursuitPart> partList;
+  @Attribute
   @CsvBindByName
   private FursuitStyle fursuitStyle;
   

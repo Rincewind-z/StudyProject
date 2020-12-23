@@ -15,6 +15,7 @@ import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -60,7 +61,7 @@ public class DataProviderCsv implements DataProvider {
 
     private long getNextProjectId(){
         List<Project> objectList = new ArrayList<>();
-         objectList.addAll(readFromCsv(Fursuit.class));
+        objectList.addAll(readFromCsv(Fursuit.class));
         objectList.addAll(readFromCsv(Art.class));
         objectList.addAll(readFromCsv(Toy.class));
         long maxId = -1;

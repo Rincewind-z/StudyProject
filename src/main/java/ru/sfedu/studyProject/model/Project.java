@@ -3,6 +3,8 @@ package ru.sfedu.studyProject.model;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 import com.opencsv.bean.CsvDate;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 import ru.sfedu.studyProject.Constants;
 import ru.sfedu.studyProject.Converters.CustomerConverter;
 import ru.sfedu.studyProject.enums.PaymentType;
@@ -19,24 +21,33 @@ abstract public class Project {
   //
   // Fields
   //
+  @Attribute
   @CsvBindByName
   private long userId;
+  @Attribute
   @CsvBindByName
   private long id;
+  @Element
   @CsvCustomBindByName(converter = CustomerConverter.class)
   private Customer customer;
+  @Attribute
   @CsvBindByName
   @CsvDate(value = Constants.DATE_FORMAT)
   private Date dateOfCreation;
+  @Attribute
   @CsvBindByName
   @CsvDate(value = Constants.DATE_FORMAT)
   private Date deadline;
+  @Attribute
   @CsvBindByName
   private String name;
+  @Attribute
   @CsvBindByName
   private float progress;
+  @Attribute
   @CsvBindByName
   private PaymentType paymentType;
+  @Attribute
   @CsvBindByName
   private ProjectType projectType;
   
