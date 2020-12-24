@@ -38,7 +38,7 @@ public class DataProviderCsv implements DataProvider {
 
     private long getNextFursuitPartId(){
         List<FursuitPart> objectList = readFromCsv(FursuitPart.class);
-        long maxId = -1;
+        long maxId = 0;
         for (FursuitPart fursuitPart : objectList) {
             if (maxId < fursuitPart.getId()) {
                 maxId = fursuitPart.getId();

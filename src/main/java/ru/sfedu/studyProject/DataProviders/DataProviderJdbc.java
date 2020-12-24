@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.*;
 
 public class DataProviderJdbc implements DataProvider {
-  private static final Logger log = LogManager.getLogger(DataProviderCsv.class);
+  private static final Logger log = LogManager.getLogger(DataProviderJdbc.class);
   private static final DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT);
   private static DataProviderJdbc instance;
   private Connection connection;
@@ -92,7 +92,6 @@ public class DataProviderJdbc implements DataProvider {
       return -1;
     }
   }
-
 
   @Override
   public boolean createMaterial(long userId,
@@ -322,36 +321,6 @@ public class DataProviderJdbc implements DataProvider {
     }
   }
 
-
-  private boolean setBasicProject(Project project,
-                                  long userId,
-                                  String projectName,
-                                  long customerId,
-                                  Date deadline,
-                                  PaymentType paymentType,
-                                  ProjectType projectType) {
-    try {
-      Optional<Customer> optionalCustomer = getCustomer(userId, customerId);
-      if (optionalCustomer.isEmpty()){
-        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
-        return false;
-      }
-      project.setId(getNextProjectId());
-      project.setUserId(userId);
-      project.setName(projectName);
-      project.setDateOfCreation(new Date(System.currentTimeMillis()));
-      project.setCustomer(optionalCustomer.get());
-      project.setDeadline(deadline);
-      project.setProjectType(projectType);
-      project.setPaymentType(paymentType);
-      project.setProgress(0);
-      return true;
-    } catch (IOException e) {
-      log.error(e);
-      return false;
-    }
-  }
-
   @Override
   public boolean createProject(long userId,
                                String projectName,
@@ -405,7 +374,8 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.ART (USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, ART_TYPE, ART_STYLE) VALUES (%d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d)",
+      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.ART (ID, USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, ART_TYPE, ART_STYLE, COST) VALUES (%d, %d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d, %.2f)",
+              getNextProjectId(),
               userId,
               customerId,
               dateFormat.format(deadline),
@@ -414,7 +384,8 @@ public class DataProviderJdbc implements DataProvider {
               paymentType.ordinal(),
               ProjectType.ART.ordinal(),
               artType.ordinal(),
-              artStyle.ordinal()));
+              artStyle.ordinal(),
+              cost));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -489,11 +460,33 @@ public class DataProviderJdbc implements DataProvider {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
             return false;
           }
-          return saveProject(Fursuit.class, editedFursuit);
+          return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.FURSUIT t SET t.CUSTOMER = %d, t.DEADLINE = parsedatetime ('%s', '%s'), t.NAME = '%s', t.PROGRESS = %f, t.PAYMENT_TYPE = %d, t.FURSUIT_TYPE = %d, t.FURSUIT_STYLE = %d WHERE t.ID = %d and t.USER_ID = %d",
+                  editedFursuit.getCustomer().getId(),
+                  dateFormat.format(editedFursuit.getDeadline()),
+                  Constants.DATE_FORMAT,
+                  editedFursuit.getName(),
+                  editedFursuit.getProgress(),
+                  editedFursuit.getPaymentType().ordinal(),
+                  editedFursuit.getFursuitType().ordinal(),
+                  editedFursuit.getFursuitStyle().ordinal(),
+                  editedFursuit.getId(),
+                  editedFursuit.getUserId()));
         }
 
         case ART -> {
-          return saveProject(Art.class,(Art) editedProject);
+          Art art = (Art) editedProject;
+          return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.ART t SET t.CUSTOMER = %d, t.DEADLINE = parsedatetime ('%s', '%s'), t.NAME = '%s', t.PROGRESS = %f, t.PAYMENT_TYPE = %d, t.ART_TYPE = %d, t.ART_STYLE = %d, t.COST = %f WHERE t.ID = %d and t.USER_ID = %d",
+                  art.getCustomer().getId(),
+                  dateFormat.format(art.getDeadline()),
+                  Constants.DATE_FORMAT,
+                  art.getName(),
+                  art.getProgress(),
+                  art.getPaymentType().ordinal(),
+                  art.getArtType().ordinal(),
+                  art.getArtStyle().ordinal(),
+                  art.getCost(),
+                  art.getId(),
+                  art.getUserId()));
         }
 
         case TOY -> {
@@ -503,7 +496,17 @@ public class DataProviderJdbc implements DataProvider {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
             return false;
           }
-          return saveProject(Toy.class, editedToy);
+          return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.TOY t SET t.CUSTOMER = %d, t.DEADLINE = parsedatetime ('%s', '%s'), t.NAME = '%s', t.PROGRESS = %f, t.PAYMENT_TYPE = %d, t.TOY_STYLE = %d, t.TOY_TYPE = %d WHERE t.ID = %d and t.USER_ID = %d",
+                  editedToy.getCustomer().getId(),
+                  dateFormat.format(editedToy.getDeadline()),
+                  Constants.DATE_FORMAT,
+                  editedToy.getName(),
+                  editedToy.getProgress(),
+                  editedToy.getPaymentType().ordinal(),
+                  editedToy.getToyStyle().ordinal(),
+                  editedToy.getToyType().ordinal(),
+                  editedToy.getId(),
+                  editedToy.getUserId()));
         }
       }
       return false;
@@ -527,15 +530,19 @@ public class DataProviderJdbc implements DataProvider {
       }
       switch (optionalProject.get().getProjectType()) {
         case FURSUIT -> {
-          Fursuit fursuit = (Fursuit) optionalProject.get();
-          fursuit.getPartList().forEach(fursuitPart -> deleteFursuitPart(userId, projectId, fursuitPart.getId()));
-          return deleteProject(Fursuit.class, fursuit);
+          return executesRequest(String.format("DELETE FROM FURSUIT WHERE USER_ID = %d and ID = %d",
+                  userId,
+                  projectId));
         }
         case ART -> {
-          return deleteProject(Art.class, (Art) optionalProject.get());
+          return executesRequest(String.format("DELETE FROM ART WHERE USER_ID = %d and ID = %d",
+                  userId,
+                  projectId));
         }
-        case TOY ->{
-          return deleteProject(Toy.class, (Toy) optionalProject.get());
+        case TOY -> {
+          return executesRequest(String.format("DELETE FROM TOY WHERE USER_ID = %d and ID = %d",
+                  userId,
+                  projectId));
         }
       }
       return false;
@@ -543,12 +550,6 @@ public class DataProviderJdbc implements DataProvider {
       log.error(e);
       return false;
     }
-  }
-
-  private <T extends Project> boolean deleteProject(Class<T> tClass, T project) {
-    List<T> projectList = readFromCsv(tClass);
-    projectList.removeIf(tProject -> tProject.getId() == project.getId());
-    return writeToCsv(tClass, projectList, true);
   }
 
   private Art setArt(ResultSet resultSet) {
@@ -677,10 +678,38 @@ public class DataProviderJdbc implements DataProvider {
   //SELECT * FROM TOY WHERE ID = %d and USER_ID = %d
   @Override
   public Optional<Project> getProject(long userId, long projectId) {
-    List<Project> projectList = getProject(userId);
-    return projectList.stream()
-            .filter(project -> project.getId() == projectId)
-            .findAny();
+    try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM ART WHERE USER_ID = %d and ID = %d",
+              userId,
+              projectId));
+      if (resultSet.next()) {
+        Art art = setArt(resultSet);
+        statement.close();
+        return Optional.of(art);
+      }
+      resultSet = statement.executeQuery(String.format("SELECT * FROM FURSUIT WHERE USER_ID = %d and ID = %d",
+              userId,
+              projectId));
+      if (resultSet.next()) {
+        Fursuit fursuit = setFursuit(resultSet);
+        statement.close();
+        return Optional.of(fursuit);
+      }
+      resultSet = statement.executeQuery(String.format("SELECT * FROM TOY WHERE USER_ID = %d and ID = %d",
+              userId,
+              projectId));
+      if (resultSet.next()) {
+        Toy toy = setToy(resultSet);
+        statement.close();
+        return Optional.of(toy);
+      }
+      statement.close();
+      return Optional.empty();
+    } catch (SQLException e) {
+      log.error(e);
+      return Optional.empty();
+    }
   }
 
   //SELECT * FROM ART WHERE USER_ID = %d
@@ -688,34 +717,33 @@ public class DataProviderJdbc implements DataProvider {
   //SELECT * FROM TOY WHERE USER_ID = %d
   @Override
   public List<Project> getProject(long userId) {
-    List<Project> projectList = new ArrayList<>();
-    projectList.addAll(readFromCsv(Fursuit.class));
-    projectList.addAll(readFromCsv(Art.class));
-    projectList.addAll(readFromCsv(Toy.class));
-    projectList = projectList.stream()
-            .filter(customer -> customer.getUserId() == userId)
-            .collect(Collectors.toList());
-    projectList.forEach(project -> {
-      project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
-      switch (project.getProjectType()) {
-        case FURSUIT -> {
-          Fursuit fursuit = (Fursuit) project;
-          List<FursuitPart> fursuitPartList = new ArrayList<>();
-          fursuit.getPartList().forEach(fursuitPart ->
-                  fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
-          fursuit.setPartList(fursuitPartList);
-        }
-        case TOY -> {
-          Toy toy = (Toy) project;
-          Map<Material, Double> materialMap = new HashMap<>();
-          toy.getOutgoings().forEach((material, aDouble) ->
-                  materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
-          toy.setOutgoings(materialMap);
-        }
-
+    try {
+      List<Project> projectList = new ArrayList<>();
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM ART WHERE USER_ID = %d",
+              userId));
+      while (resultSet.next()) {
+        Art art = setArt(resultSet);
+        projectList.add(art);
       }
-    });
-    return projectList;
+      resultSet = statement.executeQuery(String.format("SELECT * FROM FURSUIT WHERE USER_ID = %d",
+              userId));
+      while (resultSet.next()) {
+        Fursuit fursuit = setFursuit(resultSet);
+        projectList.add(fursuit);
+      }
+      resultSet = statement.executeQuery(String.format("SELECT * FROM TOY WHERE USER_ID = %d",
+              userId));
+      if (resultSet.next()) {
+        Toy toy = setToy(resultSet);
+        projectList.add(toy);
+      }
+      statement.close();
+      return projectList;
+    } catch (SQLException e) {
+      log.error(e);
+      return new ArrayList<>();
+    }
   }
 
   //INSERT INTO PUBLIC.FURSUIT_PART (USER_ID, DATE_OF_CREATION, NAME, PROGRESS, PROJECT_ID) VALUES (12, DEFAULT, 'awd', 12, 0)
@@ -750,7 +778,6 @@ public class DataProviderJdbc implements DataProvider {
         return false;
       }
 
-      List<FursuitPart> fursuitPartsList = readFromCsv(FursuitPart.class);
       Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, editedFursuitPart.getId());
       if (optFursuitPart.isEmpty()) {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FURSUIT_PART_NOT_FOUNDED));
@@ -762,10 +789,10 @@ public class DataProviderJdbc implements DataProvider {
         return false;
       }
 
-      fursuitPartsList.remove(optFursuitPart.get());
-      fursuitPartsList.add(editedFursuitPart);
-      writeToCsv(FursuitPart.class, fursuitPartsList, true);
-      return true;
+      return (executesRequest(String.format(Locale.ENGLISH, "Update public.FURSUIT_PART t set t.NAME = '%s', t.PROGRESS = 0.0 where t.ID = %d and t.USER_ID = %d",
+              editedFursuitPart.getName(),
+              editedFursuitPart.getId(),
+              editedFursuitPart.getUserId())));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -776,7 +803,6 @@ public class DataProviderJdbc implements DataProvider {
   @Override
   public boolean deleteFursuitPart(long userId, long projectId, long partId) {
     try {
-      List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
       Optional<Project> optionalFursuit = getProject(userId, projectId);
       if (optionalFursuit.isEmpty()) {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
@@ -819,50 +845,42 @@ public class DataProviderJdbc implements DataProvider {
 
   // SELECT * FROM PUBLIC.FURSUIT_PART WHERE ID = 3 AND USER_ID = 123
   @Override
-  public Optional<FursuitPart> getFursuitPart (long userId, long id) {
-    List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
-    Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream()
-            .filter(fursuitPart -> fursuitPart.getId() == id && fursuitPart.getUserId() == userId)
-            .findAny();
-    if (optionalFursuitPart.isEmpty()) {
+  public Optional<FursuitPart> getFursuitPart(long userId, long id) {
+    try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM  PUBLIC.FURSUIT_PART WHERE USER_ID = %d and ID = %d",
+              userId,
+              id));
+      if (resultSet.next()) {
+        FursuitPart fursuitPart = setFursuitPart(resultSet);
+        statement.close();
+        return Optional.of(fursuitPart);
+      }
+      statement.close();
+      return Optional.empty();
+    } catch (SQLException e) {
+      log.error(e);
       return Optional.empty();
     }
-
-    Map<Material, Double> outgoingMap = new HashMap<>();
-    FursuitPart fursuitPart = optionalFursuitPart.get();
-
-    fursuitPart.getOutgoings().forEach((material, aDouble) -> {
-      Optional<Material> optMaterial = getMaterial(userId, material.getId());
-      if (optMaterial.isEmpty()) {
-        return;
-      }
-      outgoingMap.put(optMaterial.get(), aDouble);
-    });
-    fursuitPart.setOutgoings(outgoingMap);
-    return Optional.of(fursuitPart);
   }
 
   // SELECT * FROM PUBLIC.FURSUIT_PART WHERE USER_ID = 123
   @Override
   public List<FursuitPart> getFursuitPart (long userId) {
-    List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
-    fursuitPartList = fursuitPartList.stream()
-            .filter(fursuitPart -> fursuitPart.getUserId() == userId)
-            .collect(Collectors.toList());
-
-    Map<Material, Double> outgoingMap = new HashMap<>();
-    fursuitPartList.forEach(fursuitPart -> {
-      fursuitPart.getOutgoings().forEach((material, aDouble) -> {
-        Optional<Material> optMaterial = getMaterial(userId, material.getId());
-        if (optMaterial.isEmpty()) {
-          return;
-        }
-        outgoingMap.put(optMaterial.get(), aDouble);
-      });
-      fursuitPart.setOutgoings(outgoingMap);
-    });
-
-    return fursuitPartList;
+    try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("Select * from PUBLIC.FURSUIT_PART where USER_ID = %d",
+              userId));
+      List<FursuitPart> fursuitPartList = new ArrayList<>();
+      while (resultSet.next()) {
+        fursuitPartList.add(setFursuitPart(resultSet));
+      }
+      statement.close();
+      return fursuitPartList;
+    } catch (SQLException e) {
+      log.error(e);
+      return new ArrayList<>();
+    }
   }
 
   //MERGE INTO PUBLIC.FURSUIT_PART_OUTGOINGS (FURSUIT_PART_ID, MATERIAL_ID, AMOUNT) VALUES (4, 2, 112)
@@ -884,7 +902,6 @@ public class DataProviderJdbc implements DataProvider {
       return false;
     }
   }
-
 
   //MERGE INTO PUBLIC.TOY_OUTGOINGS (TOY_ID, MATERIAL_ID, AMOUNT) VALUES (4, 2, 112)
   @Override
@@ -924,14 +941,9 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
-      Toy toy = (Toy) optionalToy.get();
-      Material material = optMaterial.get();
-      if (!toy.getOutgoings().containsKey(material)) {
-        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_OUTGOINGS_NOT_FOUNDED));
-        return false;
-      }
-      toy.getOutgoings().remove(material);
-      return saveProject(Toy.class, toy);
+      return executesRequest(String.format("DELETE FROM PUBLIC.TOY_OUTGOINGS WHERE TOY_ID = %d AND MATERIAL_ID = %d",
+              toyId,
+              materialId));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -954,8 +966,9 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_OUTGOINGS_NOT_FOUNDED));
         return false;
       }
-      fursuitPart.getOutgoings().remove(material);
-      return saveFursuitPart(userId, fursuitPart);
+      return executesRequest(String.format("DELETE FROM PUBLIC.FURSUIT_PART_OUTGOINGS WHERE FURSUIT_PART_ID = %d AND MATERIAL_ID = %d",
+              fursuitPartId,
+              materialId));
     } catch (IOException e) {
       log.error(e);
       return false;

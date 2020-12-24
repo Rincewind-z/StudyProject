@@ -20,6 +20,8 @@ public class DataProviderXmlTest {
     private static final Logger log = LogManager.getLogger(DataProviderXmlTest.class);
     private static final DataProvider dataProvider = new DataProviderXml();
 
+    private static final long userId = 0;
+
     private static <T> void deleteFile(Class<T> tClass) {
         try {
             log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.XML_PATH)
@@ -42,16 +44,12 @@ public class DataProviderXmlTest {
         classList.forEach(DataProviderXmlTest::deleteFile);
     }
 
-
-
     @BeforeAll
     static void init() {
         deleteAll();
         DataProviderXml dataProviderXml = new DataProviderXml();
         dataProviderXml.createFiles();
     }
-
-
 
     @Test
     @Order(0)
@@ -624,6 +622,13 @@ public class DataProviderXmlTest {
         projectCost = dataProvider.calculateProjectCost(userId, 1);
         log.info(projectCost);
         projectCost = dataProvider.calculateProjectCost(userId, 2);
+        log.info(projectCost);
+    }
+
+    @Test
+    @Order(8)
+    void calculateProjectCostFailed() {
+        double projectCost = dataProvider.calculateProjectCost(userId, 9);
         log.info(projectCost);
     }
 }

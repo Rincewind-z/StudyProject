@@ -4,8 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
 import ru.sfedu.studyProject.enums.*;
-import ru.sfedu.studyProject.model.Customer;
-import ru.sfedu.studyProject.model.Material;
+import ru.sfedu.studyProject.model.*;
 
 import java.util.Date;
 import java.util.List;
@@ -16,6 +15,8 @@ public class DataProviderJdbcTest {
 
   private static final Logger log = LogManager.getLogger(DataProviderJdbcTest.class);
   private static final DataProvider dataProvider = DataProviderJdbc.getInstance();
+
+  private static final long userId = 0;
 
   @BeforeAll
   static void test() {

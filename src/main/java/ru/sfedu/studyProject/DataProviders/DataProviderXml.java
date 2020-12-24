@@ -388,6 +388,7 @@ public class DataProviderXml implements DataProvider {
             project.setArtStyle(artStyle);
             project.setArtType(artType);
             project.setPaymentType(paymentType);
+            project.setCost(cost);
             return writeToXml(project);
         } catch (IOException e) {
             log.error(e);
