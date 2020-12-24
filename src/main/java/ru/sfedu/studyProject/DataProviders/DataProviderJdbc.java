@@ -11,9 +11,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
 import java.util.Date;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class DataProviderJdbc implements DataProvider {
   private static final Logger log = LogManager.getLogger(DataProviderCsv.class);
@@ -21,29 +20,31 @@ public class DataProviderJdbc implements DataProvider {
   private static DataProviderJdbc instance;
   private Connection connection;
 
-  public static DataProviderJdbc getInstance(){
-    if (instance == null){
+  private DataProviderJdbc() {
+    connect();
+  }
+
+  public static DataProviderJdbc getInstance() {
+    if (instance == null) {
       instance = new DataProviderJdbc();
     }
     return instance;
   }
 
-  private DataProviderJdbc(){
-    connect();
-  }
-
-
-  private void connect(){
+  //
+  private void connect() {
     try {
       Class.forName("org.h2.Driver");
+      //connection = DriverManager.getConnection("jdbc:h2:file:Z:\\projects\\asya\\src\\main\\resources\\data\\db");
       connection = DriverManager.getConnection("jdbc:h2:mem:calculator");
     } catch (ClassNotFoundException | SQLException e) {
       log.error(e);
     }
   }
 
-  private boolean executesRequest(String request){
+  private boolean executesRequest(String request) {
     try {
+      log.debug(request);
       Statement statement = connection.createStatement();
       statement.executeUpdate(request);
       statement.close();
@@ -56,14 +57,15 @@ public class DataProviderJdbc implements DataProvider {
   }
 
   public boolean setDB(){
+    //language=H2
     return executesRequest("create table if not exists CUSTOMER( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, NAME VARCHAR not null, URL VARCHAR not null, PHONE_NUMBER VARCHAR not null, constraint CUSTOMER_PK primary key (ID));")
-    && executesRequest("create table if not exists MATERIAL( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, MATERIAL_NAME VARCHAR not null, MATERIAL_TYPE INT not null, COST FLOAT not null, DESCRIPTION VARCHAR not null, UNIT INT not null, IN_STOCK FLOAT not null, constraint MATERIAL_PK primary key (ID));")
-    && executesRequest("create table if not exists ART( ID LONG auto_increment, USER_ID LONG not null, CUSTOMER LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, DEADLINE TIMESTAMP not null, NAME VARCHAR not null, PROGRESS FLOAT not null, PAYMENT_TYPE INT not null, PROJECT_TYPE INT not null, ART_TYPE INT not null, ART_STYLE INT not null, constraint ART_PK primary key (ID), constraint ART_CUSTOMER_ID_FK foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade);")
-    && executesRequest("create table if not exists FURSUIT( ID LONG auto_increment, USER_ID LONG not null, CUSTOMER LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, DEADLINE TIMESTAMP not null, NAME VARCHAR not null, PROGRESS FLOAT not null, PAYMENT_TYPE INT not null, PROJECT_TYPE INT not null, FURSUIT_TYPE INT not null, FURSUIT_STYLE INT not null, constraint FURSUIT_PK primary key (ID), constraint FURSUIT_CUSTOMER_ID_FK foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade);")
-    && executesRequest("create table if not exists FURSUIT_PART( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, NAME VARCHAR, PROGRESS FLOAT not null, PROJECT_ID LONG not null, constraint FURSUIT_PART_PK primary key (ID), constraint FURSUIT_PART_FURSUIT_ID_FK foreign key (PROJECT_ID) references FURSUIT (ID) on update cascade on delete cascade);")
-    && executesRequest("create table if not exists FURSUIT_PART_OUTGOINGS( FURSUIT_PART_ID LONG not null, MATERIAL_ID LONG not null, AMOUNT DOUBLE not null, constraint FURSUIT_PART_OUTGOINGS_PK primary key (FURSUIT_PART_ID, MATERIAL_ID), constraint FURSUIT_PART_OUTGOINGS_FURSUIT_PART_ID_FK foreign key (FURSUIT_PART_ID) references FURSUIT_PART (ID) on update cascade on delete cascade, constraint FURSUIT_PART_OUTGOINGS_MATERIAL_ID_FK foreign key (MATERIAL_ID) references MATERIAL (ID) on update cascade on delete cascade);")
-    && executesRequest("create table if not exists TOY (  ID LONG auto_increment,  USER_ID LONG not null,  CUSTOMER LONG not null,  DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null,  DEADLINE TIMESTAMP not null,  NAME VARCHAR not null,  PROGRESS FLOAT not null,  PAYMENT_TYPE INT,  PROJECT_TYPE INT not null,  TOY_STYLE INT not null,  TOY_TYPE INT not null,  constraint TOY_PK  primary key (ID),  constraint TOY_CUSTOMER_ID_FK  foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade ); ")
-    && executesRequest("create table if not exists TOY_OUTGOINGS( TOY_ID LONG not null, MATERIAL_ID LONG not null, AMOUNT DOUBLE not null, constraint TOY_OUTGOINGS_PK primary key (TOY_ID, MATERIAL_ID), constraint TOY_OUTGOINGS_MATERIAL_ID_FK foreign key (MATERIAL_ID) references MATERIAL (ID) on update cascade on delete cascade, constraint TOY_OUTGOINGS_TOY_ID_FK foreign key (TOY_ID) references TOY (ID) on update cascade on delete cascade);");
+            && executesRequest("create table if not exists MATERIAL( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, MATERIAL_NAME VARCHAR not null, MATERIAL_TYPE INT not null, COST FLOAT not null, DESCRIPTION VARCHAR not null, UNIT INT not null, IN_STOCK FLOAT not null, constraint MATERIAL_PK primary key (ID));")
+            && executesRequest("create table if not exists ART( ID LONG auto_increment, USER_ID LONG not null, CUSTOMER LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, DEADLINE TIMESTAMP not null, NAME VARCHAR not null, PROGRESS FLOAT not null, PAYMENT_TYPE INT not null, PROJECT_TYPE INT not null, ART_TYPE INT not null, ART_STYLE INT not null, COST DOUBLE not null, constraint ART_PK primary key (ID), constraint ART_CUSTOMER_ID_FK foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade);")
+            && executesRequest("create table if not exists FURSUIT( ID LONG auto_increment, USER_ID LONG not null, CUSTOMER LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, DEADLINE TIMESTAMP not null, NAME VARCHAR not null, PROGRESS FLOAT not null, PAYMENT_TYPE INT not null, PROJECT_TYPE INT not null, FURSUIT_TYPE INT not null, FURSUIT_STYLE INT not null, constraint FURSUIT_PK primary key (ID), constraint FURSUIT_CUSTOMER_ID_FK foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade);")
+            && executesRequest("create table if not exists FURSUIT_PART( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, NAME VARCHAR, PROGRESS FLOAT not null, PROJECT_ID LONG not null, constraint FURSUIT_PART_PK primary key (ID), constraint FURSUIT_PART_FURSUIT_ID_FK foreign key (PROJECT_ID) references FURSUIT (ID) on update cascade on delete cascade);")
+            && executesRequest("create table if not exists FURSUIT_PART_OUTGOINGS( FURSUIT_PART_ID LONG not null, MATERIAL_ID LONG not null, AMOUNT DOUBLE not null, constraint FURSUIT_PART_OUTGOINGS_PK primary key (FURSUIT_PART_ID, MATERIAL_ID), constraint FURSUIT_PART_OUTGOINGS_FURSUIT_PART_ID_FK foreign key (FURSUIT_PART_ID) references FURSUIT_PART (ID) on update cascade on delete cascade, constraint FURSUIT_PART_OUTGOINGS_MATERIAL_ID_FK foreign key (MATERIAL_ID) references MATERIAL (ID) on update cascade on delete cascade);")
+            && executesRequest("create table if not exists TOY (  ID LONG auto_increment,  USER_ID LONG not null,  CUSTOMER LONG not null,  DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null,  DEADLINE TIMESTAMP not null,  NAME VARCHAR not null,  PROGRESS FLOAT not null,  PAYMENT_TYPE INT,  PROJECT_TYPE INT not null,  TOY_STYLE INT not null,  TOY_TYPE INT not null,  constraint TOY_PK  primary key (ID),  constraint TOY_CUSTOMER_ID_FK  foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade ); ")
+            && executesRequest("create table if not exists TOY_OUTGOINGS( TOY_ID LONG not null, MATERIAL_ID LONG not null, AMOUNT DOUBLE not null, constraint TOY_OUTGOINGS_PK primary key (TOY_ID, MATERIAL_ID), constraint TOY_OUTGOINGS_MATERIAL_ID_FK foreign key (MATERIAL_ID) references MATERIAL (ID) on update cascade on delete cascade, constraint TOY_OUTGOINGS_TOY_ID_FK foreign key (TOY_ID) references TOY (ID) on update cascade on delete cascade);");
   }
 
   public boolean dropDB(){
@@ -77,54 +79,14 @@ public class DataProviderJdbc implements DataProvider {
             && executesRequest("drop table if exists TOY_OUTGOINGS;");
   }
 
-  private <T> List<T> readFromCsv(Class<T> tClass) {
-    return new ArrayList<>();
-  }
-
-  private <T> boolean writeToCsv(T t){
-    return false;
-  }
-
-  private <T> boolean writeToCsv(Class<T> materialClass, List<T> materialList, boolean bdw) {
-    return false;
-  }
-
-  private long getNextFursuitPartId(){
-    try {
-      Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT MAX(ID) AS MAX_ID FROM FURSUIT_PART GROUP BY ID");
-      if(resultSet.next()){
-        return resultSet.getLong("MAX_ID") + 1;
-      }
-      return 0;
-    } catch (SQLException e) {
-      log.error(e);
-      return -1;
-    }
-  }
-
-  private long getNextCustomerId(){
-    try {
-      Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT MAX(ID) AS MAX_ID FROM CUSTOMER GROUP BY ID");
-      if(resultSet.next()){
-        return resultSet.getLong("MAX_ID") + 1;
-      }
-      return 0;
-    } catch (SQLException e) {
-      log.error(e);
-      return -1;
-    }
-  }
-
   private long getNextProjectId(){
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT MAX(ID) AS MAX_ID FROM ((SELECT id from ART) union (select id from TOY) union (select id from FURSUIT)) group by id");
+      ResultSet resultSet = statement.executeQuery("SELECT max(id) as MAX_ID FROM ((SELECT id from ART) union (select id from TOY) union (select id from FURSUIT));");
       if(resultSet.next()){
         return resultSet.getLong("MAX_ID") + 1;
       }
-      return 0;
+      return 1;
     } catch (SQLException e) {
       log.error(e);
       return -1;
@@ -176,7 +138,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
         return false;
       }
-      if(executesRequest(String.format(Locale.ENGLISH,"UPDATE PUBLIC.MATERIAL t SET t.MATERIAL_NAME = '%s', t.MATERIAL_TYPE = %d, t.COST = %.2f, t.DESCRIPTION = '%s', t.UNIT = %d, t.IN_STOCK = %.2f WHERE t.ID = %d and t.USER_ID = %d",
+      return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.MATERIAL t SET t.MATERIAL_NAME = '%s', t.MATERIAL_TYPE = %d, t.COST = %.2f, t.DESCRIPTION = '%s', t.UNIT = %d, t.IN_STOCK = %.2f WHERE t.ID = %d and t.USER_ID = %d",
               editMaterial.getName(),
               editMaterial.getMaterialType().ordinal(),
               editMaterial.getCost(),
@@ -185,11 +147,7 @@ public class DataProviderJdbc implements DataProvider {
               editMaterial.getInStock(),
               editMaterial.getId(),
               editMaterial.getUserId()
-      ))){
-        return true;
-      } else {
-        return false;
-      }
+      ));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -288,19 +246,16 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      if (getCustomer(editCustomer.getUserId(),editCustomer.getId()).isEmpty()) {
+      if (getCustomer(editCustomer.getUserId(), editCustomer.getId()).isEmpty()) {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
         return false;
       }
-      if(executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.CUSTOMER t SET t.NAME = '%s', t.URL = '%s', t.PHONE_NUMBER = '%s' WHERE t.ID = %d and t.USER_ID = %d",
-      editCustomer.getName(),
-      editCustomer.getUrl(),
-      editCustomer.getPhoneNumber(),
+      return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.CUSTOMER t SET t.NAME = '%s', t.URL = '%s', t.PHONE_NUMBER = '%s' WHERE t.ID = %d and t.USER_ID = %d",
+              editCustomer.getName(),
+              editCustomer.getUrl(),
+              editCustomer.getPhoneNumber(),
               editCustomer.getId(),
-              editCustomer.getUserId()))) {
-        return true;
-      }
-      return false;
+              editCustomer.getUserId()));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -414,7 +369,8 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.FURSUIT (USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, FURSUIT_TYPE, FURSUIT_STYLE) VALUES (%d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d)",
+      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.FURSUIT (ID, USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, FURSUIT_TYPE, FURSUIT_STYLE) VALUES (%d, %d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d)",
+              getNextProjectId(),
               userId,
               customerId,
               dateFormat.format(deadline),
@@ -499,6 +455,9 @@ public class DataProviderJdbc implements DataProvider {
     }
   }
 
+  //UPDATE PUBLIC.ART t SET t.CUSTOMER = 2, t.DEADLINE = '2020-12-24 16:55:48.000000', t.NAME = 'dawd', t.PROGRESS = 13, t.PAYMENT_TYPE = 12, t.PROJECT_TYPE = 12, t.ART_TYPE = 12, t.ART_STYLE = 12, t.COST = 1.4 WHERE t.ID = 1 and t.USER_ID = 2
+  // UPDATE PUBLIC.FURSUIT t SET t.CUSTOMER = 2, t.DEADLINE = '2479-07-26 17:31:00.000000', t.NAME = 'FurProject 32', t.PROGRESS = 12, t.PAYMENT_TYPE = 12, t.PROJECT_TYPE = 12, t.FURSUIT_TYPE = 12, t.FURSUIT_STYLE = 12 WHERE t.ID = 15 and t.USER_ID = 12
+  //UPDATE PUBLIC.TOY t SET t.CUSTOMER = 2, t.NAME = 'aw name1', t.PROGRESS = 21, t.PAYMENT_TYPE = 21, t.PROJECT_TYPE = 21, t.TOY_STYLE = 21, t.TOY_TYPE = 12 WHERE t.ID = 17
   @Override
   public boolean editProject(long userId, Project editedProject) {
     try {
@@ -554,13 +513,10 @@ public class DataProviderJdbc implements DataProvider {
     }
   }
 
-  private <T extends Project> boolean saveProject(Class<T> tClass, T project) {
-    List<T> projectList = readFromCsv(tClass);
-    projectList.removeIf(tProject -> tProject.getId() == project.getId());
-    projectList.add(project);
-    return writeToCsv(tClass, projectList, true);
-  }
-
+  //getProject(userid, id)
+  //DELETE FROM ART WHERE ID = %d and USER_ID = %d
+  //DELETE FROM FURSUIT WHERE ID = %d and USER_ID = %d
+  //DELETE FROM TOY WHERE ID = %d and USER_ID = %d
   @Override
   public boolean deleteProject(long userId, long projectId) {
     try {
@@ -595,6 +551,130 @@ public class DataProviderJdbc implements DataProvider {
     return writeToCsv(tClass, projectList, true);
   }
 
+  private Art setArt(ResultSet resultSet) {
+    try {
+      Art art = new Art();
+      art.setId(resultSet.getLong("ID"));
+      art.setUserId(resultSet.getLong("USER_ID"));
+      art.setCustomer(getCustomer(art.getUserId(), resultSet.getLong("CUSTOMER")).get());
+      art.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
+      art.setDeadline(resultSet.getTimestamp("DEADLINE"));
+      art.setName(resultSet.getString("NAME"));
+      art.setCost(resultSet.getDouble("COST"));
+      art.setProgress(resultSet.getFloat("PROGRESS"));
+      art.setProjectType(ProjectType.values()[resultSet.getInt("PROJECT_TYPE")]);
+      art.setPaymentType(PaymentType.values()[resultSet.getInt("PAYMENT_TYPE")]);
+      art.setArtStyle(ArtStyle.values()[resultSet.getInt("ART_STYLE")]);
+      art.setArtType(ArtType.values()[resultSet.getInt("ART_TYPE")]);
+      return art;
+    } catch (SQLException e) {
+      log.error(e);
+      return new Art();
+    }
+  }
+
+  private Fursuit setFursuit(ResultSet resultSet) {
+    try {
+      Fursuit fursuit = new Fursuit();
+      fursuit.setId(resultSet.getLong("ID"));
+      fursuit.setUserId(resultSet.getLong("USER_ID"));
+      fursuit.setCustomer(getCustomer(fursuit.getUserId(), resultSet.getLong("CUSTOMER")).get());
+      fursuit.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
+      fursuit.setDeadline(resultSet.getTimestamp("DEADLINE"));
+      fursuit.setName(resultSet.getString("NAME"));
+      fursuit.setPartList(getPartList(fursuit.getUserId(), fursuit.getId()));
+      fursuit.setProgress(resultSet.getFloat("PROGRESS"));
+      fursuit.setProjectType(ProjectType.values()[resultSet.getInt("PROJECT_TYPE")]);
+      fursuit.setPaymentType(PaymentType.values()[resultSet.getInt("PAYMENT_TYPE")]);
+      fursuit.setFursuitStyle(FursuitStyle.values()[resultSet.getInt("FURSUIT_STYLE")]);
+      fursuit.setFursuitType(FursuitType.values()[resultSet.getInt("FURSUIT_TYPE")]);
+      return fursuit;
+    } catch (SQLException e) {
+      log.error(e);
+      return new Fursuit();
+    }
+  }
+
+  // SELECT * FROM PUBLIC.FURSUIT_PART WHERE PROJECT_ID = 1323
+  private List<FursuitPart> getPartList(long userId, long projectId) {
+    try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("Select * from PUBLIC.FURSUIT_PART where USER_ID = %d and PROJECT_ID = %d",
+              userId,
+              projectId));
+      List<FursuitPart> fursuitPartList = new ArrayList<>();
+      while (resultSet.next()) {
+        fursuitPartList.add(setFursuitPart(resultSet));
+      }
+      statement.close();
+      return fursuitPartList;
+    } catch (SQLException e) {
+      log.error(e);
+      return new ArrayList<>();
+    }
+  }
+
+  // SELECT MATERIAL.*, AMOUNT FROM MATERIAL INNER JOIN FURSUIT_PART_OUTGOINGS FPO on MATERIAL.ID = FPO.MATERIAL_ID WHERE FPO.FURSUIT_PART_ID = 4
+  private Map<Material, Double> getFursuitPartOutgoings(long id) {
+    Map<Material, Double> outgoings = new HashMap<>();
+    try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("SELECT MATERIAL.*, AMOUNT FROM MATERIAL INNER JOIN FURSUIT_PART_OUTGOINGS FPO on MATERIAL.ID = FPO.MATERIAL_ID WHERE FPO.FURSUIT_PART_ID = %d",
+              id));
+      while (resultSet.next()) {
+        outgoings.put(setMaterial(resultSet), resultSet.getDouble("AMOUNT"));
+      }
+      statement.close();
+      return outgoings;
+    } catch (SQLException e) {
+      log.error(e);
+      return new HashMap<>();
+    }
+  }
+
+  //SELECT MATERIAL.*, AMOUNT FROM MATERIAL INNER JOIN TOY_OUTGOINGS TO on MATERIAL.ID = TO.MATERIAL_ID WHERE TO.TOY_ID = 4
+  private Map<Material, Double> getToyOutgoings(long id) {
+    Map<Material, Double> outgoings = new HashMap<>();
+    try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format("SELECT MATERIAL.*, AMOUNT FROM MATERIAL INNER JOIN TOY_OUTGOINGS TO on MATERIAL.ID = TO.MATERIAL_ID WHERE TO.TOY_ID = %d",
+              id));
+      while (resultSet.next()) {
+        outgoings.put(setMaterial(resultSet), resultSet.getDouble("AMOUNT"));
+      }
+      statement.close();
+      return outgoings;
+    } catch (SQLException e) {
+      log.error(e);
+      return new HashMap<>();
+    }
+  }
+
+  private Toy setToy(ResultSet resultSet) {
+    try {
+      Toy toy = new Toy();
+      toy.setId(resultSet.getLong("ID"));
+      toy.setUserId(resultSet.getLong("USER_ID"));
+      toy.setCustomer(getCustomer(toy.getUserId(), resultSet.getLong("CUSTOMER")).get());
+      toy.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
+      toy.setDeadline(resultSet.getTimestamp("DEADLINE"));
+      toy.setName(resultSet.getString("NAME"));
+      toy.setProgress(resultSet.getFloat("PROGRESS"));
+      toy.setProjectType(ProjectType.values()[resultSet.getInt("PROJECT_TYPE")]);
+      toy.setPaymentType(PaymentType.values()[resultSet.getInt("PAYMENT_TYPE")]);
+      toy.setToyStyle(ToyStyle.values()[resultSet.getInt("TOY_STYLE")]);
+      toy.setToyType(ToyType.values()[resultSet.getInt("TOY_TYPE")]);
+      toy.setOutgoings(getToyOutgoings(toy.getId()));
+      return toy;
+    } catch (SQLException e) {
+      log.error(e);
+      return new Toy();
+    }
+  }
+
+  //SELECT * FROM ART WHERE ID = %d and USER_ID = %d
+  //SELECT * FROM FURSUIT WHERE ID = %d and USER_ID = %d
+  //SELECT * FROM TOY WHERE ID = %d and USER_ID = %d
   @Override
   public Optional<Project> getProject(long userId, long projectId) {
     List<Project> projectList = getProject(userId);
@@ -603,6 +683,9 @@ public class DataProviderJdbc implements DataProvider {
             .findAny();
   }
 
+  //SELECT * FROM ART WHERE USER_ID = %d
+  //SELECT * FROM FURSUIT WHERE USER_ID = %d
+  //SELECT * FROM TOY WHERE USER_ID = %d
   @Override
   public List<Project> getProject(long userId) {
     List<Project> projectList = new ArrayList<>();
@@ -635,6 +718,7 @@ public class DataProviderJdbc implements DataProvider {
     return projectList;
   }
 
+  //INSERT INTO PUBLIC.FURSUIT_PART (USER_ID, DATE_OF_CREATION, NAME, PROGRESS, PROJECT_ID) VALUES (12, DEFAULT, 'awd', 12, 0)
   @Override
   public boolean createFursuitPart(long userId, long fursuitId, String name) {
     try {
@@ -647,26 +731,17 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
-      Fursuit fursuit = (Fursuit) optionalProject.get();
-
-      FursuitPart fursuitPart = new FursuitPart();
-      fursuitPart.setUserId(userId);
-      fursuitPart.setId(getNextFursuitPartId());
-      fursuitPart.setDateOfCreation(new Date(System.currentTimeMillis()));
-      fursuitPart.setName(name);
-      fursuitPart.setOutgoings(new HashMap<>());
-
-      fursuit.getPartList().add(fursuitPart);
-      if (!saveProject(Fursuit.class, fursuit)){
-        return false;
-      }
-      return writeToCsv(fursuitPart);
+      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.FURSUIT_PART (USER_ID, NAME, PROGRESS, PROJECT_ID) VALUES (%d, '%s', 0.0, %d)",
+              userId,
+              name,
+              fursuitId));
     } catch (IOException e) {
       log.error(e);
       return false;
     }
   }
 
+  //UPDATE PUBLIC.FURSUIT_PART t SET t.NAME = 'dd', t.PROGRESS = 323, t.PROJECT_ID = 15 WHERE t.ID = 3 AND t.USER_ID = 123
   @Override
   public boolean editFursuitPart(long userId, FursuitPart editedFursuitPart) {
     try {
@@ -682,7 +757,7 @@ public class DataProviderJdbc implements DataProvider {
         return false;
       }
 
-      if (!editedFursuitPart.getOutgoings().equals(optFursuitPart.get().getOutgoings())){
+      if (!editedFursuitPart.getOutgoings().equals(optFursuitPart.get().getOutgoings())) {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
         return false;
       }
@@ -697,24 +772,7 @@ public class DataProviderJdbc implements DataProvider {
     }
   }
 
-  private boolean saveFursuitPart(long userId , FursuitPart editedFursuitPart){
-    try {
-      List<FursuitPart> fursuitPartsList = readFromCsv(FursuitPart.class);
-      Optional<FursuitPart> optFursuitPart = getFursuitPart(userId, editedFursuitPart.getId());
-      if (optFursuitPart.isEmpty()) {
-        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FURSUIT_PART_NOT_FOUNDED));
-        return false;
-      }
-      fursuitPartsList.remove(optFursuitPart.get());
-      fursuitPartsList.add(editedFursuitPart);
-      writeToCsv(FursuitPart.class, fursuitPartsList, true);
-      return true;
-    } catch (IOException e) {
-      log.error(e);
-      return false;
-    }
-  }
-
+  // DELETE FROM PUBLIC.FURSUIT_PART WHERE ID = 3 AND USER_ID = 123
   @Override
   public boolean deleteFursuitPart(long userId, long projectId, long partId) {
     try {
@@ -733,17 +791,33 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
         return false;
       }
-      fursuit.getPartList().removeIf(fursuitPart -> fursuitPart.getId() == partId);
-      saveProject(Fursuit.class, fursuit);
-      fursuitPartList.removeIf(fursuitPart -> fursuitPart.getUserId() == userId && fursuitPart.getId() == partId);
-      writeToCsv(FursuitPart.class, fursuitPartList, true);
-      return true;
+      return executesRequest(String.format("DELETE FROM PUBLIC.FURSUIT_PART WHERE ID = %d AND USER_ID = %d AND PROJECT_ID = %d",
+              partId,
+              userId,
+              projectId));
     } catch (IOException e) {
       log.error(e);
       return false;
     }
   }
 
+  private FursuitPart setFursuitPart(ResultSet resultSet) {
+    try {
+      FursuitPart fursuitPart = new FursuitPart();
+      fursuitPart.setId(resultSet.getLong("ID"));
+      fursuitPart.setUserId(resultSet.getLong("USER_ID"));
+      fursuitPart.setName(resultSet.getString("NAME"));
+      fursuitPart.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
+      fursuitPart.setProgress(resultSet.getFloat("PROGRESS"));
+      fursuitPart.setOutgoings(getFursuitPartOutgoings(fursuitPart.getId()));
+      return fursuitPart;
+    } catch (Exception e) {
+      log.error(e);
+      return new FursuitPart();
+    }
+  }
+
+  // SELECT * FROM PUBLIC.FURSUIT_PART WHERE ID = 3 AND USER_ID = 123
   @Override
   public Optional<FursuitPart> getFursuitPart (long userId, long id) {
     List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
@@ -768,6 +842,7 @@ public class DataProviderJdbc implements DataProvider {
     return Optional.of(fursuitPart);
   }
 
+  // SELECT * FROM PUBLIC.FURSUIT_PART WHERE USER_ID = 123
   @Override
   public List<FursuitPart> getFursuitPart (long userId) {
     List<FursuitPart> fursuitPartList = readFromCsv(FursuitPart.class);
@@ -790,6 +865,7 @@ public class DataProviderJdbc implements DataProvider {
     return fursuitPartList;
   }
 
+  //MERGE INTO PUBLIC.FURSUIT_PART_OUTGOINGS (FURSUIT_PART_ID, MATERIAL_ID, AMOUNT) VALUES (4, 2, 112)
   @Override
   public boolean setOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId, double amount) {
     try {
@@ -799,15 +875,10 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
         return false;
       }
-      FursuitPart fursuitPart = optFursuitPart.get();
-      Material material = optMaterial.get();
-      if (fursuitPart.getOutgoings().containsKey(material)) {
-        fursuitPart.getOutgoings().replace(material, fursuitPart.getOutgoings().get(material) + amount);
-      }
-      else {
-        fursuitPart.getOutgoings().put(material, amount);
-      }
-      return saveFursuitPart(userId, fursuitPart);
+      return executesRequest(String.format(Locale.ENGLISH, "MERGE INTO PUBLIC.FURSUIT_PART_OUTGOINGS (FURSUIT_PART_ID, MATERIAL_ID, AMOUNT) VALUES (%d, %d, %f)",
+              fursuitPartId,
+              materialId,
+              amount));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -815,6 +886,7 @@ public class DataProviderJdbc implements DataProvider {
   }
 
 
+  //MERGE INTO PUBLIC.TOY_OUTGOINGS (TOY_ID, MATERIAL_ID, AMOUNT) VALUES (4, 2, 112)
   @Override
   public boolean setOutgoing(long userId, long toyId, long materialId, double amount) {
     try {
@@ -828,21 +900,17 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
-      Toy toy = (Toy) optionalToy.get();
-      Material material = optMaterial.get();
-      if (!toy.getOutgoings().containsKey(material)) {
-        toy.getOutgoings().put(material, amount);
-      } else {
-        toy.getOutgoings().replace(material, amount);
-      }
-      return saveProject(Toy.class, toy);
+      return executesRequest(String.format(Locale.ENGLISH, "MERGE INTO PUBLIC.TOY_OUTGOINGS (TOY_ID, MATERIAL_ID, AMOUNT) VALUES (%d, %d, %f)",
+              toyId,
+              materialId,
+              amount));
     } catch (IOException e) {
       log.error(e);
       return false;
     }
   }
 
-
+  //DELETE FROM PUBLIC.TOY_OUTGOINGS WHERE TOY_ID = 4 AND MATERIAL_ID = 2
   @Override
   public boolean deleteOutgoing(long userId, long toyId, long materialId) {
     try {
@@ -852,7 +920,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
         return false;
       }
-      if (!optionalToy.get().getProjectType().equals(ProjectType.TOY)){
+      if (!optionalToy.get().getProjectType().equals(ProjectType.TOY)) {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
@@ -870,6 +938,7 @@ public class DataProviderJdbc implements DataProvider {
     }
   }
 
+  //DELETE FROM PUBLIC.FURSUIT_PART_OUTGOINGS WHERE FURSUIT_PART_ID = 4 AND MATERIAL_ID = 2
   @Override
   public boolean deleteOutgoing(long userId, long fursuitId, long fursuitPartId, long materialId) {
     try {

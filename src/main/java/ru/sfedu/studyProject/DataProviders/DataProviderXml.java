@@ -1,13 +1,5 @@
 package ru.sfedu.studyProject.DataProviders;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.opencsv.exceptions.CsvDataTypeMismatchException;
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.simpleframework.xml.core.Persister;
@@ -18,8 +10,6 @@ import ru.sfedu.studyProject.utils.ConfigurationUtil;
 import ru.sfedu.studyProject.utils.XmlWrapper;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -27,6 +17,13 @@ import java.util.stream.Collectors;
 public class DataProviderXml implements DataProvider {
     private static final Logger log = LogManager.getLogger(DataProviderXml.class);
 
+    public DataProviderXml() {
+        try {
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.XML_PATH)).mkdirs());
+        } catch (IOException e) {
+            log.error(e);
+        }
+    }
 
     public void createFiles() {
         writeToXml(Art.class, new ArrayList<>(), true);
@@ -40,7 +37,7 @@ public class DataProviderXml implements DataProvider {
 
     private long getNextMaterialId(){
         List<Material> objectList = readFromXml(Material.class);
-        long maxId = -1;
+        long maxId = 0;
         for (Material material : objectList) {
             if (maxId < material.getId()) {
                 maxId = material.getId();
@@ -51,7 +48,7 @@ public class DataProviderXml implements DataProvider {
 
     private long getNextFursuitPartId(){
         List<FursuitPart> objectList = readFromXml(FursuitPart.class);
-        long maxId = -1;
+        long maxId = 0;
         for (FursuitPart fursuitPart : objectList) {
             if (maxId < fursuitPart.getId()) {
                 maxId = fursuitPart.getId();
@@ -62,7 +59,7 @@ public class DataProviderXml implements DataProvider {
 
     private long getNextCustomerId(){
         List<Customer> objectList = readFromXml(Customer.class);
-        long maxId = -1;
+        long maxId = 0;
         for (Customer customer : objectList) {
             if (maxId < customer.getId()) {
                 maxId = customer.getId();
@@ -76,7 +73,7 @@ public class DataProviderXml implements DataProvider {
         objectList.addAll(readFromXml(Fursuit.class));
         objectList.addAll(readFromXml(Art.class));
         objectList.addAll(readFromXml(Toy.class));
-        long maxId = -1;
+        long maxId = 0;
         for (Project project : objectList) {
             if (maxId < project.getId()) {
                 maxId = project.getId();

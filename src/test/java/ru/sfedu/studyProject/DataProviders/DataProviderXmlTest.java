@@ -56,14 +56,14 @@ public class DataProviderXmlTest {
     @Test
     @Order(0)
     public void createMaterialSuccess() throws Exception {
-        Assertions.assertTrue(dataProvider.createMaterial(0,
+        Assertions.assertTrue(dataProvider.createMaterial(userId,
                 "TestMaterial1",
                 1500,
                 Unit.CM,
                 MaterialType.FABRIC,
                 "TestDescription1",
                 200));
-        Assertions.assertTrue(dataProvider.createMaterial(0,
+        Assertions.assertTrue(dataProvider.createMaterial(userId,
                 "TestMaterial2",
                 1500,
                 Unit.CM,
@@ -75,7 +75,7 @@ public class DataProviderXmlTest {
     @Order(0)
     @Test
     public void createMaterialFailed() throws Exception {
-        Assertions.assertFalse(dataProvider.createMaterial(0,
+        Assertions.assertFalse(dataProvider.createMaterial(userId,
                 null,
                 1500,
                 Unit.CM,
@@ -87,7 +87,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(1)
     void getMaterialSuccess() {
-        Optional<Material> optionalMaterial = dataProvider.getMaterial(0, 0);
+        Optional<Material> optionalMaterial = dataProvider.getMaterial(userId, 1);
         Assertions.assertTrue(optionalMaterial.isPresent());
         Assertions.assertEquals("TestMaterial1", optionalMaterial.get().getName());
     }
@@ -95,7 +95,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(1)
     void getMaterialFailed() {
-        Optional<Material> optionalMaterial = dataProvider.getMaterial(0, 8);
+        Optional<Material> optionalMaterial = dataProvider.getMaterial(userId, 8);
         Assertions.assertFalse(optionalMaterial.isPresent());
 
         optionalMaterial = dataProvider.getMaterial(8, 0);
@@ -105,7 +105,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(1)
     void getMaterialListSuccess() {
-        List<Material> listMaterial = dataProvider.getMaterial(0);
+        List<Material> listMaterial = dataProvider.getMaterial(userId);
         Assertions.assertFalse(listMaterial.isEmpty());
         Assertions.assertEquals("TestMaterial1", listMaterial.get(0).getName());
     }
@@ -118,28 +118,28 @@ public class DataProviderXmlTest {
     }
 
     @Test
-    @Order(2)
+    @Order(9)
     void deleteMaterialSuccess() {
-        Assertions.assertTrue(dataProvider.deleteMaterial(0, 0));
+        Assertions.assertTrue(dataProvider.deleteMaterial(userId, 0));
     }
 
     @Test
-    @Order(2)
+    @Order(9)
     void deleteMaterialFailed() {
         Assertions.assertTrue(dataProvider.deleteMaterial(8, 0));
-        Assertions.assertTrue(dataProvider.deleteMaterial(0, 8));
+        Assertions.assertTrue(dataProvider.deleteMaterial(userId, 8));
     }
 
     @Test
     @Order(2)
     void editMaterialSuccess() {
-        List<Material> materialList = dataProvider.getMaterial(0);
+        List<Material> materialList = dataProvider.getMaterial(userId);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
         material.setName("edited name");
-        Assertions.assertTrue(dataProvider.editMaterial(0, material));
-        optionalMaterial = dataProvider.getMaterial(0, optionalMaterial.get().getId());
+        Assertions.assertTrue(dataProvider.editMaterial(userId, material));
+        optionalMaterial = dataProvider.getMaterial(userId, optionalMaterial.get().getId());
         Assertions.assertTrue(optionalMaterial.isPresent());
         Assertions.assertEquals(material, optionalMaterial.get());
     }
@@ -147,39 +147,54 @@ public class DataProviderXmlTest {
     @Test
     @Order(2)
     void editMaterialFailed() {
-        List<Material> materialList = dataProvider.getMaterial(0);
+        List<Material> materialList = dataProvider.getMaterial(userId);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
         material.setName(null);
-        Assertions.assertFalse(dataProvider.editMaterial(0, material));
+        Assertions.assertFalse(dataProvider.editMaterial(userId, material));
 
-        optionalMaterial = dataProvider.getMaterial(0, 1);
+        optionalMaterial = dataProvider.getMaterial(userId, 1);
         Assertions.assertTrue(optionalMaterial.isPresent());
         material = optionalMaterial.get();
         material.setId(6);
-        Assertions.assertFalse(dataProvider.editMaterial(0, material));
+        Assertions.assertFalse(dataProvider.editMaterial(userId, material));
     }
 
     @Test
     @Order(1)
     public void createFursuitPartSuccess() throws Exception {
-        Assertions.assertTrue(dataProvider.createFursuitPart(0, 0,
+        Optional<Project> optionalProject = dataProvider.getProject(userId)
+                .stream()
+                .filter(project -> project.getProjectType().equals(ProjectType.FURSUIT))
+                .findAny();
+        Assertions.assertTrue(optionalProject.isPresent());
+        Assertions.assertTrue(dataProvider.createFursuitPart(userId, optionalProject.get().getId(),
                 "Fursuit part name1"));
-        Assertions.assertTrue(dataProvider.createFursuitPart(0, 1,
+        Assertions.assertTrue(dataProvider.createFursuitPart(userId, optionalProject.get().getId(),
                 "Fursuit part name2"));
+
     }
 
     @Order(1)
     @Test
     public void createFursuitPartFailed() throws Exception {
-        Assertions.assertFalse(dataProvider.createFursuitPart(0, 0,null));
+        Assertions.assertFalse(dataProvider.createFursuitPart(userId, 0, null));
     }
 
     @Test
     @Order(2)
     void getFursuitPartSuccess() {
-        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(0, 0);
+        Optional<Project> optionalProject = dataProvider.getProject(userId)
+                .stream()
+                .filter(project -> project.getProjectType().equals(ProjectType.FURSUIT)
+                        && !((Fursuit) project).getPartList().isEmpty())
+                .findAny();
+        Assertions.assertTrue(optionalProject.isPresent());
+        Fursuit fursuit = (Fursuit) optionalProject.get();
+        Optional<FursuitPart> optionalFursuitPart = fursuit.getPartList().stream().findAny();
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        optionalFursuitPart = dataProvider.getFursuitPart(userId, optionalFursuitPart.get().getId());
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         Assertions.assertEquals("Fursuit part name1", optionalFursuitPart.get().getName());
     }
@@ -187,7 +202,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(2)
     void getFursuitPartFailed() {
-        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(0, 8);
+        Optional<FursuitPart> optionalFursuitPart = dataProvider.getFursuitPart(userId, 8);
         Assertions.assertFalse(optionalFursuitPart.isPresent());
 
         optionalFursuitPart = dataProvider.getFursuitPart(8, 0);
@@ -197,7 +212,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(2)
     void getFursuitPartListSuccess() {
-        List<FursuitPart> listFursuitPart = dataProvider.getFursuitPart(0);
+        List<FursuitPart> listFursuitPart = dataProvider.getFursuitPart(userId);
         Assertions.assertFalse(listFursuitPart.isEmpty());
         Assertions.assertEquals("Fursuit part name1", listFursuitPart.get(0).getName());
     }
@@ -210,28 +225,45 @@ public class DataProviderXmlTest {
     }
 
     @Test
-    @Order(3)
+    @Order(9)
     void deleteFursuitPartSuccess() {
-        Assertions.assertTrue(dataProvider.deleteFursuitPart(0, 0,0));
+        Optional<Project> optionalProject = dataProvider.getProject(userId)
+                .stream()
+                .filter(project -> project.getProjectType().equals(ProjectType.FURSUIT))
+                .findAny();
+        Assertions.assertTrue(optionalProject.isPresent());
+        Fursuit fursuit = (Fursuit) optionalProject.get();
+        Assertions.assertTrue(dataProvider.createFursuitPart(fursuit.getUserId(), fursuit.getId(), "deleted part"));
+        optionalProject = dataProvider.getProject(fursuit.getUserId(), fursuit.getId());
+        Assertions.assertTrue(optionalProject.isPresent());
+        fursuit = (Fursuit) optionalProject.get();
+        Optional<FursuitPart> optionalFursuitPart = fursuit.getPartList()
+                .stream()
+                .filter(fursuitPart -> fursuitPart.getName().equals("deleted part"))
+                .findAny();
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        Assertions.assertTrue(dataProvider.deleteFursuitPart(fursuit.getUserId(),
+                fursuit.getId(),
+                optionalFursuitPart.get().getId()));
     }
 
     @Test
-    @Order(3)
+    @Order(9)
     void deleteFursuitPartFailed() {
         Assertions.assertFalse(dataProvider.deleteFursuitPart(8, 0, 0));
-        Assertions.assertFalse(dataProvider.deleteFursuitPart(0, 0, 8));
+        Assertions.assertFalse(dataProvider.deleteFursuitPart(userId, 0, 8));
     }
 
     @Test
     @Order(3)
     void editFursuitPartSuccess() {
-        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(0);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(userId);
         Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
         fursuitPart.setName("Edited part name");
-        Assertions.assertTrue(dataProvider.editFursuitPart(0, fursuitPart));
-        optionalFursuitPart = dataProvider.getFursuitPart(0, optionalFursuitPart.get().getId());
+        Assertions.assertTrue(dataProvider.editFursuitPart(userId, fursuitPart));
+        optionalFursuitPart = dataProvider.getFursuitPart(userId, optionalFursuitPart.get().getId());
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         Assertions.assertEquals(fursuitPart, optionalFursuitPart.get());
     }
@@ -239,58 +271,58 @@ public class DataProviderXmlTest {
     @Test
     @Order(3)
     void editFursuitPartFailed() {
-        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(0);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(userId);
         Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
         fursuitPart.setName(null);
-        Assertions.assertFalse(dataProvider.editFursuitPart(0, fursuitPart));
+        Assertions.assertFalse(dataProvider.editFursuitPart(userId, fursuitPart));
 
-        optionalFursuitPart = dataProvider.getFursuitPart(0, fursuitPart.getId());
+        optionalFursuitPart = dataProvider.getFursuitPart(userId, fursuitPart.getId());
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         fursuitPart = optionalFursuitPart.get();
         fursuitPart.setId(6);
-        Assertions.assertFalse(dataProvider.editFursuitPart(0, fursuitPart));
+        Assertions.assertFalse(dataProvider.editFursuitPart(userId, fursuitPart));
     }
 
     @Test
     @Order(4)
     void setOutgoingSuccess() {
-        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(0);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(userId);
         Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
 
-        List<Material> materialList = dataProvider.getMaterial(0);
+        List<Material> materialList = dataProvider.getMaterial(userId);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
 
-        List<Project> projectList = dataProvider.getProject(0);
+        List<Project> projectList = dataProvider.getProject(userId);
         Optional<Project> optFursuit = projectList.stream()
                 .filter(project -> project.getProjectType().equals(ProjectType.FURSUIT))
                 .findAny();
         Assertions.assertTrue(optFursuit.isPresent());
-        Assertions.assertTrue(dataProvider.setOutgoing(0, optFursuit.get().getId(), fursuitPart.getId(), material.getId(), 2));
-        Assertions.assertTrue(dataProvider.setOutgoing(0, optFursuit.get().getId(), fursuitPart.getId(), material.getId(), 1.2));
+        Assertions.assertTrue(dataProvider.setOutgoing(userId, optFursuit.get().getId(), fursuitPart.getId(), material.getId(), 2));
+        Assertions.assertTrue(dataProvider.setOutgoing(userId, optFursuit.get().getId(), fursuitPart.getId(), material.getId(), 1.2));
 
         Optional<Project> optToy = projectList.stream()
                 .filter(project -> project.getProjectType().equals(ProjectType.TOY))
                 .findAny();
         Assertions.assertTrue(optToy.isPresent());
-        Assertions.assertTrue(dataProvider.setOutgoing(0, optToy.get().getId(), material.getId(), 0.5));
-        Assertions.assertTrue(dataProvider.setOutgoing(0, optToy.get().getId(), material.getId(), 1));
+        Assertions.assertTrue(dataProvider.setOutgoing(userId, optToy.get().getId(), material.getId(), 0.5));
+        Assertions.assertTrue(dataProvider.setOutgoing(userId, optToy.get().getId(), material.getId(), 1));
     }
 
     @Test
     @Order(4)
     void setOutgoingFailed() {
-        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(0);
+        List<FursuitPart> fursuitPartList = dataProvider.getFursuitPart(userId);
         Optional<FursuitPart> optionalFursuitPart = fursuitPartList.stream().findAny();
         Assertions.assertTrue(optionalFursuitPart.isPresent());
         FursuitPart fursuitPart = optionalFursuitPart.get();
 
-        List<Material> materialList = dataProvider.getMaterial(0);
+        List<Material> materialList = dataProvider.getMaterial(userId);
         Optional<Material> optionalMaterial = materialList.stream().findAny();
         Assertions.assertTrue(optionalMaterial.isPresent());
         Material material = optionalMaterial.get();
@@ -298,40 +330,64 @@ public class DataProviderXmlTest {
         Assertions.assertFalse(dataProvider.setOutgoing(9, 1, fursuitPart.getId(), material.getId(), 2));
     }
 
-
     @Test
     @Order(9)
     void  deleteOutgoingSuccess() {
-        Assertions.assertTrue(dataProvider.deleteOutgoing(0, 3, 1));
-        Assertions.assertTrue(dataProvider.deleteOutgoing(0, 1, 1, 1));
+        Optional<Project> optionalProject = dataProvider.getProject(userId).stream()
+                .filter(project -> project.getProjectType().equals(ProjectType.TOY))
+                .findAny();
+        Assertions.assertTrue(optionalProject.isPresent());
+        Toy toy = (Toy) optionalProject.get();
+        Assertions.assertTrue(dataProvider.deleteOutgoing(userId,
+                toy.getId(),
+                toy.getOutgoings().keySet().stream().findAny().get().getId()));
+
+        optionalProject = dataProvider.getProject(userId).stream()
+                .filter(project -> project.getProjectType().equals(ProjectType.FURSUIT)
+                        && !((Fursuit) project).getPartList().isEmpty()
+                        && ((Fursuit) project).getPartList()
+                        .stream()
+                        .anyMatch(fursuitPart -> !fursuitPart.getOutgoings().isEmpty()))
+                .findAny();
+        Assertions.assertTrue(optionalProject.isPresent());
+        Fursuit fursuit = (Fursuit) optionalProject.get();
+        Optional<FursuitPart> optionalFursuitPart = fursuit.getPartList()
+                .stream()
+                .filter(fursuitPart -> !fursuitPart.getOutgoings().isEmpty())
+                .findAny();
+        Assertions.assertTrue(optionalFursuitPart.isPresent());
+        Assertions.assertTrue(dataProvider.deleteOutgoing(userId,
+                fursuit.getId(),
+                optionalFursuitPart.get().getId(),
+                optionalFursuitPart.get().getOutgoings().keySet().stream().findAny().get().getId()));
     }
 
     @Test
     @Order(9)
     void  deleteOutgoingFailed() {
         Assertions.assertFalse(dataProvider.deleteOutgoing(8, 3, 1));
-        Assertions.assertFalse(dataProvider.deleteOutgoing(0, 0, 8, 1));
+        Assertions.assertFalse(dataProvider.deleteOutgoing(userId, 0, 8, 1));
     }
 
     @Test
     @Order(0)
     public void createCustomerSuccess() throws Exception {
-        Assertions.assertTrue(dataProvider.createCustomer(0,
+        Assertions.assertTrue(dataProvider.createCustomer(userId,
                 "Customer name1", "vk.com/id0**", "+7 999 00 **"));
-        Assertions.assertTrue(dataProvider.createCustomer(0,
+        Assertions.assertTrue(dataProvider.createCustomer(userId,
                 "Customer name2", "vk.com/id1**", "+7 999 11 **"));
     }
 
     @Test
     @Order(0)
     public void createCustomerFailed() throws Exception {
-        Assertions.assertFalse(dataProvider.createCustomer(0, null, "vk.com/id***", "+7 999 ** **"));
+        Assertions.assertFalse(dataProvider.createCustomer(userId, null, "vk.com/id***", "+7 999 ** **"));
     }
 
     @Test
     @Order(1)
     void getCustomerSuccess() {
-        Optional<Customer> optionalCustomer = dataProvider.getCustomer(0, 0);
+        Optional<Customer> optionalCustomer = dataProvider.getCustomer(userId, 1);
         Assertions.assertTrue(optionalCustomer.isPresent());
         Assertions.assertEquals("Customer name1", optionalCustomer.get().getName());
     }
@@ -339,7 +395,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(1)
     void getCustomerFailed() {
-        Optional<Customer> optionalCustomer = dataProvider.getCustomer(0, 8);
+        Optional<Customer> optionalCustomer = dataProvider.getCustomer(userId, 8);
         Assertions.assertFalse(optionalCustomer.isPresent());
 
         optionalCustomer = dataProvider.getCustomer(8, 0);
@@ -349,7 +405,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(1)
     void getCustomerListSuccess() {
-        List<Customer> customerList = dataProvider.getCustomer(0);
+        List<Customer> customerList = dataProvider.getCustomer(userId);
         Assertions.assertFalse(customerList.isEmpty());
         Assertions.assertEquals("Customer name1", customerList.get(0).getName());
     }
@@ -362,13 +418,13 @@ public class DataProviderXmlTest {
     }
 
     @Test
-    @Order(2)
+    @Order(9)
     void deleteCustomerSuccess() {
-        Assertions.assertTrue(dataProvider.deleteCustomer(0, 0));
+        Assertions.assertTrue(dataProvider.deleteCustomer(userId, 0));
     }
 
     @Test
-    @Order(2)
+    @Order(9)
     void deleteCustomerFailed() {
         Assertions.assertTrue(dataProvider.deleteCustomer(8, 0));
         Assertions.assertTrue(dataProvider.deleteCustomer(0, 8));
@@ -377,13 +433,13 @@ public class DataProviderXmlTest {
     @Test
     @Order(2)
     void editCustomerSuccess() {
-        List<Customer> customerList = dataProvider.getCustomer(0);
+        List<Customer> customerList = dataProvider.getCustomer(userId);
         Optional<Customer> optionalCustomer = customerList.stream().findAny();
         Assertions.assertTrue(optionalCustomer.isPresent());
         Customer customer = optionalCustomer.get();
         customer.setName("Edited customer name");
-        Assertions.assertTrue(dataProvider.editCustomer(0, customer));
-        optionalCustomer = dataProvider.getCustomer(0, optionalCustomer.get().getId());
+        Assertions.assertTrue(dataProvider.editCustomer(userId, customer));
+        optionalCustomer = dataProvider.getCustomer(userId, optionalCustomer.get().getId());
         Assertions.assertTrue(optionalCustomer.isPresent());
         Assertions.assertEquals(customer, optionalCustomer.get());
     }
@@ -391,43 +447,43 @@ public class DataProviderXmlTest {
     @Test
     @Order(2)
     void editCustomerFailed() {
-        List<Customer> customerList = dataProvider.getCustomer(0);
+        List<Customer> customerList = dataProvider.getCustomer(userId);
         Optional<Customer> optionalCustomer = customerList.stream().findAny();
         Assertions.assertTrue(optionalCustomer.isPresent());
         Customer customer = optionalCustomer.get();
         customer.setName(null);
-        Assertions.assertFalse(dataProvider.editCustomer(0, customer));
+        Assertions.assertFalse(dataProvider.editCustomer(userId, customer));
 
-        optionalCustomer = dataProvider.getCustomer(0, customer.getId());
+        optionalCustomer = dataProvider.getCustomer(userId, customer.getId());
         Assertions.assertTrue(optionalCustomer.isPresent());
         customer = optionalCustomer.get();
         customer.setId(6);
-        Assertions.assertFalse(dataProvider.editCustomer(0, customer));
+        Assertions.assertFalse(dataProvider.editCustomer(userId, customer));
     }
 
     @Test
     @Order(0)
     void createProjectSuccess() {
-        Assertions.assertTrue(dataProvider.createProject(0,
+        Assertions.assertTrue(dataProvider.createProject(userId,
                 "FurProject name1",
-                new Date(160803990000000L),
+                new Date(16080399000000L),
                 1,
                 FursuitType.MINI_PARTIAL,
                 FursuitStyle.TOONY, PaymentType.FIFTY_FIFTY));
-        Assertions.assertTrue(dataProvider.createProject(0,
+        Assertions.assertTrue(dataProvider.createProject(userId,
                 "FurProject name2",
-                new Date(160803990000000L),
+                new Date(16080399000000L),
                 1,
                 FursuitType.DIGIGRADE_FULL,
                 FursuitStyle.KEMONO, PaymentType.FIFTY_FIFTY));
-        Assertions.assertTrue(dataProvider.createProject(0,
+        Assertions.assertTrue(dataProvider.createProject(userId,
                 "ArtProject name1",
                 new Date(16080399000000L),
                 1,
                 ArtType.HEADSHOT,
                 ArtStyle.STANDARD, 500,
                 PaymentType.FIFTY_FIFTY));
-        Assertions.assertTrue(dataProvider.createProject(0,
+        Assertions.assertTrue(dataProvider.createProject(userId,
                 "ToyProject name1",
                 new Date(16080399000000L),
                 1,
@@ -439,7 +495,7 @@ public class DataProviderXmlTest {
     @Test
     @Order(0)
     void createProjectFailed() {
-        Assertions.assertFalse(dataProvider.createProject(0,
+        Assertions.assertFalse(dataProvider.createProject(userId,
                 null,
                 new Date(16080399000000L),
                 1,
@@ -450,27 +506,27 @@ public class DataProviderXmlTest {
     @Test
     @Order(5)
     void getProjectSuccess() {
-        Optional<Project> optionalProject = dataProvider.getProject(0, 0);
+        Optional<Project> optionalProject = dataProvider.getProject(userId, 1);
         Assertions.assertFalse(optionalProject.isEmpty());
-        Assertions.assertEquals("FurProject name1", optionalProject.get().getName());
+        Assertions.assertEquals(optionalProject.get().getName(), "FurProject name1");
     }
 
     @Test
     @Order(5)
     void getProjectFailed() {
-        Optional<Project> optionalProject = dataProvider.getProject(8, 0);
+        Optional<Project> optionalProject = dataProvider.getProject(8, 1);
         Assertions.assertFalse(optionalProject.isPresent());
 
-        optionalProject = dataProvider.getProject(0, 8);
+        optionalProject = dataProvider.getProject(userId, 8);
         Assertions.assertFalse(optionalProject.isPresent());
     }
 
     @Test
     @Order(5)
     void getProjectListSuccess() {
-        List<Project> projectList = dataProvider.getProject(0);
+        List<Project> projectList = dataProvider.getProject(userId);
         Assertions.assertFalse(projectList.isEmpty());
-        Assertions.assertEquals("FurProject name2", projectList.get(0).getName());
+        Assertions.assertTrue(projectList.stream().anyMatch(project -> project.getName().equals("FurProject name1")));
     }
 
     @Test
@@ -481,28 +537,28 @@ public class DataProviderXmlTest {
     }
 
     @Test
-    @Order(6)
+    @Order(9)
     void deleteProjectSuccess() {
-        Assertions.assertTrue(dataProvider.deleteProject(0, 0));
+        Assertions.assertTrue(dataProvider.deleteProject(userId, 1));
     }
 
     @Test
-    @Order(6)
+    @Order(9)
     void deleteProjectFailed() {
         Assertions.assertFalse(dataProvider.deleteProject(8, 0));
-        Assertions.assertFalse(dataProvider.deleteProject(0, 8));
+        Assertions.assertFalse(dataProvider.deleteProject(userId, 8));
     }
 
     @Test
     @Order(7)
     void editProjectSuccess() {
-        List<Project> projectList = dataProvider.getProject(0);
+        List<Project> projectList = dataProvider.getProject(userId);
         Optional<Project> optionalProject = projectList.stream().findAny();
         Assertions.assertTrue(optionalProject.isPresent());
         Project project = optionalProject.get();
         project.setName("Edited name");
-        Assertions.assertTrue(dataProvider.editProject(0, project));
-        optionalProject = dataProvider.getProject(0, optionalProject.get().getId());
+        Assertions.assertTrue(dataProvider.editProject(userId, project));
+        optionalProject = dataProvider.getProject(userId, optionalProject.get().getId());
         Assertions.assertTrue(optionalProject.isPresent());
         Assertions.assertEquals(project, optionalProject.get());
     }
@@ -510,30 +566,30 @@ public class DataProviderXmlTest {
     @Test
     @Order(7)
     void editProjectFailed() {
-        List<Project> projectList = dataProvider.getProject(0);
+        List<Project> projectList = dataProvider.getProject(userId);
         Optional<Project> optionalProject = projectList.stream().findAny();
         Assertions.assertTrue(optionalProject.isPresent());
         Project project = optionalProject.get();
         project.setName(null);
-        Assertions.assertFalse(dataProvider.editProject(0, project));
+        Assertions.assertFalse(dataProvider.editProject(userId, project));
 
-        optionalProject = dataProvider.getProject(0, project.getId());
+        optionalProject = dataProvider.getProject(userId, project.getId());
         Assertions.assertTrue(optionalProject.isPresent());
         project = optionalProject.get();
         project.setId(6);
-        Assertions.assertFalse(dataProvider.editProject(0, project));
+        Assertions.assertFalse(dataProvider.editProject(userId, project));
     }
 
     @Test
     @Order(8)
     void getProjectEstimateSuccess() {
-        String singleProjectEstimate = dataProvider.getProjectEstimate(0, 1);
+        String singleProjectEstimate = dataProvider.getProjectEstimate(userId, 0);
         Assertions.assertNotNull(singleProjectEstimate);
         log.info(singleProjectEstimate);
-        singleProjectEstimate = dataProvider.getProjectEstimate(0, 2);
+        singleProjectEstimate = dataProvider.getProjectEstimate(userId, 1);
         Assertions.assertNotNull(singleProjectEstimate);
         log.info(singleProjectEstimate);
-        singleProjectEstimate = dataProvider.getProjectEstimate(0, 3);
+        singleProjectEstimate = dataProvider.getProjectEstimate(userId, 2);
         Assertions.assertNotNull(singleProjectEstimate);
         log.info(singleProjectEstimate);
     }
@@ -541,14 +597,14 @@ public class DataProviderXmlTest {
     @Test
     @Order(8)
     void getProjectEstimateFailed() {
-        String singleProjectEstimate = dataProvider.getProjectEstimate(8, 1);
+        String singleProjectEstimate = dataProvider.getProjectEstimate(8, 0);
         Assertions.assertTrue(singleProjectEstimate.isEmpty());
     }
 
     @Test
     @Order(8)
     void getProjectListEstimateSuccess() {
-        String projectListEstimate = dataProvider.getProjectEstimate(0);
+        String projectListEstimate = dataProvider.getProjectEstimate(userId);
         Assertions.assertNotNull(projectListEstimate);
         log.info(projectListEstimate);
     }
@@ -563,11 +619,11 @@ public class DataProviderXmlTest {
     @Test
     @Order(8)
     void calculateProjectCostSuccess() {
-        Double projectCost = dataProvider.calculateProjectCost(0, 1);
+        double projectCost = dataProvider.calculateProjectCost(userId, 0);
         log.info(projectCost);
-        projectCost = dataProvider.calculateProjectCost(0, 2);
+        projectCost = dataProvider.calculateProjectCost(userId, 1);
         log.info(projectCost);
-        projectCost = dataProvider.calculateProjectCost(0, 3);
+        projectCost = dataProvider.calculateProjectCost(userId, 2);
         log.info(projectCost);
     }
 }

@@ -15,7 +15,6 @@ import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class DataProviderCsv implements DataProvider {
 
     private long getNextMaterialId(){
         List<Material> objectList = readFromCsv(Material.class);
-        long maxId = -1;
+        long maxId = 0;
         for (Material material : objectList) {
             if (maxId < material.getId()) {
                 maxId = material.getId();
@@ -50,7 +49,7 @@ public class DataProviderCsv implements DataProvider {
 
     private long getNextCustomerId(){
         List<Customer> objectList = readFromCsv(Customer.class);
-        long maxId = -1;
+        long maxId = 0;
         for (Customer customer : objectList) {
             if (maxId < customer.getId()) {
                 maxId = customer.getId();
@@ -64,7 +63,7 @@ public class DataProviderCsv implements DataProvider {
         objectList.addAll(readFromCsv(Fursuit.class));
         objectList.addAll(readFromCsv(Art.class));
         objectList.addAll(readFromCsv(Toy.class));
-        long maxId = -1;
+        long maxId = 0;
         for (Project project : objectList) {
             if (maxId < project.getId()) {
                 maxId = project.getId();
@@ -372,14 +371,15 @@ public class DataProviderCsv implements DataProvider {
             return false;
         }
 
-        Art project = new Art();
-        if (!setBasicProject(project, userId, projectName, customerId, deadline, paymentType, ProjectType.ART)) {
-            return false;
-        }
-        project.setArtStyle(artStyle);
-        project.setArtType(artType);
-        project.setPaymentType(paymentType);
-        return writeToCsv(project);
+            Art project = new Art();
+            if (!setBasicProject(project, userId, projectName, customerId, deadline, paymentType, ProjectType.ART)) {
+                return false;
+            }
+            project.setArtStyle(artStyle);
+            project.setArtType(artType);
+            project.setPaymentType(paymentType);
+            project.setCost(cost);
+            return writeToCsv(project);
         } catch (IOException e) {
             log.error(e);
             return false;
