@@ -410,7 +410,8 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.TOY (USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, TOY_STYLE, TOY_TYPE) VALUES (%d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d)",
+      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.TOY (ID, USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, TOY_STYLE, TOY_TYPE) VALUES (%d, %d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d);",
+              getNextProjectId(),
               userId,
               customerId,
               dateFormat.format(deadline),
