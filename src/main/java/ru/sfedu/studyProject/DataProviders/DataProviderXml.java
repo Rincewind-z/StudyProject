@@ -228,26 +228,59 @@ public class DataProviderXml implements DataProvider {
 
     @Override
     public boolean deleteMaterial(long userId, long id) {
-        List<Material> materialList = readFromXml(Material.class);
-        materialList.removeIf(material -> material.getUserId() == userId && material.getId() == id);
-        writeToXml(Material.class, materialList, true);
-        return true;
+        try {
+            List<Material> materialList = readFromXml(Material.class);
+            Optional<Material> optionalMaterial = materialList.stream()
+                    .filter(material -> material.getId() == id && material.getUserId() == userId)
+                    .findAny();
+            if (optionalMaterial.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+                return false;
+            }
+            materialList.removeIf(material -> material.getUserId() == userId && material.getId() == id);
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_DELETE_SUCCESS));
+            writeToXml(Material.class, materialList, true);
+            return true;
+        }catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public Optional<Material> getMaterial(long userId, long id)  {
+        try {
         List<Material> materialList = readFromXml(Material.class);
-        return materialList.stream()
+        Optional<Material> optionalMaterial = materialList.stream()
                 .filter(material -> material.getId() == id && material.getUserId() == userId)
                 .findAny();
+        if (optionalMaterial.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+            return Optional.empty();
+        }
+        return optionalMaterial;
+    } catch (IOException e) {
+        log.error(e);
+        return Optional.empty();
+    }
     }
 
     @Override
     public List<Material> getMaterial(long userId) {
+        try {
         List<Material> materialList = readFromXml(Material.class);
-        return materialList.stream()
+        List<Material> userMaterialList = materialList.stream()
                 .filter(material -> material.getUserId() == userId)
                 .collect(Collectors.toList());
+        if (userMaterialList.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+            return Collections.emptyList();
+        }
+        return userMaterialList;
+    } catch (IOException e) {
+        log.error(e);
+        return Collections.emptyList();
+    }
     }
 
     @Override
@@ -302,26 +335,59 @@ public class DataProviderXml implements DataProvider {
 
     @Override
     public boolean deleteCustomer(long userId, long customerId) {
-        List<Customer> customerList = readFromXml(Customer.class);
-        customerList.removeIf(customer -> customer.getUserId() == userId && customer.getId() == customerId);
-        writeToXml(Customer.class, customerList, true);
-        return true;
+        try {
+            List<Customer> customerList = readFromXml(Customer.class);
+            Optional<Customer> optionalCustomer = customerList.stream()
+                    .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
+                    .findAny();
+            if (optionalCustomer.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+                return false;
+            }
+            customerList.removeIf(customer -> customer.getUserId() == userId && customer.getId() == customerId);
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_DELETE_SUCCESS));
+            writeToXml(Customer.class, customerList, true);
+            return true;
+        }catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public Optional<Customer> getCustomer(long userId, long customerId) {
-        List<Customer> customerList = readFromXml(Customer.class);
-        return customerList.stream()
-                .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
-                .findAny();
+        try {
+            List<Customer> customerList = readFromXml(Customer.class);
+            Optional<Customer> optionalCustomer = customerList.stream()
+                    .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
+                    .findAny();
+            if (optionalCustomer.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+                return Optional.empty();
+            }
+            return optionalCustomer;
+        }catch (IOException e) {
+            log.error(e);
+            return Optional.empty();
+        }
     }
 
     @Override
     public List<Customer> getCustomer(long userId) {
-        List<Customer> customerList = readFromXml(Customer.class);
-        return customerList.stream()
-                .filter(customer -> customer.getUserId() == userId)
-                .collect(Collectors.toList());
+        try {
+            List<Customer> customerList = readFromXml(Customer.class);
+            List<Customer> userCustomerList1 = customerList.stream()
+                    .filter(customer -> customer.getUserId() == userId)
+                    .collect(Collectors.toList());
+            if (userCustomerList1.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+                return Collections.emptyList();
+            }
+            return userCustomerList1;
+        } catch (IOException e) {
+            log.error(e);
+            return Collections.emptyList();
+        }
     }
 
 
@@ -505,10 +571,16 @@ public class DataProviderXml implements DataProvider {
     }
 
     private <T extends Project> boolean saveProject(Class<T> tClass, T project) {
-        List<T> projectList = readFromXml(tClass);
-        projectList.removeIf(tProject -> tProject.getId() == project.getId());
-        projectList.add(project);
-        return writeToXml(tClass, projectList, true);
+        try {
+            List<T> projectList = readFromXml(tClass);
+            projectList.removeIf(tProject -> tProject.getId() == project.getId());
+            projectList.add(project);
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROGECT_SAVE_SUCCESS));
+            return writeToXml(tClass, projectList, true);
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
@@ -537,48 +609,73 @@ public class DataProviderXml implements DataProvider {
     }
 
     private <T extends Project> boolean deleteProject(Class<T> tClass, T project) {
-        List<T> projectList = readFromXml(tClass);
-        projectList.removeIf(tProject -> tProject.getId() == project.getId());
-        return writeToXml(tClass, projectList, true);
+        try {
+            List<T> projectList = readFromXml(tClass);
+            projectList.removeIf(tProject -> tProject.getId() == project.getId());
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROGECT_DELETE_SUCCESS));
+            return writeToXml(tClass, projectList, true);
+        }catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public Optional<Project> getProject(long userId, long projectId) {
-        List<Project> projectList = getProject(userId);
-        return projectList.stream()
-                .filter(project -> project.getId() == projectId)
-                .findAny();
+        try {
+            List<Project> projectList = getProject(userId);
+            Optional<Project> optionalProject = projectList.stream()
+                    .filter(project -> project.getId() == projectId)
+                    .findAny();
+            if (optionalProject.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+                return Optional.empty();
+            }
+            return optionalProject;
+        }catch (IOException e) {
+            log.error(e);
+            return Optional.empty();
+        }
     }
 
     @Override
     public List<Project> getProject(long userId) {
-        List<Project> projectList = new ArrayList<>();
-        projectList.addAll(readFromXml(Fursuit.class));
-        projectList.addAll(readFromXml(Art.class));
-        projectList.addAll(readFromXml(Toy.class));
-        projectList = projectList.stream()
-                .filter(customer -> customer.getUserId() == userId)
-                .collect(Collectors.toList());
-        projectList.forEach(project -> {
-            project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
-            switch (project.getProjectType()) {
-                case FURSUIT:
-                    Fursuit fursuit = (Fursuit) project;
-                    List<FursuitPart> fursuitPartList = new ArrayList<>();
-                    fursuit.getPartList().forEach(fursuitPart ->
-                            fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
-                    fursuit.setPartList(fursuitPartList);
-                    break;
-                case TOY:
-                    Toy toy = (Toy) project;
-                    Map<Material, Double> materialMap = new HashMap<>();
-                    toy.getOutgoings().forEach((material, aDouble) ->
-                            materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
-                    toy.setOutgoings(materialMap);
-                    break;
+        try {
+            List<Project> projectList = new ArrayList<>();
+            projectList.addAll(readFromXml(Fursuit.class));
+            projectList.addAll(readFromXml(Art.class));
+            projectList.addAll(readFromXml(Toy.class));
+            projectList = projectList.stream()
+                    .filter(customer -> customer.getUserId() == userId)
+                    .collect(Collectors.toList());
+            if (projectList.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+                return Collections.emptyList();
             }
-        });
-        return projectList;
+            projectList.forEach(project -> {
+                project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
+                switch (project.getProjectType()) {
+                    case FURSUIT:
+                        Fursuit fursuit = (Fursuit) project;
+                        List<FursuitPart> fursuitPartList = new ArrayList<>();
+                        fursuit.getPartList().forEach(fursuitPart ->
+                                fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
+                        fursuit.setPartList(fursuitPartList);
+                        break;
+                    case TOY:
+                        Toy toy = (Toy) project;
+                        Map<Material, Double> materialMap = new HashMap<>();
+                        toy.getOutgoings().forEach((material, aDouble) ->
+                                materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
+                        toy.setOutgoings(materialMap);
+                        break;
+                }
+            });
+            return projectList;
+        } catch (IOException e) {
+            log.error(e);
+            return Collections.emptyList();
+        }
     }
 
     @Override
@@ -913,10 +1010,18 @@ public class DataProviderXml implements DataProvider {
 
     @Override
     public String getProjectEstimate(long userId) {
-        List<Project> projectList = getProject(userId);
-        StringBuilder stringBuilder = new StringBuilder();
-        projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
-        return stringBuilder.toString();
+        try {
+            List<Project> projectList = getProject(userId);
+            if (projectList.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
+            return stringBuilder.toString();
+        } catch (IOException e) {
+            log.error(e);
+            return "";
+        }
     }
 
     @Override

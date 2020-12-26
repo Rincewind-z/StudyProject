@@ -92,14 +92,14 @@ public class DataProviderJdbcTest {
   @Test
   @Order(9)
   void deleteMaterialSuccess() {
-    Assertions.assertTrue(dataProvider.deleteMaterial(userId, 0));
+    Assertions.assertTrue(dataProvider.deleteMaterial(userId, 1));
   }
 
   @Test
   @Order(9)
   void deleteMaterialFailed() {
-    Assertions.assertTrue(dataProvider.deleteMaterial(8, 0));
-    Assertions.assertTrue(dataProvider.deleteMaterial(userId, 8));
+    Assertions.assertFalse(dataProvider.deleteMaterial(8, 1));
+    Assertions.assertFalse(dataProvider.deleteMaterial(userId, 8));
   }
 
   @Test
@@ -371,7 +371,7 @@ public class DataProviderJdbcTest {
     Optional<Customer> optionalCustomer = dataProvider.getCustomer(userId, 8);
     Assertions.assertFalse(optionalCustomer.isPresent());
 
-    optionalCustomer = dataProvider.getCustomer(8, 0);
+    optionalCustomer = dataProvider.getCustomer(8, 1);
     Assertions.assertFalse(optionalCustomer.isPresent());
   }
 
@@ -391,16 +391,16 @@ public class DataProviderJdbcTest {
   }
 
   @Test
-  @Order(9)
+  @Order(10)
   void deleteCustomerSuccess() {
-    Assertions.assertTrue(dataProvider.deleteCustomer(userId, 0));
+    Assertions.assertTrue(dataProvider.deleteCustomer(userId, 1));
   }
 
   @Test
   @Order(9)
   void deleteCustomerFailed() {
-    Assertions.assertTrue(dataProvider.deleteCustomer(8, 0));
-    Assertions.assertTrue(dataProvider.deleteCustomer(0, 8));
+    Assertions.assertFalse(dataProvider.deleteCustomer(8, 1));
+    Assertions.assertFalse(dataProvider.deleteCustomer(0, 8));
   }
 
   @Test
@@ -606,8 +606,6 @@ public class DataProviderJdbcTest {
   @Test
   @Order(8)
   void calculateProjectCostFailed() {
-    double projectCost = dataProvider.calculateProjectCost(userId, 9);
-    Assertions.assertFalse(projectCost > 0);
-    log.info(projectCost);
+    dataProvider.calculateProjectCost(userId, 9);
   }
 }

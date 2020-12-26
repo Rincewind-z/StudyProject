@@ -606,8 +606,6 @@ public class DataProviderCsvTest {
     @Test
     @Order(8)
     void calculateProjectCostFailed() {
-        double projectCost = dataProvider.calculateProjectCost(userId, 9);
-        Assertions.assertFalse(projectCost > 0);
-        log.info(projectCost);
+        dataProvider.calculateProjectCost(userId, 9);
     }
 }

@@ -654,33 +654,42 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public List<Project> getProject(long userId) {
-        List<Project> projectList = new ArrayList<>();
-        projectList.addAll(readFromCsv(Fursuit.class));
-        projectList.addAll(readFromCsv(Art.class));
-        projectList.addAll(readFromCsv(Toy.class));
-        projectList = projectList.stream()
-                .filter(customer -> customer.getUserId() == userId)
-                .collect(Collectors.toList());
-        projectList.forEach(project -> {
-            project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
-            switch (project.getProjectType()) {
-                case FURSUIT:
-                    Fursuit fursuit = (Fursuit) project;
-                    List<FursuitPart> fursuitPartList = new ArrayList<>();
-                    fursuit.getPartList().forEach(fursuitPart ->
-                            fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
-                    fursuit.setPartList(fursuitPartList);
-                    break;
-                case TOY:
-                    Toy toy = (Toy) project;
-                    Map<Material, Double> materialMap = new HashMap<>();
-                    toy.getOutgoings().forEach((material, aDouble) ->
-                            materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
-                    toy.setOutgoings(materialMap);
-                    break;
+        try {
+            List<Project> projectList = new ArrayList<>();
+            projectList.addAll(readFromCsv(Fursuit.class));
+            projectList.addAll(readFromCsv(Art.class));
+            projectList.addAll(readFromCsv(Toy.class));
+            projectList = projectList.stream()
+                    .filter(customer -> customer.getUserId() == userId)
+                    .collect(Collectors.toList());
+            if (projectList.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+                return Collections.emptyList();
             }
-        });
-        return projectList;
+            projectList.forEach(project -> {
+                project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
+                switch (project.getProjectType()) {
+                    case FURSUIT:
+                        Fursuit fursuit = (Fursuit) project;
+                        List<FursuitPart> fursuitPartList = new ArrayList<>();
+                        fursuit.getPartList().forEach(fursuitPart ->
+                                fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
+                        fursuit.setPartList(fursuitPartList);
+                        break;
+                    case TOY:
+                        Toy toy = (Toy) project;
+                        Map<Material, Double> materialMap = new HashMap<>();
+                        toy.getOutgoings().forEach((material, aDouble) ->
+                                materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
+                        toy.setOutgoings(materialMap);
+                        break;
+                }
+            });
+            return projectList;
+        } catch (IOException e) {
+            log.error(e);
+            return Collections.emptyList();
+        }
     }
 
     @Override
@@ -862,7 +871,6 @@ public class DataProviderCsv implements DataProvider {
     }
     }
 
-
     @Override
     public boolean setOutgoing(long userId, long toyId, long materialId, double amount) {
         try {
@@ -1014,10 +1022,18 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public String getProjectEstimate(long userId) {
-        List<Project> projectList = getProject(userId);
-        StringBuilder stringBuilder = new StringBuilder();
-        projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
-        return stringBuilder.toString();
+        try {
+            List<Project> projectList = getProject(userId);
+            if (projectList.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
+            return stringBuilder.toString();
+        } catch (IOException e) {
+            log.error(e);
+            return "";
+        }
     }
 
     @Override

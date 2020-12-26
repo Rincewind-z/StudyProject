@@ -163,10 +163,20 @@ public class DataProviderJdbc implements DataProvider {
   @Override
   public boolean deleteMaterial(long userId, long id) {
     try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_MATERIAL_REQUEST),
+              userId,
+              id));
+      if (!resultSet.next()){
+        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+        statement.close();
+        return false;
+      }
+      statement.close();
       return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_MATERIAL_REQUEST),
               userId,
               id));
-    } catch (IOException e) {
+    } catch (IOException | SQLException e) {
       log.error(e);
       return false;
     }
@@ -199,6 +209,7 @@ public class DataProviderJdbc implements DataProvider {
               userId,
               id));
       if (!resultSet.next()){
+        statement.close();
         return Optional.empty();
       }
       Material material = setMaterial(resultSet);
@@ -276,10 +287,19 @@ public class DataProviderJdbc implements DataProvider {
   @Override
   public boolean deleteCustomer(long userId, long customerId) {
     try {
+      Statement statement = connection.createStatement();
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_CUSTOMER_REQUEST),
+              userId,
+              customerId));
+      if (!resultSet.next()){
+        statement.close();
+        return false;
+      }
+      statement.close();
       return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_CUSTOMER_REQUEST),
               userId,
               customerId));
-    } catch (IOException e) {
+    } catch (IOException | SQLException e) {
       log.error(e);
       return false;
     }
@@ -309,6 +329,7 @@ public class DataProviderJdbc implements DataProvider {
               userId,
               customerId));
       if (!resultSet.next()){
+        statement.close();
         return Optional.empty();
       }
       Customer customer = setCustomer(resultSet);
@@ -1059,10 +1080,18 @@ public class DataProviderJdbc implements DataProvider {
 
   @Override
   public String getProjectEstimate(long userId) {
-    List<Project> projectList = getProject(userId);
-    StringBuilder stringBuilder = new StringBuilder();
-    projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
-    return stringBuilder.toString();
+    try {
+      List<Project> projectList = getProject(userId);
+      if (projectList.isEmpty()) {
+        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+      }
+      StringBuilder stringBuilder = new StringBuilder();
+      projectList.forEach(project -> stringBuilder.append(getProjectEstimate(userId, project.getId())));
+      return stringBuilder.toString();
+    } catch (IOException e) {
+      log.error(e);
+      return "";
+    }
   }
 
   @Override
