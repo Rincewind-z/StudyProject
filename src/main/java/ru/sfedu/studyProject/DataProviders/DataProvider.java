@@ -1,13 +1,14 @@
 package ru.sfedu.studyProject.DataProviders;
 
 import ru.sfedu.studyProject.enums.*;
-import ru.sfedu.studyProject.model.*;
+import ru.sfedu.studyProject.model.Customer;
+import ru.sfedu.studyProject.model.FursuitPart;
+import ru.sfedu.studyProject.model.Material;
+import ru.sfedu.studyProject.model.Project;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * The interface Data provider.
