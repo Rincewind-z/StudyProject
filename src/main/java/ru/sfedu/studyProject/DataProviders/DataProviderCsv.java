@@ -37,6 +37,7 @@ public class DataProviderCsv implements DataProvider {
 
     private static <T> void createFile(Class<T> tClass) {
         try {
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)).mkdirs());
             log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
                     + tClass.getSimpleName().toLowerCase()
                     + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).createNewFile());
