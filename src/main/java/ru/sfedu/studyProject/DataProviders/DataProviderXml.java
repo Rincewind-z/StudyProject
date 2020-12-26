@@ -25,17 +25,41 @@ public class DataProviderXml implements DataProvider {
         }
     }
 
-    public void createFiles() {
-        writeToXml(Art.class, new ArrayList<>(), true);
-        writeToXml(Customer.class, new ArrayList<>(), true);
-        writeToXml(Fursuit.class, new ArrayList<>(), true);
-        writeToXml(FursuitPart.class, new ArrayList<>(), true);
-        writeToXml(Material.class, new ArrayList<>(), true);
-        writeToXml(Toy.class, new ArrayList<>(), true);
-        writeToXml(Art.class, new ArrayList<>(), true);
+    private static <T> void deleteFile(Class<T> tClass) {
+        try {
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.XML_PATH)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(Constants.XML_FILE_EXTENSION)).delete());
+        } catch (IOException e) {
+            log.error(e);
+        }
     }
 
-    private long getNextMaterialId(){
+
+    public static void deleteAll() {
+        List<Class> classList = new ArrayList<>();
+        classList.add(Art.class);
+        classList.add(Customer.class);
+        classList.add(Fursuit.class);
+        classList.add(FursuitPart.class);
+        classList.add(Material.class);
+        classList.add(Project.class);
+        classList.add(Toy.class);
+        classList.forEach(DataProviderXml::deleteFile);
+    }
+
+    public static void createFiles() {
+        DataProviderXml dataProviderXml = new DataProviderXml();
+        dataProviderXml.writeToXml(Art.class, new ArrayList<>(), true);
+        dataProviderXml.writeToXml(Customer.class, new ArrayList<>(), true);
+        dataProviderXml.writeToXml(Fursuit.class, new ArrayList<>(), true);
+        dataProviderXml.writeToXml(FursuitPart.class, new ArrayList<>(), true);
+        dataProviderXml.writeToXml(Material.class, new ArrayList<>(), true);
+        dataProviderXml.writeToXml(Toy.class, new ArrayList<>(), true);
+        dataProviderXml.writeToXml(Art.class, new ArrayList<>(), true);
+    }
+
+    private long getNextMaterialId() {
         List<Material> objectList = readFromXml(Material.class);
         long maxId = 0;
         for (Material material : objectList) {

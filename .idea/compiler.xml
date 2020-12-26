@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="StudyProject" />
         <module name="studyProject" />
+        <module name="asya" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

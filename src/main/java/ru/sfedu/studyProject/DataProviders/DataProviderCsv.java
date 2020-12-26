@@ -15,6 +15,7 @@ import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
 import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,8 +25,57 @@ import java.util.stream.Collectors;
 public class DataProviderCsv implements DataProvider {
     private static final Logger log = LogManager.getLogger(DataProviderCsv.class);
 
+    private static <T> void deleteFile(Class<T> tClass) {
+        try {
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).delete());
+        } catch (IOException e) {
+            log.error(e);
+        }
+    }
 
-    private long getNextMaterialId(){
+    private static <T> void createFile(Class<T> tClass) {
+        try {
+            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
+                    + tClass.getSimpleName().toLowerCase()
+                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).createNewFile());
+        } catch (IOException e) {
+            log.error(e);
+        }
+    }
+
+    public static void createAll() {
+        List<Class> classList = new ArrayList<>();
+        classList.add(Art.class);
+        classList.add(Customer.class);
+        classList.add(Fursuit.class);
+        classList.add(FursuitPart.class);
+        classList.add(Material.class);
+        classList.add(Project.class);
+        classList.add(Toy.class);
+        classList.forEach(DataProviderCsv::createFile);
+    }
+
+    public static void deleteAll() {
+        List<Class> classList = new ArrayList<>();
+        classList.add(Art.class);
+        classList.add(Customer.class);
+        classList.add(Fursuit.class);
+        classList.add(FursuitPart.class);
+        classList.add(Material.class);
+        classList.add(Project.class);
+        classList.add(Toy.class);
+        classList.forEach(DataProviderCsv::deleteFile);
+    }
+
+    public static void deleteAndCreateAll() {
+        deleteAll();
+        createAll();
+    }
+
+
+    private long getNextMaterialId() {
         List<Material> objectList = readFromCsv(Material.class);
         long maxId = 0;
         for (Material material : objectList) {

@@ -4,14 +4,9 @@ package ru.sfedu.studyProject.DataProviders;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
-import ru.sfedu.studyProject.Constants;
 import ru.sfedu.studyProject.enums.*;
 import ru.sfedu.studyProject.model.*;
-import ru.sfedu.studyProject.utils.ConfigurationUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -24,42 +19,10 @@ public class DataProviderCsvTest {
 
     private static final long userId = 0;
 
-    private static <T> void deleteFile(Class<T> tClass) {
-        try {
-            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
-                    + tClass.getSimpleName().toLowerCase()
-                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).delete());
-        } catch (IOException e) {
-            log.error(e);
-        }
-    }
-
-    private static <T> void createFile(Class<T> tClass) {
-        try {
-            log.debug(new File(ConfigurationUtil.getConfigurationEntry(Constants.CSV_PATH)
-                    + tClass.getSimpleName().toLowerCase()
-                    + ConfigurationUtil.getConfigurationEntry(Constants.FILE_EXTENSION)).createNewFile());
-        } catch (IOException e) {
-            log.error(e);
-        }
-    }
-
-    private static void deleteAndCreateAll() {
-        List<Class> classList = new ArrayList<>();
-        classList.add(Art.class);
-        classList.add(Customer.class);
-        classList.add(Fursuit.class);
-        classList.add(FursuitPart.class);
-        classList.add(Material.class);
-        classList.add(Project.class);
-        classList.add(Toy.class);
-        classList.forEach(DataProviderCsvTest::deleteFile);
-        classList.forEach(DataProviderCsvTest::createFile);
-    }
 
     @BeforeAll
     static void init() {
-        deleteAndCreateAll();
+        DataProviderCsv.deleteAndCreateAll();
     }
 
     @Test

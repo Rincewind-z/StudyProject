@@ -55,7 +55,6 @@ public class DataProviderJdbc implements DataProvider {
   }
 
   public boolean setDB(){
-    //language=H2;
     try {
       return executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_CUSTOMER_TABLE))
               && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_MATERIAL_TABLE))
@@ -71,16 +70,16 @@ public class DataProviderJdbc implements DataProvider {
     }
   }
 
-  public boolean dropDB(){
+  public boolean dropDB() {
     try {
-      return executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_CUSTOMER_TABLE))
-              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_MATERIAL_TABLE))
-              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_ART_PROJECT_TABLE))
-              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_FURSUIT_PROJECT_TABLE))
-              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DTOP_FURSUIT_PART_TABLE))
-              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_FURSUIT_PART_OUTGOINGS_TABLE))
+      return executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_TOY_PROJECT_OUTGOINGS_TABLE))
               && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_TOY_PROJECT_TABLE))
-              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_TOY_PROJECT_OUTGOINGS_TABLE));
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_FURSUIT_PART_OUTGOINGS_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DTOP_FURSUIT_PART_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_FURSUIT_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_ART_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_MATERIAL_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_CUSTOMER_TABLE));
     } catch (IOException e) {
       log.error(e);
       return false;
@@ -472,7 +471,7 @@ public class DataProviderJdbc implements DataProvider {
       }
 
       switch (optionalProject.get().getProjectType()) {
-        case FURSUIT -> {
+        case FURSUIT:
           Fursuit project = (Fursuit) optionalProject.get();
           Fursuit editedFursuit = (Fursuit) editedProject;
           if (!editedFursuit.getPartList().equals(project.getPartList())) {
@@ -490,9 +489,7 @@ public class DataProviderJdbc implements DataProvider {
                   editedFursuit.getFursuitStyle().ordinal(),
                   editedFursuit.getId(),
                   editedFursuit.getUserId()));
-        }
-
-        case ART -> {
+        case ART:
           Art art = (Art) editedProject;
           return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_ART_PROJECT_REQUEST),
                   art.getCustomer().getId(),
@@ -506,12 +503,10 @@ public class DataProviderJdbc implements DataProvider {
                   art.getCost(),
                   art.getId(),
                   art.getUserId()));
-        }
-
-        case TOY -> {
-          Toy project = (Toy) optionalProject.get();
+        case TOY:
+          Toy toy = (Toy) optionalProject.get();
           Toy editedToy = (Toy) editedProject;
-          if (!editedToy.getOutgoings().equals(project.getOutgoings())) {
+          if (!editedToy.getOutgoings().equals(toy.getOutgoings())) {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
             return false;
           }
@@ -526,7 +521,6 @@ public class DataProviderJdbc implements DataProvider {
                   editedToy.getToyType().ordinal(),
                   editedToy.getId(),
                   editedToy.getUserId()));
-        }
       }
       return false;
     } catch (IOException e) {
