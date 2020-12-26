@@ -7,5 +7,6 @@ public enum MaterialType {
     FILLER,
     PLASTIC,
     FOAM_RUBBER,
-    GLUE
+    GLUE,
+    WORK
 }

@@ -542,21 +542,18 @@ public class DataProviderJdbc implements DataProvider {
         return false;
       }
       switch (optionalProject.get().getProjectType()) {
-        case FURSUIT -> {
+        case FURSUIT:
           return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_FURSUIT_PROJECT_REQUEST),
                   userId,
                   projectId));
-        }
-        case ART -> {
+        case ART:
           return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_ART_PROJECT_REQUEST),
                   userId,
                   projectId));
-        }
-        case TOY -> {
+        case TOY:
           return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_TOY_PROJECT_REQUEST),
                   userId,
                   projectId));
-        }
       }
       return false;
     } catch (IOException e) {
@@ -1005,26 +1002,25 @@ public class DataProviderJdbc implements DataProvider {
             project.getDeadline().toString(),
             project.getProgress() * 100);
     switch (project.getProjectType()) {
-      case ART -> {
+      case ART:
         Art artProject = (Art) project;
         stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.ART_PROJECT_TO_STRING),
                 artProject.getArtType().toString(),
                 artProject.getArtStyle().toString(),
                 artProject.getCost());
         return stringProject;
-      }
-      case TOY -> {
+      case TOY:
         Toy toyProject = (Toy) project;
         stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.TOY_PROJECT_TO_STRING),
                 toyProject.getToyType().toString(),
                 toyProject.getToyStyle().toString());
-      }
-      case FURSUIT -> {
+        break;
+      case FURSUIT:
         Fursuit fursuitProject = (Fursuit) project;
         stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.FURSUIT_PROJECT_TO_STRING),
                 fursuitProject.getFursuitType().toString(),
                 fursuitProject.getFursuitStyle().toString());
-      }
+        break;
     }
     return stringProject;
   }
@@ -1078,20 +1074,18 @@ public class DataProviderJdbc implements DataProvider {
         return "";
       }
       switch (project.get().getProjectType()) {
-        case ART -> {
+        case ART:
           return projectToString(project.get());
-        }
-        case TOY -> {
+        case TOY:
           Toy toyProject = (Toy) project.get();
-          Map<Material, Double> costsMap = calculateCosts(toyProject.getOutgoings());
+          Map<Material, Double> costsMapToy = calculateCosts(toyProject.getOutgoings());
           return projectToString(toyProject) +
                   ConfigurationUtil.getConfigurationEntry(Constants.ESTIMATE_TITLE) +
-                  outgoingsWithCostsToString(toyProject.getOutgoings(), costsMap) +
+                  outgoingsWithCostsToString(toyProject.getOutgoings(), costsMapToy) +
                   ConfigurationUtil.getConfigurationEntry(Constants.AMOUNT_TITLE) +
                   calculateProjectCost(userId, projectId) +
                   ConfigurationUtil.getConfigurationEntry(Constants.NEW_LINE);
-        }
-        case FURSUIT -> {
+        case FURSUIT:
           Fursuit fursuitProject = (Fursuit) project.get();
           Map<FursuitPart, Map<Material, Double>> outgoingMapList = new HashMap<>();
           fursuitProject.getPartList().forEach(fursuitPart ->
@@ -1113,7 +1107,6 @@ public class DataProviderJdbc implements DataProvider {
           estimateBuilder.append(calculateProjectCost(userId, projectId));
           estimateBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.NEW_LINE));
           return estimateBuilder.toString();
-        }
       }
       return  "";
     } catch (IOException e) {
@@ -1131,15 +1124,13 @@ public class DataProviderJdbc implements DataProvider {
         return 0;
       }
       switch (optionalProject.get().getProjectType()){
-        case ART -> {
+        case ART:
           return ((Art)optionalProject.get()).getCost();
-        }
-        case TOY -> {
+        case TOY:
           return calculateCosts(((Toy)optionalProject.get()).getOutgoings()).values().stream()
                   .mapToDouble(value -> value)
                   .sum();
-        }
-        case FURSUIT -> {
+        case FURSUIT:
           return ((Fursuit)optionalProject.get())
                   .getPartList()
                   .stream()
@@ -1151,7 +1142,6 @@ public class DataProviderJdbc implements DataProvider {
                                   .sum())
                   .sum();
         }
-      }
       return 0;
     } catch (IOException e) {
       log.error(e);

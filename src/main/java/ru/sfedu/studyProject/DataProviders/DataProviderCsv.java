@@ -558,7 +558,7 @@ public class DataProviderCsv implements DataProvider {
         }
 
             switch (optionalProject.get().getProjectType()) {
-                case FURSUIT -> {
+                case FURSUIT:
                     Fursuit project = (Fursuit) optionalProject.get();
                     Fursuit editedFursuit = (Fursuit) editedProject;
                     if (!editedFursuit.getPartList().equals(project.getPartList())) {
@@ -566,19 +566,16 @@ public class DataProviderCsv implements DataProvider {
                         return false;
                     }
                     return saveProject(Fursuit.class, editedFursuit);
-                }
-                case ART -> {
+                case ART:
                     return saveProject(Art.class, (Art) editedProject);
-                }
-                case TOY -> {
-                    Toy project = (Toy) optionalProject.get();
+                case TOY:
+                    Toy projectToy = (Toy) optionalProject.get();
                     Toy editedToy = (Toy) editedProject;
-                    if (!editedToy.getOutgoings().equals(project.getOutgoings())) {
+                    if (!editedToy.getOutgoings().equals(projectToy.getOutgoings())) {
                         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
                         return false;
                     }
                     return saveProject(Toy.class, editedToy);
-                }
             }
         return false;
     } catch (IOException e) {
@@ -609,18 +606,15 @@ public class DataProviderCsv implements DataProvider {
             return false;
         }
             switch (optionalProject.get().getProjectType()) {
-                case FURSUIT -> {
+                case FURSUIT:
                     Fursuit fursuit = (Fursuit) optionalProject.get();
                     fursuit.getPartList().forEach(fursuitPart -> deleteFursuitPart(userId, projectId, fursuitPart.getId()));
                     return deleteProject(Fursuit.class, fursuit);
-                }
-                case ART -> {
+                case ART:
                     return deleteProject(Art.class, (Art) optionalProject.get());
-                }
-                case TOY -> {
+                case TOY:
                     return deleteProject(Toy.class, (Toy) optionalProject.get());
                 }
-            }
         return false;
     } catch (IOException e) {
         log.error(e);
@@ -670,21 +664,20 @@ public class DataProviderCsv implements DataProvider {
         projectList.forEach(project -> {
             project.setCustomer(getCustomer(userId, project.getCustomer().getId()).get());
             switch (project.getProjectType()) {
-                case FURSUIT -> {
+                case FURSUIT:
                     Fursuit fursuit = (Fursuit) project;
                     List<FursuitPart> fursuitPartList = new ArrayList<>();
                     fursuit.getPartList().forEach(fursuitPart ->
                             fursuitPartList.add(getFursuitPart(userId, fursuitPart.getId()).get()));
                     fursuit.setPartList(fursuitPartList);
-                }
-                case TOY -> {
+                    break;
+                case TOY:
                     Toy toy = (Toy) project;
                     Map<Material, Double> materialMap = new HashMap<>();
                     toy.getOutgoings().forEach((material, aDouble) ->
                             materialMap.put(getMaterial(userId, material.getId()).get(), aDouble));
                     toy.setOutgoings(materialMap);
-                }
-
+                    break;
             }
         });
         return projectList;
@@ -965,26 +958,24 @@ public class DataProviderCsv implements DataProvider {
                 project.getDeadline().toString(),
                 project.getProgress() * 100);
         switch (project.getProjectType()) {
-            case ART -> {
+            case ART:
                 Art artProject = (Art) project;
                 stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.ART_PROJECT_TO_STRING),
                         artProject.getArtType().toString(),
                         artProject.getArtStyle().toString(),
                         artProject.getCost());
                 return stringProject;
-            }
-            case TOY -> {
+            case TOY:
                 Toy toyProject = (Toy) project;
                 stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.TOY_PROJECT_TO_STRING),
                         toyProject.getToyType().toString(),
                         toyProject.getToyStyle().toString());
-            }
-            case FURSUIT -> {
+                break;
+            case FURSUIT:
                 Fursuit fursuitProject = (Fursuit) project;
                 stringProject += String.format(ConfigurationUtil.getConfigurationEntry(Constants.FURSUIT_PROJECT_TO_STRING),
                         fursuitProject.getFursuitType().toString(),
                         fursuitProject.getFursuitStyle().toString());
-            }
         }
         return stringProject;
     }
@@ -1038,20 +1029,18 @@ public class DataProviderCsv implements DataProvider {
             return "";
         }
         switch (project.get().getProjectType()) {
-            case ART -> {
+            case ART:
                 return projectToString(project.get());
-            }
-            case TOY -> {
+            case TOY:
                 Toy toyProject = (Toy) project.get();
-                Map<Material, Double> costsMap = calculateCosts(toyProject.getOutgoings());
+                Map<Material, Double> costsMapToy = calculateCosts(toyProject.getOutgoings());
                 return projectToString(toyProject) +
                         ConfigurationUtil.getConfigurationEntry(Constants.ESTIMATE_TITLE) +
-                        outgoingsWithCostsToString(toyProject.getOutgoings(), costsMap) +
+                        outgoingsWithCostsToString(toyProject.getOutgoings(), costsMapToy) +
                         ConfigurationUtil.getConfigurationEntry(Constants.AMOUNT_TITLE) +
                         calculateProjectCost(userId, projectId) +
                         ConfigurationUtil.getConfigurationEntry(Constants.NEW_LINE);
-            }
-            case FURSUIT -> {
+            case FURSUIT:
                 Fursuit fursuitProject = (Fursuit) project.get();
                 Map<FursuitPart, Map<Material, Double>> outgoingMapList = new HashMap<>();
                 fursuitProject.getPartList().forEach(fursuitPart ->
@@ -1074,7 +1063,6 @@ public class DataProviderCsv implements DataProvider {
                 estimateBuilder.append(ConfigurationUtil.getConfigurationEntry(Constants.NEW_LINE));
                 return estimateBuilder.toString();
             }
-        }
         return  "";
         } catch (IOException e) {
             log.error(e);
@@ -1091,15 +1079,13 @@ public class DataProviderCsv implements DataProvider {
             return 0;
         }
         switch (optionalProject.get().getProjectType()){
-            case ART -> {
+            case ART:
                 return ((Art)optionalProject.get()).getCost();
-            }
-            case TOY -> {
+            case TOY:
                 return calculateCosts(((Toy)optionalProject.get()).getOutgoings()).values().stream()
                         .mapToDouble(value -> value)
                         .sum();
-            }
-            case FURSUIT -> {
+            case FURSUIT:
                 return ((Fursuit)optionalProject.get())
                         .getPartList()
                         .stream()
@@ -1111,7 +1097,6 @@ public class DataProviderCsv implements DataProvider {
                                         .sum())
                         .sum();
             }
-        }
         return 0;
         } catch (IOException e) {
             log.error(e);

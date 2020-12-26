@@ -1,7 +1,5 @@
 package ru.sfedu.studyProject;
 
-import java.util.SplittableRandom;
-
 public class Constants {
   public static final String MAIN_TEST_MESSAGE = "main.test.message";
   public static final String CONFIG_PATH = "config.path";
@@ -22,10 +20,20 @@ public class Constants {
   public static final String MSG_OUTGOINGS_NOT_FOUNDED = "msg.outgoings_not_founded";
   public static final String MSG_MATERIAL_EDIT_SUCCESS = "msg.edit_material_success";
   public static final String MSG_MATERIAL_DELETE_SUCCESS = "msg.delete_material_success";
+  public static final String MSG_CUSTOMER_CREATE_SUCCESS = "msg.create_customer_success";
   public static final String MSG_CUSTOMER_EDIT_SUCCESS = "msg.edit_customer_success";
   public static final String MSG_CUSTOMER_DELETE_SUCCESS = "msg.delete_customer_success";
   public static final String MSG_PROGECT_SAVE_SUCCESS = "msg.edit_project_success";
   public static final String MSG_PROGECT_DELETE_SUCCESS = "msg.delete_project_success";
+  public static final String MSG_NOT_ENOUGH_INPUT_VARS = "msg.not_enough_input_vars";
+  public static final String MSG_TOO_MANY_VARS = "msg.too_many_vars";
+  public static final String METHOD_NAME_CREATE_CUSTOMER = "method_name.create_customer";
+  public static final String METHOD_NAME_GET_PROJECT_ESTIMATE = "method_name.get_project_estimate";
+  public static final String METHOD_NAME_GET_CUSTOMER = "method_name.get_customer";
+  public static final String DATA_PROVIDER_CSV = "DataProviderCsv";
+  public static final String DATA_PROVIDER_XML = "DataProviderXml";
+  public static final String DATA_PROVIDER_JDBC = "DataProviderJdbc";
+  public static final String WRONG_DATA = "wrong_data";
   public static final String DATE_FORMAT = "dd.MM.yyyy HH:mm:ss z";
   public static final String NEW_LINE = "new_line";
   public static final String CUSTOMER_TO_STRING = "format.customer.toString";
