@@ -138,23 +138,21 @@ public class DataProviderCsv implements DataProvider {
                                MaterialType materialType,
                                String description,
                                float inStock) {
-
         try {
-        if (materialName == null || unit == null || materialType == null || description == null) {
-            log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
-            return false;
-        }
-        Material material = new Material();
-        material.setUserId(userId);
-        material.setId(getNextMaterialId());
-        material.setDateOfCreation(new Date(System.currentTimeMillis()));
-        material.setName(materialName);
-        material.setMaterialType(materialType);
-        material.setCost(cost);
-        material.setDescription(description);
-        material.setUnit(unit);
-        material.setInStock(inStock);
-
+            if (materialName == null || unit == null || materialType == null || description == null) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
+                return false;
+            }
+            Material material = new Material();
+            material.setUserId(userId);
+            material.setId(getNextMaterialId());
+            material.setDateOfCreation(new Date(System.currentTimeMillis()));
+            material.setName(materialName);
+            material.setMaterialType(materialType);
+            material.setCost(cost);
+            material.setDescription(description);
+            material.setUnit(unit);
+            material.setInStock(inStock);
         return writeToCsv(material);
         } catch (IOException e) {
             log.error(e);
@@ -184,6 +182,7 @@ public class DataProviderCsv implements DataProvider {
         }
         materialList.remove(optMaterial.get());
         materialList.add(editMaterial);
+        log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_EDIT_SUCCESS));
         writeToCsv(Material.class, materialList, true);
         return true;
     } catch (IOException e) {
@@ -194,26 +193,59 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean deleteMaterial(long userId, long id) {
+        try {
         List<Material> materialList = readFromCsv(Material.class);
+        Optional<Material> optionalMaterial = materialList.stream()
+                .filter(material -> material.getId() == id && material.getUserId() == userId)
+                .findAny();
+        if (optionalMaterial.isEmpty()) {
+            log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+            return false;
+        }
         materialList.removeIf(material -> material.getUserId() == userId && material.getId() == id);
+        log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_DELETE_SUCCESS));
         writeToCsv(Material.class, materialList, true);
         return true;
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public Optional<Material> getMaterial(long userId, long id)  {
-        List<Material> materialList = readFromCsv(Material.class);
-        return materialList.stream()
-                .filter(material -> material.getId() == id && material.getUserId() == userId)
-                .findAny();
+        try {
+            List<Material> materialList = readFromCsv(Material.class);
+            Optional<Material> optionalMaterial = materialList.stream()
+                    .filter(material -> material.getId() == id && material.getUserId() == userId)
+                    .findAny();
+            if (optionalMaterial.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+                return Optional.empty();
+            }
+            return optionalMaterial;
+        } catch (IOException e) {
+            log.error(e);
+            return Optional.empty();
+        }
     }
 
     @Override
     public List<Material> getMaterial(long userId) {
-        List<Material> materialList = readFromCsv(Material.class);
-        return materialList.stream()
-                .filter(material -> material.getUserId() == userId)
-                .collect(Collectors.toList());
+        try {
+            List<Material> materialList = readFromCsv(Material.class);
+            List<Material> userMaterialList = materialList.stream()
+                    .filter(material -> material.getUserId() == userId)
+                    .collect(Collectors.toList());
+            if (userMaterialList.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
+                return Collections.emptyList();
+            }
+            return userMaterialList;
+    } catch (IOException e) {
+        log.error(e);
+        return Collections.emptyList();
+    }
     }
 
     @Override
@@ -231,7 +263,6 @@ public class DataProviderCsv implements DataProvider {
         customer.setDateOfCreation(new Date(System.currentTimeMillis()));
         customer.setUrl(url);
         customer.setPhoneNumber(phoneNumber);
-
         return writeToCsv(customer);
     } catch (IOException e) {
         log.error(e);
@@ -258,6 +289,7 @@ public class DataProviderCsv implements DataProvider {
         }
         customerList.remove(optCustomer.get());
         customerList.add(editCustomer);
+        log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_EDIT_SUCCESS));
         writeToCsv(Customer.class, customerList, true);
         return true;
     } catch (IOException e) {
@@ -268,26 +300,59 @@ public class DataProviderCsv implements DataProvider {
 
     @Override
     public boolean deleteCustomer(long userId, long customerId) {
-        List<Customer> customerList = readFromCsv(Customer.class);
-        customerList.removeIf(customer -> customer.getUserId() == userId && customer.getId() == customerId);
-        writeToCsv(Customer.class, customerList, true);
-        return true;
+        try {
+            List<Customer> customerList = readFromCsv(Customer.class);
+            Optional<Customer> optionalCustomer = customerList.stream()
+                    .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
+                    .findAny();
+            if (optionalCustomer.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+                return false;
+            }
+            customerList.removeIf(customer -> customer.getUserId() == userId && customer.getId() == customerId);
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_DELETE_SUCCESS));
+            writeToCsv(Customer.class, customerList, true);
+            return true;
+        }catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public Optional<Customer> getCustomer(long userId, long customerId) {
-        List<Customer> customerList = readFromCsv(Customer.class);
-        return customerList.stream()
-                .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
-                .findAny();
+        try {
+            List<Customer> customerList = readFromCsv(Customer.class);
+            Optional<Customer> optionalCustomer = customerList.stream()
+                    .filter(customer -> customer.getId() == customerId && customer.getUserId() == userId)
+                    .findAny();
+            if (optionalCustomer.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+                return Optional.empty();
+            }
+            return optionalCustomer;
+        }catch (IOException e) {
+            log.error(e);
+            return Optional.empty();
+        }
     }
 
     @Override
     public List<Customer> getCustomer(long userId) {
-        List<Customer> customerList = readFromCsv(Customer.class);
-        return customerList.stream()
-                .filter(customer -> customer.getUserId() == userId)
-                .collect(Collectors.toList());
+        try {
+            List<Customer> customerList = readFromCsv(Customer.class);
+            List<Customer> userCustomerList1 = customerList.stream()
+                    .filter(customer -> customer.getUserId() == userId)
+                    .collect(Collectors.toList());
+            if (userCustomerList1.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
+                return Collections.emptyList();
+            }
+            return userCustomerList1;
+        } catch (IOException e) {
+            log.error(e);
+            return Collections.emptyList();
+        }
     }
 
 
@@ -442,31 +507,29 @@ public class DataProviderCsv implements DataProvider {
             return false;
         }
 
-        switch (optionalProject.get().getProjectType()) {
-            case FURSUIT -> {
-                Fursuit project = (Fursuit) optionalProject.get();
-                Fursuit editedFursuit = (Fursuit) editedProject;
-                if (!editedFursuit.getPartList().equals(project.getPartList())) {
-                    log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
-                    return false;
+            switch (optionalProject.get().getProjectType()) {
+                case FURSUIT -> {
+                    Fursuit project = (Fursuit) optionalProject.get();
+                    Fursuit editedFursuit = (Fursuit) editedProject;
+                    if (!editedFursuit.getPartList().equals(project.getPartList())) {
+                        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
+                        return false;
+                    }
+                    return saveProject(Fursuit.class, editedFursuit);
                 }
-                return saveProject(Fursuit.class, editedFursuit);
-            }
-
-            case ART -> {
-                return saveProject(Art.class,(Art) editedProject);
-            }
-
-            case TOY -> {
-                Toy project = (Toy) optionalProject.get();
-                Toy editedToy = (Toy) editedProject;
-                if (!editedToy.getOutgoings().equals(project.getOutgoings())) {
-                    log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
-                    return false;
+                case ART -> {
+                    return saveProject(Art.class, (Art) editedProject);
                 }
-                return saveProject(Toy.class, editedToy);
+                case TOY -> {
+                    Toy project = (Toy) optionalProject.get();
+                    Toy editedToy = (Toy) editedProject;
+                    if (!editedToy.getOutgoings().equals(project.getOutgoings())) {
+                        log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
+                        return false;
+                    }
+                    return saveProject(Toy.class, editedToy);
+                }
             }
-        }
         return false;
     } catch (IOException e) {
         log.error(e);
@@ -475,10 +538,16 @@ public class DataProviderCsv implements DataProvider {
     }
 
     private <T extends Project> boolean saveProject(Class<T> tClass, T project) {
-        List<T> projectList = readFromCsv(tClass);
-        projectList.removeIf(tProject -> tProject.getId() == project.getId());
-        projectList.add(project);
-        return writeToCsv(tClass, projectList, true);
+        try {
+            List<T> projectList = readFromCsv(tClass);
+            projectList.removeIf(tProject -> tProject.getId() == project.getId());
+            projectList.add(project);
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROGECT_SAVE_SUCCESS));
+            return writeToCsv(tClass, projectList, true);
+        } catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
@@ -489,19 +558,19 @@ public class DataProviderCsv implements DataProvider {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
             return false;
         }
-        switch (optionalProject.get().getProjectType()) {
-            case FURSUIT -> {
-                Fursuit fursuit = (Fursuit) optionalProject.get();
-                fursuit.getPartList().forEach(fursuitPart -> deleteFursuitPart(userId, projectId, fursuitPart.getId()));
-                return deleteProject(Fursuit.class, fursuit);
+            switch (optionalProject.get().getProjectType()) {
+                case FURSUIT -> {
+                    Fursuit fursuit = (Fursuit) optionalProject.get();
+                    fursuit.getPartList().forEach(fursuitPart -> deleteFursuitPart(userId, projectId, fursuitPart.getId()));
+                    return deleteProject(Fursuit.class, fursuit);
+                }
+                case ART -> {
+                    return deleteProject(Art.class, (Art) optionalProject.get());
+                }
+                case TOY -> {
+                    return deleteProject(Toy.class, (Toy) optionalProject.get());
+                }
             }
-            case ART -> {
-                return deleteProject(Art.class, (Art) optionalProject.get());
-            }
-            case TOY ->{
-                return deleteProject(Toy.class, (Toy) optionalProject.get());
-            }
-        }
         return false;
     } catch (IOException e) {
         log.error(e);
@@ -510,17 +579,33 @@ public class DataProviderCsv implements DataProvider {
     }
 
     private <T extends Project> boolean deleteProject(Class<T> tClass, T project) {
-        List<T> projectList = readFromCsv(tClass);
-        projectList.removeIf(tProject -> tProject.getId() == project.getId());
-        return writeToCsv(tClass, projectList, true);
+        try {
+            List<T> projectList = readFromCsv(tClass);
+            projectList.removeIf(tProject -> tProject.getId() == project.getId());
+            log.info(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROGECT_DELETE_SUCCESS));
+            return writeToCsv(tClass, projectList, true);
+        }catch (IOException e) {
+            log.error(e);
+            return false;
+        }
     }
 
     @Override
     public Optional<Project> getProject(long userId, long projectId) {
-        List<Project> projectList = getProject(userId);
-        return projectList.stream()
-                .filter(project -> project.getId() == projectId)
-                .findAny();
+        try {
+            List<Project> projectList = getProject(userId);
+            Optional<Project> optionalProject = projectList.stream()
+                    .filter(project -> project.getId() == projectId)
+                    .findAny();
+            if (optionalProject.isEmpty()) {
+                log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_PROJECT_NOT_FOUNDED));
+                return Optional.empty();
+            }
+            return optionalProject;
+        }catch (IOException e) {
+            log.error(e);
+            return Optional.empty();
+        }
     }
 
     @Override

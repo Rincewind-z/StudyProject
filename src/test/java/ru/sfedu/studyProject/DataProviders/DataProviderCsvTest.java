@@ -129,14 +129,14 @@ public class DataProviderCsvTest {
     @Test
     @Order(9)
     void deleteMaterialSuccess() {
-        Assertions.assertTrue(dataProvider.deleteMaterial(userId, 0));
+        Assertions.assertTrue(dataProvider.deleteMaterial(userId, 1));
     }
 
     @Test
     @Order(9)
     void deleteMaterialFailed() {
-        Assertions.assertTrue(dataProvider.deleteMaterial(8, 0));
-        Assertions.assertTrue(dataProvider.deleteMaterial(userId, 8));
+        Assertions.assertFalse(dataProvider.deleteMaterial(8, 1));
+        Assertions.assertFalse(dataProvider.deleteMaterial(userId, 8));
     }
 
     @Test
@@ -259,8 +259,9 @@ public class DataProviderCsvTest {
     @Test
     @Order(9)
     void deleteFursuitPartFailed() {
-        Assertions.assertFalse(dataProvider.deleteFursuitPart(8, 0, 0));
-        Assertions.assertFalse(dataProvider.deleteFursuitPart(userId, 0, 8));
+        Assertions.assertFalse(dataProvider.deleteFursuitPart(8, 1, 1));
+        Assertions.assertFalse(dataProvider.deleteFursuitPart(userId, 1, 8));
+        Assertions.assertFalse(dataProvider.deleteFursuitPart(userId, 8, 1));
     }
 
     @Test
@@ -427,16 +428,16 @@ public class DataProviderCsvTest {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
     void deleteCustomerSuccess() {
-        Assertions.assertTrue(dataProvider.deleteCustomer(userId, 0));
+        Assertions.assertTrue(dataProvider.deleteCustomer(userId, 1));
     }
 
     @Test
     @Order(9)
     void deleteCustomerFailed() {
-        Assertions.assertTrue(dataProvider.deleteCustomer(8, 0));
-        Assertions.assertTrue(dataProvider.deleteCustomer(0, 8));
+        Assertions.assertFalse(dataProvider.deleteCustomer(8, 1));
+        Assertions.assertFalse(dataProvider.deleteCustomer(0, 8));
     }
 
     @Test
@@ -592,13 +593,13 @@ public class DataProviderCsvTest {
     @Test
     @Order(8)
     void getProjectEstimateSuccess() {
-        String singleProjectEstimate = dataProvider.getProjectEstimate(userId, 0);
-        Assertions.assertNotNull(singleProjectEstimate);
-        log.info(singleProjectEstimate);
-        singleProjectEstimate = dataProvider.getProjectEstimate(userId, 1);
+        String singleProjectEstimate = dataProvider.getProjectEstimate(userId, 1);
         Assertions.assertNotNull(singleProjectEstimate);
         log.info(singleProjectEstimate);
         singleProjectEstimate = dataProvider.getProjectEstimate(userId, 2);
+        Assertions.assertNotNull(singleProjectEstimate);
+        log.info(singleProjectEstimate);
+        singleProjectEstimate = dataProvider.getProjectEstimate(userId, 3);
         Assertions.assertNotNull(singleProjectEstimate);
         log.info(singleProjectEstimate);
     }
@@ -628,11 +629,14 @@ public class DataProviderCsvTest {
     @Test
     @Order(8)
     void calculateProjectCostSuccess() {
-        double projectCost = dataProvider.calculateProjectCost(userId, 0);
-        log.info(projectCost);
-        projectCost = dataProvider.calculateProjectCost(userId, 1);
+        double projectCost = dataProvider.calculateProjectCost(userId, 1);
+        Assertions.assertTrue(projectCost >= 0);
         log.info(projectCost);
         projectCost = dataProvider.calculateProjectCost(userId, 2);
+        Assertions.assertTrue(projectCost >= 0);
+        log.info(projectCost);
+        projectCost = dataProvider.calculateProjectCost(userId, 3);
+        Assertions.assertTrue(projectCost >= 0);
         log.info(projectCost);
     }
 
@@ -640,6 +644,7 @@ public class DataProviderCsvTest {
     @Order(8)
     void calculateProjectCostFailed() {
         double projectCost = dataProvider.calculateProjectCost(userId, 9);
+        Assertions.assertFalse(projectCost > 0);
         log.info(projectCost);
     }
 }

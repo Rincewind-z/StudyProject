@@ -31,13 +31,11 @@ public class DataProviderJdbc implements DataProvider {
     return instance;
   }
 
-  //
   private void connect() {
     try {
-      Class.forName("org.h2.Driver");
-      //connection = DriverManager.getConnection("jdbc:h2:file:Z:\\projects\\asya\\src\\main\\resources\\data\\db");
-      connection = DriverManager.getConnection("jdbc:h2:mem:calculator");
-    } catch (ClassNotFoundException | SQLException e) {
+      Class.forName(ConfigurationUtil.getConfigurationEntry(Constants.H2_DRIVER));
+      connection = DriverManager.getConnection(ConfigurationUtil.getConfigurationEntry(Constants.CONNECTION_URL));
+    } catch (ClassNotFoundException | SQLException | IOException e) {
       log.error(e);
     }
   }
@@ -57,37 +55,47 @@ public class DataProviderJdbc implements DataProvider {
   }
 
   public boolean setDB(){
-    //language=H2
-    return executesRequest("create table if not exists CUSTOMER( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, NAME VARCHAR not null, URL VARCHAR not null, PHONE_NUMBER VARCHAR not null, constraint CUSTOMER_PK primary key (ID));")
-            && executesRequest("create table if not exists MATERIAL( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, MATERIAL_NAME VARCHAR not null, MATERIAL_TYPE INT not null, COST FLOAT not null, DESCRIPTION VARCHAR not null, UNIT INT not null, IN_STOCK FLOAT not null, constraint MATERIAL_PK primary key (ID));")
-            && executesRequest("create table if not exists ART( ID LONG auto_increment, USER_ID LONG not null, CUSTOMER LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, DEADLINE TIMESTAMP not null, NAME VARCHAR not null, PROGRESS FLOAT not null, PAYMENT_TYPE INT not null, PROJECT_TYPE INT not null, ART_TYPE INT not null, ART_STYLE INT not null, COST DOUBLE not null, constraint ART_PK primary key (ID), constraint ART_CUSTOMER_ID_FK foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade);")
-            && executesRequest("create table if not exists FURSUIT( ID LONG auto_increment, USER_ID LONG not null, CUSTOMER LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, DEADLINE TIMESTAMP not null, NAME VARCHAR not null, PROGRESS FLOAT not null, PAYMENT_TYPE INT not null, PROJECT_TYPE INT not null, FURSUIT_TYPE INT not null, FURSUIT_STYLE INT not null, constraint FURSUIT_PK primary key (ID), constraint FURSUIT_CUSTOMER_ID_FK foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade);")
-            && executesRequest("create table if not exists FURSUIT_PART( ID LONG auto_increment, USER_ID LONG not null, DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null, NAME VARCHAR, PROGRESS FLOAT not null, PROJECT_ID LONG not null, constraint FURSUIT_PART_PK primary key (ID), constraint FURSUIT_PART_FURSUIT_ID_FK foreign key (PROJECT_ID) references FURSUIT (ID) on update cascade on delete cascade);")
-            && executesRequest("create table if not exists FURSUIT_PART_OUTGOINGS( FURSUIT_PART_ID LONG not null, MATERIAL_ID LONG not null, AMOUNT DOUBLE not null, constraint FURSUIT_PART_OUTGOINGS_PK primary key (FURSUIT_PART_ID, MATERIAL_ID), constraint FURSUIT_PART_OUTGOINGS_FURSUIT_PART_ID_FK foreign key (FURSUIT_PART_ID) references FURSUIT_PART (ID) on update cascade on delete cascade, constraint FURSUIT_PART_OUTGOINGS_MATERIAL_ID_FK foreign key (MATERIAL_ID) references MATERIAL (ID) on update cascade on delete cascade);")
-            && executesRequest("create table if not exists TOY (  ID LONG auto_increment,  USER_ID LONG not null,  CUSTOMER LONG not null,  DATE_OF_CREATION TIMESTAMP default CURRENT_TIME not null,  DEADLINE TIMESTAMP not null,  NAME VARCHAR not null,  PROGRESS FLOAT not null,  PAYMENT_TYPE INT,  PROJECT_TYPE INT not null,  TOY_STYLE INT not null,  TOY_TYPE INT not null,  constraint TOY_PK  primary key (ID),  constraint TOY_CUSTOMER_ID_FK  foreign key (CUSTOMER) references CUSTOMER (ID) on update cascade on delete cascade ); ")
-            && executesRequest("create table if not exists TOY_OUTGOINGS( TOY_ID LONG not null, MATERIAL_ID LONG not null, AMOUNT DOUBLE not null, constraint TOY_OUTGOINGS_PK primary key (TOY_ID, MATERIAL_ID), constraint TOY_OUTGOINGS_MATERIAL_ID_FK foreign key (MATERIAL_ID) references MATERIAL (ID) on update cascade on delete cascade, constraint TOY_OUTGOINGS_TOY_ID_FK foreign key (TOY_ID) references TOY (ID) on update cascade on delete cascade);");
+    //language=H2;
+    try {
+      return executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_CUSTOMER_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_MATERIAL_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_ART_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_FURSUIT_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_FURSUIT_PART_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_FURSUIT_PART_OUTGOINGS_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_TOY_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.CREATE_TOY_PROJECT_OUTGOINGS_TABLE));
+    } catch (IOException e) {
+      log.error(e);
+      return false;
+    }
   }
 
   public boolean dropDB(){
-    return executesRequest("drop table if exists CUSTOMER;")
-            && executesRequest("drop table if exists MATERIAL;")
-            && executesRequest("drop table if exists ART;")
-            && executesRequest("drop table if exists FURSUIT;")
-            && executesRequest("drop table if exists FURSUIT_PART;")
-            && executesRequest("drop table if exists FURSUIT_PART_OUTGOINGS;")
-            && executesRequest("drop table if exists TOY;")
-            && executesRequest("drop table if exists TOY_OUTGOINGS;");
+    try {
+      return executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_CUSTOMER_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_MATERIAL_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_ART_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_FURSUIT_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DTOP_FURSUIT_PART_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_FURSUIT_PART_OUTGOINGS_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_TOY_PROJECT_TABLE))
+              && executesRequest(ConfigurationUtil.getConfigurationEntry(Constants.DROP_TOY_PROJECT_OUTGOINGS_TABLE));
+    } catch (IOException e) {
+      log.error(e);
+      return false;
+    }
   }
 
   private long getNextProjectId(){
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT max(id) as MAX_ID FROM ((SELECT id from ART) union (select id from TOY) union (select id from FURSUIT));");
+      ResultSet resultSet = statement.executeQuery(ConfigurationUtil.getConfigurationEntry(Constants.REQUEST_NEXT_PROJECT_ID));
       if(resultSet.next()){
-        return resultSet.getLong("MAX_ID") + 1;
+        return resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MAX_ID)) + 1;
       }
       return 1;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return -1;
     }
@@ -106,7 +114,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH,"INSERT INTO PUBLIC.MATERIAL (USER_ID, MATERIAL_NAME, MATERIAL_TYPE, COST, DESCRIPTION, UNIT, IN_STOCK) VALUES (%d, '%s', %d, %.2f, '%s', %d, %.2f)",
+      return executesRequest(String.format(Locale.ENGLISH,ConfigurationUtil.getConfigurationEntry(Constants.CREATE_MATERIAL_REQUEST),
               userId,
               materialName,
               materialType.ordinal(),
@@ -137,7 +145,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_MATERIAL_NOT_FOUNDED));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.MATERIAL t SET t.MATERIAL_NAME = '%s', t.MATERIAL_TYPE = %d, t.COST = %.2f, t.DESCRIPTION = '%s', t.UNIT = %d, t.IN_STOCK = %.2f WHERE t.ID = %d and t.USER_ID = %d",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_MATERIAL_REQUEST),
               editMaterial.getName(),
               editMaterial.getMaterialType().ordinal(),
               editMaterial.getCost(),
@@ -155,25 +163,30 @@ public class DataProviderJdbc implements DataProvider {
 
   @Override
   public boolean deleteMaterial(long userId, long id) {
-    return executesRequest(String.format("delete from MATERIAL where USER_ID = %d and ID = %d",
-            userId,
-            id));
+    try {
+      return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_MATERIAL_REQUEST),
+              userId,
+              id));
+    } catch (IOException e) {
+      log.error(e);
+      return false;
+    }
   }
 
   private Material setMaterial(ResultSet resultSet) {
     try {
       Material material = new Material();
-      material.setId(resultSet.getLong("ID"));
-      material.setUserId(resultSet.getLong("USER_ID"));
-      material.setName(resultSet.getString("MATERIAL_NAME"));
-      material.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
-      material.setCost(resultSet.getFloat("COST"));
-      material.setDescription(resultSet.getString("DESCRIPTION"));
-      material.setInStock(resultSet.getFloat("IN_STOCK"));
-      material.setMaterialType(MaterialType.values()[resultSet.getInt("MATERIAL_TYPE")]);
-      material.setUnit(Unit.values()[resultSet.getInt("UNIT")]);
+      material.setId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_ID)));
+      material.setUserId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_USER_ID)));
+      material.setName(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_NAME)));
+      material.setDateOfCreation(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_DATE_OF_CREATION)));
+      material.setCost(resultSet.getFloat(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_COST)));
+      material.setDescription(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_DESCRIPTION)));
+      material.setInStock(resultSet.getFloat(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_IN_STOCK)));
+      material.setMaterialType(MaterialType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_TYPE))]);
+      material.setUnit(Unit.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_MATERIAL_UNIT))]);
       return material;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new Material();
     }
@@ -183,7 +196,7 @@ public class DataProviderJdbc implements DataProvider {
   public Optional<Material> getMaterial(long userId, long id){
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("Select * from MATERIAL where USER_ID = %d and ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_MATERIAL_REQUEST),
               userId,
               id));
       if (!resultSet.next()){
@@ -192,7 +205,7 @@ public class DataProviderJdbc implements DataProvider {
       Material material = setMaterial(resultSet);
       statement.close();
       return Optional.of(material);
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return Optional.empty();
     }
@@ -202,7 +215,7 @@ public class DataProviderJdbc implements DataProvider {
   public List<Material> getMaterial(long userId) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("Select * from MATERIAL where USER_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_MATERIAL_REQUEST),
               userId));
       List<Material> materialList = new ArrayList<>();
       while (resultSet.next()) {
@@ -210,7 +223,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return materialList;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new ArrayList<>();
     }
@@ -223,7 +236,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.CUSTOMER (USER_ID, NAME, URL, PHONE_NUMBER) VALUES (%d, '%s', '%s', '%s')",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.CREATE_CUSTOMER_REQUEST),
       userId,
       name,
       url,
@@ -249,7 +262,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_CUSTOMER_NOT_FOUNDED));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.CUSTOMER t SET t.NAME = '%s', t.URL = '%s', t.PHONE_NUMBER = '%s' WHERE t.ID = %d and t.USER_ID = %d",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_CUSTOMER_REQUEST),
               editCustomer.getName(),
               editCustomer.getUrl(),
               editCustomer.getPhoneNumber(),
@@ -263,22 +276,27 @@ public class DataProviderJdbc implements DataProvider {
 
   @Override
   public boolean deleteCustomer(long userId, long customerId) {
-    return executesRequest(String.format("delete from CUSTOMER where USER_ID = %d and ID = %d",
-            userId,
-            customerId));
+    try {
+      return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_CUSTOMER_REQUEST),
+              userId,
+              customerId));
+    } catch (IOException e) {
+      log.error(e);
+      return false;
+    }
   }
 
   private Customer setCustomer(ResultSet resultSet){
     try {
       Customer customer = new Customer();
-      customer.setId(resultSet.getLong("ID"));
-      customer.setUserId(resultSet.getLong("USER_ID"));
-      customer.setName(resultSet.getString("NAME"));
-      customer.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
-      customer.setPhoneNumber(resultSet.getString("PHONE_NUMBER"));
-      customer.setUrl(resultSet.getString("URL"));
+      customer.setId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_CUSTOMER_ID)));
+      customer.setUserId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_CUSTOMER_USER_ID)));
+      customer.setName(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_CUSTOMER_NAME)));
+      customer.setDateOfCreation(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_CUSTOMER_DATE_OF_CREATION)));
+      customer.setPhoneNumber(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_CUSTOMER_PHONE_NUMBER)));
+      customer.setUrl(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_CUSTOMER_URL)));
       return customer;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new Customer();
     }
@@ -288,7 +306,7 @@ public class DataProviderJdbc implements DataProvider {
   public Optional<Customer> getCustomer(long userId, long customerId) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM CUSTOMER WHERE USER_ID = %d and ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_CUSTOMER_REQUEST),
               userId,
               customerId));
       if (!resultSet.next()){
@@ -297,7 +315,7 @@ public class DataProviderJdbc implements DataProvider {
       Customer customer = setCustomer(resultSet);
       statement.close();
       return Optional.of(customer);
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return Optional.empty();
     }
@@ -307,7 +325,7 @@ public class DataProviderJdbc implements DataProvider {
   public List<Customer> getCustomer(long userId) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("Select * from CUSTOMER where USER_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_CUSTOMER_REQUEST),
               userId));
       List<Customer> customerList = new ArrayList<>();
       while (resultSet.next()) {
@@ -315,7 +333,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return customerList;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new ArrayList<>();
     }
@@ -338,7 +356,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.FURSUIT (ID, USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, FURSUIT_TYPE, FURSUIT_STYLE) VALUES (%d, %d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d)",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.CREATE_FURSUIT_PROJECT_REQUEST),
               getNextProjectId(),
               userId,
               customerId,
@@ -374,7 +392,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.ART (ID, USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, ART_TYPE, ART_STYLE, COST) VALUES (%d, %d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d, %.2f)",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.CREATE_ART_PROJECT_REQUEST),
               getNextProjectId(),
               userId,
               customerId,
@@ -410,7 +428,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.NULL_MSG));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.TOY (ID, USER_ID, CUSTOMER, DEADLINE, NAME, PROGRESS, PAYMENT_TYPE, PROJECT_TYPE, TOY_STYLE, TOY_TYPE) VALUES (%d, %d, %d, parsedatetime ('%s', '%s'), '%s', 0, %d, %d, %d, %d);",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.CREATE_TOY_PROJECT_REQUEST),
               getNextProjectId(),
               userId,
               customerId,
@@ -461,7 +479,7 @@ public class DataProviderJdbc implements DataProvider {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
             return false;
           }
-          return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.FURSUIT t SET t.CUSTOMER = %d, t.DEADLINE = parsedatetime ('%s', '%s'), t.NAME = '%s', t.PROGRESS = %f, t.PAYMENT_TYPE = %d, t.FURSUIT_TYPE = %d, t.FURSUIT_STYLE = %d WHERE t.ID = %d and t.USER_ID = %d",
+          return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_FURSUIT_PROJECT_REQUEST),
                   editedFursuit.getCustomer().getId(),
                   dateFormat.format(editedFursuit.getDeadline()),
                   Constants.DATE_FORMAT,
@@ -476,7 +494,7 @@ public class DataProviderJdbc implements DataProvider {
 
         case ART -> {
           Art art = (Art) editedProject;
-          return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.ART t SET t.CUSTOMER = %d, t.DEADLINE = parsedatetime ('%s', '%s'), t.NAME = '%s', t.PROGRESS = %f, t.PAYMENT_TYPE = %d, t.ART_TYPE = %d, t.ART_STYLE = %d, t.COST = %f WHERE t.ID = %d and t.USER_ID = %d",
+          return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_ART_PROJECT_REQUEST),
                   art.getCustomer().getId(),
                   dateFormat.format(art.getDeadline()),
                   Constants.DATE_FORMAT,
@@ -497,7 +515,7 @@ public class DataProviderJdbc implements DataProvider {
             log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
             return false;
           }
-          return executesRequest(String.format(Locale.ENGLISH, "UPDATE PUBLIC.TOY t SET t.CUSTOMER = %d, t.DEADLINE = parsedatetime ('%s', '%s'), t.NAME = '%s', t.PROGRESS = %f, t.PAYMENT_TYPE = %d, t.TOY_STYLE = %d, t.TOY_TYPE = %d WHERE t.ID = %d and t.USER_ID = %d",
+          return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_TOY_PROJECT_REQUEST),
                   editedToy.getCustomer().getId(),
                   dateFormat.format(editedToy.getDeadline()),
                   Constants.DATE_FORMAT,
@@ -531,17 +549,17 @@ public class DataProviderJdbc implements DataProvider {
       }
       switch (optionalProject.get().getProjectType()) {
         case FURSUIT -> {
-          return executesRequest(String.format("DELETE FROM FURSUIT WHERE USER_ID = %d and ID = %d",
+          return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_FURSUIT_PROJECT_REQUEST),
                   userId,
                   projectId));
         }
         case ART -> {
-          return executesRequest(String.format("DELETE FROM ART WHERE USER_ID = %d and ID = %d",
+          return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_ART_PROJECT_REQUEST),
                   userId,
                   projectId));
         }
         case TOY -> {
-          return executesRequest(String.format("DELETE FROM TOY WHERE USER_ID = %d and ID = %d",
+          return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_TOY_PROJECT_REQUEST),
                   userId,
                   projectId));
         }
@@ -556,20 +574,20 @@ public class DataProviderJdbc implements DataProvider {
   private Art setArt(ResultSet resultSet) {
     try {
       Art art = new Art();
-      art.setId(resultSet.getLong("ID"));
-      art.setUserId(resultSet.getLong("USER_ID"));
-      art.setCustomer(getCustomer(art.getUserId(), resultSet.getLong("CUSTOMER")).get());
-      art.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
-      art.setDeadline(resultSet.getTimestamp("DEADLINE"));
-      art.setName(resultSet.getString("NAME"));
-      art.setCost(resultSet.getDouble("COST"));
-      art.setProgress(resultSet.getFloat("PROGRESS"));
-      art.setProjectType(ProjectType.values()[resultSet.getInt("PROJECT_TYPE")]);
-      art.setPaymentType(PaymentType.values()[resultSet.getInt("PAYMENT_TYPE")]);
-      art.setArtStyle(ArtStyle.values()[resultSet.getInt("ART_STYLE")]);
-      art.setArtType(ArtType.values()[resultSet.getInt("ART_TYPE")]);
+      art.setId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_ID)));
+      art.setUserId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_USER_ID)));
+      art.setCustomer(getCustomer(art.getUserId(), resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_CUSTOMER))).get());
+      art.setDateOfCreation(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_DATE_OF_CREATION)));
+      art.setDeadline(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_DEADLINE)));
+      art.setName(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_NAME)));
+      art.setCost(resultSet.getDouble(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_COST)));
+      art.setProgress(resultSet.getFloat(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_PROGRESS)));
+      art.setProjectType(ProjectType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_PROJECT_TYPE))]);
+      art.setPaymentType(PaymentType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_PAYMENT_TYPE))]);
+      art.setArtStyle(ArtStyle.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_STYLE))]);
+      art.setArtType(ArtType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_ART_TYPE))]);
       return art;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new Art();
     }
@@ -578,20 +596,20 @@ public class DataProviderJdbc implements DataProvider {
   private Fursuit setFursuit(ResultSet resultSet) {
     try {
       Fursuit fursuit = new Fursuit();
-      fursuit.setId(resultSet.getLong("ID"));
-      fursuit.setUserId(resultSet.getLong("USER_ID"));
-      fursuit.setCustomer(getCustomer(fursuit.getUserId(), resultSet.getLong("CUSTOMER")).get());
-      fursuit.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
-      fursuit.setDeadline(resultSet.getTimestamp("DEADLINE"));
-      fursuit.setName(resultSet.getString("NAME"));
+      fursuit.setId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_ID)));
+      fursuit.setUserId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_USER_ID)));
+      fursuit.setCustomer(getCustomer(fursuit.getUserId(), resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_CUSTOMER))).get());
+      fursuit.setDateOfCreation(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_DATE_OF_CREATION)));
+      fursuit.setDeadline(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_DEADLINE)));
+      fursuit.setName(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_NAME)));
       fursuit.setPartList(getPartList(fursuit.getUserId(), fursuit.getId()));
-      fursuit.setProgress(resultSet.getFloat("PROGRESS"));
-      fursuit.setProjectType(ProjectType.values()[resultSet.getInt("PROJECT_TYPE")]);
-      fursuit.setPaymentType(PaymentType.values()[resultSet.getInt("PAYMENT_TYPE")]);
-      fursuit.setFursuitStyle(FursuitStyle.values()[resultSet.getInt("FURSUIT_STYLE")]);
-      fursuit.setFursuitType(FursuitType.values()[resultSet.getInt("FURSUIT_TYPE")]);
+      fursuit.setProgress(resultSet.getFloat(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PROGRESS)));
+      fursuit.setProjectType(ProjectType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PROJECT_TYPE))]);
+      fursuit.setPaymentType(PaymentType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PAYMENT_TYPE))]);
+      fursuit.setFursuitStyle(FursuitStyle.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_STYLE))]);
+      fursuit.setFursuitType(FursuitType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_TYPE))]);
       return fursuit;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new Fursuit();
     }
@@ -601,7 +619,7 @@ public class DataProviderJdbc implements DataProvider {
   private List<FursuitPart> getPartList(long userId, long projectId) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("Select * from PUBLIC.FURSUIT_PART where USER_ID = %d and PROJECT_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_FURSUIT_PART_IN_PROJECT_REQUEST),
               userId,
               projectId));
       List<FursuitPart> fursuitPartList = new ArrayList<>();
@@ -610,7 +628,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return fursuitPartList;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new ArrayList<>();
     }
@@ -621,14 +639,14 @@ public class DataProviderJdbc implements DataProvider {
     Map<Material, Double> outgoings = new HashMap<>();
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("SELECT MATERIAL.*, AMOUNT FROM MATERIAL INNER JOIN FURSUIT_PART_OUTGOINGS FPO on MATERIAL.ID = FPO.MATERIAL_ID WHERE FPO.FURSUIT_PART_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_FURSUIT_PART_OUTGOINGS_REQUEST),
               id));
       while (resultSet.next()) {
-        outgoings.put(setMaterial(resultSet), resultSet.getDouble("AMOUNT"));
+        outgoings.put(setMaterial(resultSet), resultSet.getDouble(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_AMOUNT)));
       }
       statement.close();
       return outgoings;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new HashMap<>();
     }
@@ -639,14 +657,14 @@ public class DataProviderJdbc implements DataProvider {
     Map<Material, Double> outgoings = new HashMap<>();
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("SELECT MATERIAL.*, AMOUNT FROM MATERIAL INNER JOIN TOY_OUTGOINGS TO on MATERIAL.ID = TO.MATERIAL_ID WHERE TO.TOY_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_TOY_PROJECT_OUTGOINGS_REQUEST),
               id));
       while (resultSet.next()) {
-        outgoings.put(setMaterial(resultSet), resultSet.getDouble("AMOUNT"));
+        outgoings.put(setMaterial(resultSet), resultSet.getDouble(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_AMOUNT)));
       }
       statement.close();
       return outgoings;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new HashMap<>();
     }
@@ -655,20 +673,20 @@ public class DataProviderJdbc implements DataProvider {
   private Toy setToy(ResultSet resultSet) {
     try {
       Toy toy = new Toy();
-      toy.setId(resultSet.getLong("ID"));
-      toy.setUserId(resultSet.getLong("USER_ID"));
-      toy.setCustomer(getCustomer(toy.getUserId(), resultSet.getLong("CUSTOMER")).get());
-      toy.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
-      toy.setDeadline(resultSet.getTimestamp("DEADLINE"));
-      toy.setName(resultSet.getString("NAME"));
-      toy.setProgress(resultSet.getFloat("PROGRESS"));
-      toy.setProjectType(ProjectType.values()[resultSet.getInt("PROJECT_TYPE")]);
-      toy.setPaymentType(PaymentType.values()[resultSet.getInt("PAYMENT_TYPE")]);
-      toy.setToyStyle(ToyStyle.values()[resultSet.getInt("TOY_STYLE")]);
-      toy.setToyType(ToyType.values()[resultSet.getInt("TOY_TYPE")]);
+      toy.setId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_ID)));
+      toy.setUserId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_USER_ID)));
+      toy.setCustomer(getCustomer(toy.getUserId(), resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_CUSTOMER))).get());
+      toy.setDateOfCreation(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_DATE_OF_CREATION)));
+      toy.setDeadline(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_DEADLINE)));
+      toy.setName(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_NAME)));
+      toy.setProgress(resultSet.getFloat(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_PROGRESS)));
+      toy.setProjectType(ProjectType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_PROJECT_TYPE))]);
+      toy.setPaymentType(PaymentType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_PAYMENT_TYPE))]);
+      toy.setToyStyle(ToyStyle.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_STYLE))]);
+      toy.setToyType(ToyType.values()[resultSet.getInt(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_TOY_TYPE))]);
       toy.setOutgoings(getToyOutgoings(toy.getId()));
       return toy;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new Toy();
     }
@@ -681,7 +699,7 @@ public class DataProviderJdbc implements DataProvider {
   public Optional<Project> getProject(long userId, long projectId) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM ART WHERE USER_ID = %d and ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_ART_PROJECT_REQUEST),
               userId,
               projectId));
       if (resultSet.next()) {
@@ -689,7 +707,7 @@ public class DataProviderJdbc implements DataProvider {
         statement.close();
         return Optional.of(art);
       }
-      resultSet = statement.executeQuery(String.format("SELECT * FROM FURSUIT WHERE USER_ID = %d and ID = %d",
+      resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_FURSUIT_PROJECT_REQUEST),
               userId,
               projectId));
       if (resultSet.next()) {
@@ -697,7 +715,7 @@ public class DataProviderJdbc implements DataProvider {
         statement.close();
         return Optional.of(fursuit);
       }
-      resultSet = statement.executeQuery(String.format("SELECT * FROM TOY WHERE USER_ID = %d and ID = %d",
+      resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_TOY_PROJECT_REQUEST),
               userId,
               projectId));
       if (resultSet.next()) {
@@ -707,7 +725,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return Optional.empty();
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return Optional.empty();
     }
@@ -721,19 +739,19 @@ public class DataProviderJdbc implements DataProvider {
     try {
       List<Project> projectList = new ArrayList<>();
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM ART WHERE USER_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_ART_PROJECT_REQUEST),
               userId));
       while (resultSet.next()) {
         Art art = setArt(resultSet);
         projectList.add(art);
       }
-      resultSet = statement.executeQuery(String.format("SELECT * FROM FURSUIT WHERE USER_ID = %d",
+      resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_FURSUIT_PROJECT_REQUEST),
               userId));
       while (resultSet.next()) {
         Fursuit fursuit = setFursuit(resultSet);
         projectList.add(fursuit);
       }
-      resultSet = statement.executeQuery(String.format("SELECT * FROM TOY WHERE USER_ID = %d",
+      resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_TOY_PROJECT_REQUEST),
               userId));
       if (resultSet.next()) {
         Toy toy = setToy(resultSet);
@@ -741,7 +759,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return projectList;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new ArrayList<>();
     }
@@ -760,7 +778,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "INSERT INTO PUBLIC.FURSUIT_PART (USER_ID, NAME, PROGRESS, PROJECT_ID) VALUES (%d, '%s', 0.0, %d)",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.CREATE_FURSUIT_PART_REQUEST),
               userId,
               name,
               fursuitId));
@@ -790,7 +808,7 @@ public class DataProviderJdbc implements DataProvider {
         return false;
       }
 
-      return (executesRequest(String.format(Locale.ENGLISH, "Update public.FURSUIT_PART t set t.NAME = '%s', t.PROGRESS = 0.0 where t.ID = %d and t.USER_ID = %d",
+      return (executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.UPDATE_FURSUIT_PART_REQUEST),
               editedFursuitPart.getName(),
               editedFursuitPart.getId(),
               editedFursuitPart.getUserId())));
@@ -818,7 +836,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_FORBIDDEN));
         return false;
       }
-      return executesRequest(String.format("DELETE FROM PUBLIC.FURSUIT_PART WHERE ID = %d AND USER_ID = %d AND PROJECT_ID = %d",
+      return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_FURSUIT_PART_REQUEST),
               partId,
               userId,
               projectId));
@@ -831,11 +849,11 @@ public class DataProviderJdbc implements DataProvider {
   private FursuitPart setFursuitPart(ResultSet resultSet) {
     try {
       FursuitPart fursuitPart = new FursuitPart();
-      fursuitPart.setId(resultSet.getLong("ID"));
-      fursuitPart.setUserId(resultSet.getLong("USER_ID"));
-      fursuitPart.setName(resultSet.getString("NAME"));
-      fursuitPart.setDateOfCreation(resultSet.getTimestamp("DATE_OF_CREATION"));
-      fursuitPart.setProgress(resultSet.getFloat("PROGRESS"));
+      fursuitPart.setId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PART_ID)));
+      fursuitPart.setUserId(resultSet.getLong(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PART_USER_ID)));
+      fursuitPart.setName(resultSet.getString(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PART_NAME)));
+      fursuitPart.setDateOfCreation(resultSet.getTimestamp(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PART_DATE_OF_CREATION)));
+      fursuitPart.setProgress(resultSet.getFloat(ConfigurationUtil.getConfigurationEntry(Constants.COLUMN_LABEL_FURSUIT_PART_PROGRESS)));
       fursuitPart.setOutgoings(getFursuitPartOutgoings(fursuitPart.getId()));
       return fursuitPart;
     } catch (Exception e) {
@@ -849,7 +867,7 @@ public class DataProviderJdbc implements DataProvider {
   public Optional<FursuitPart> getFursuitPart(long userId, long id) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("SELECT * FROM  PUBLIC.FURSUIT_PART WHERE USER_ID = %d and ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_OPTIONAL_FURSUIT_PART_REQUEST),
               userId,
               id));
       if (resultSet.next()) {
@@ -859,7 +877,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return Optional.empty();
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return Optional.empty();
     }
@@ -870,7 +888,7 @@ public class DataProviderJdbc implements DataProvider {
   public List<FursuitPart> getFursuitPart (long userId) {
     try {
       Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(String.format("Select * from PUBLIC.FURSUIT_PART where USER_ID = %d",
+      ResultSet resultSet = statement.executeQuery(String.format(ConfigurationUtil.getConfigurationEntry(Constants.SELECT_LIST_ALL_FURSUIT_PART_REQUEST),
               userId));
       List<FursuitPart> fursuitPartList = new ArrayList<>();
       while (resultSet.next()) {
@@ -878,7 +896,7 @@ public class DataProviderJdbc implements DataProvider {
       }
       statement.close();
       return fursuitPartList;
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       log.error(e);
       return new ArrayList<>();
     }
@@ -894,7 +912,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_EMPTY));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "MERGE INTO PUBLIC.FURSUIT_PART_OUTGOINGS (FURSUIT_PART_ID, MATERIAL_ID, AMOUNT) VALUES (%d, %d, %f)",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.SET_FURSUIT_PART_OUTGOINGS_REQUEST),
               fursuitPartId,
               materialId,
               amount));
@@ -918,7 +936,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
-      return executesRequest(String.format(Locale.ENGLISH, "MERGE INTO PUBLIC.TOY_OUTGOINGS (TOY_ID, MATERIAL_ID, AMOUNT) VALUES (%d, %d, %f)",
+      return executesRequest(String.format(Locale.ENGLISH, ConfigurationUtil.getConfigurationEntry(Constants.SET_TOY_PROJECT_OUTGOINGS_REQUEST),
               toyId,
               materialId,
               amount));
@@ -942,7 +960,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_WRONG_PROJECT_TYPE));
         return false;
       }
-      return executesRequest(String.format("DELETE FROM PUBLIC.TOY_OUTGOINGS WHERE TOY_ID = %d AND MATERIAL_ID = %d",
+      return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_TOY_PROJECT_OUTGOINGS_REQUEST),
               toyId,
               materialId));
     } catch (IOException e) {
@@ -967,7 +985,7 @@ public class DataProviderJdbc implements DataProvider {
         log.error(ConfigurationUtil.getConfigurationEntry(Constants.MSG_OUTGOINGS_NOT_FOUNDED));
         return false;
       }
-      return executesRequest(String.format("DELETE FROM PUBLIC.FURSUIT_PART_OUTGOINGS WHERE FURSUIT_PART_ID = %d AND MATERIAL_ID = %d",
+      return executesRequest(String.format(ConfigurationUtil.getConfigurationEntry(Constants.DELETE_FURSUIT_PART_OUTGOINGS_REQUEST),
               fursuitPartId,
               materialId));
     } catch (IOException e) {

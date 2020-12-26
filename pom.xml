@@ -7,16 +7,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-
     <properties>
         <maven.compiler.release>15</maven.compiler.release>
     </properties>
 
-
     <groupId>ru.sfedu</groupId>
     <artifactId>studyProject</artifactId>
     <version>1.0-SNAPSHOT</version>
-
 
     <dependencies>
         <dependency>

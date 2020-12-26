@@ -19,5 +19,6 @@ public class Main {
   public static void main(String[] args) throws IOException {
     log.info(ConfigurationUtil.getConfigurationEntry(Constants.MAIN_TEST_MESSAGE));
     log.info(ConfigurationUtil.getConfigurationEntry(Constants.FORMAT_BOUND));
+    log.debug("test");
   }
 }
