@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:h2:mem:calculator</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="lab" uuid="4e79c27d-d395-4ac0-b90a-8668a0dbe862">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:file:C:\Users\Rincewind\Desktop\Prikhodko\StudyProject\src\main\resources\data\bd\bd;MV_STORE=false</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

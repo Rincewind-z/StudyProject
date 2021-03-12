@@ -4,9 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import ru.sfedu.studyProject.DataProviders.DataProviderCsv;
-import ru.sfedu.studyProject.DataProviders.DataProviderJdbc;
-import ru.sfedu.studyProject.DataProviders.DataProviderXml;
+import ru.sfedu.studyProject.core.DataProviders.DataProviderCsv;
+import ru.sfedu.studyProject.core.DataProviders.DataProviderJdbc;
+import ru.sfedu.studyProject.core.DataProviders.DataProviderXml;
+import ru.sfedu.studyProject.core.Main;
 
 public class MainTest {
     private static final Logger log = LogManager.getLogger(Main.class);
@@ -44,21 +45,6 @@ public class MainTest {
     void testGetCustomerListFailed() {
         Main.main(new String[]{"DataProviderCsv", "getCustomer", "515151"});
         Main.main(new String[]{"DataProviderXml", "getCustomer", "afd"});
-    }
-
-    @Test
-    void testGetCustomer() {
-        Main.main(new String[]{"DataProviderCsv", "getCustomer", "0", "1"});
-        Main.main(new String[]{"DataProviderXml", "getCustomer", "0", "1"});
-        Main.main(new String[]{"DataProviderJdbc", "getCustomer", "0", "1"});
-    }
-
-    @Test
-    void testGetCustomerFailed() {
-        Main.main(new String[]{"DataProviderCsv", "getCustomer", "95662626", "1"});
-        Main.main(new String[]{"DataProviderXml", "getCustomer", "fsfgsg", "1"});
-        Main.main(new String[]{"DataProviderJdbc", "getCustomer", "0", "51511151"});
-        Main.main(new String[]{"DataProviderJdbc", "getCustomer", "0", "sfsdfds"});
     }
 
     @Test
