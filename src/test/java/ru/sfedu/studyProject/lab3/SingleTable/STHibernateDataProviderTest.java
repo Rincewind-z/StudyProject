@@ -1,13 +1,15 @@
-package ru.sfedu.studyProject.lab3.MappedSuperclass;
+package ru.sfedu.studyProject.lab3.SingleTable;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.*;
-import ru.sfedu.studyProject.lab3.MappedSuperclass.model.*;
-import ru.sfedu.studyProject.lab3.MappedSuperclass.util.GeneratorDrdr;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import ru.sfedu.studyProject.lab3.SingleTable.model.*;
+import ru.sfedu.studyProject.lab3.SingleTable.util.GeneratorDrdr;
 
 import java.util.List;
 import java.util.Optional;
+
 
 class HibernateDataProviderTest {
 

@@ -1,2 +1,6 @@
 # Project exclude paths
 /target/
+/src/main/resources/data
+/src/main/resources/log
+/src/main/resources/META-INF
+/out
