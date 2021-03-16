@@ -12,13 +12,14 @@ import java.util.List;
 public class HibernateDataProvider {
     private static final Logger log = LogManager.getLogger(HibernateDataProvider.class);
 
-    public static void getHelp() {
+    public static List<String> getHelp() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        List<Object> list = session.createSQLQuery(Constants.SELECT_FROM_HELP).list();
+        List list = session.createSQLQuery(Constants.SELECT_FROM_HELP).list();
         list.forEach(object -> log.info(object.toString()));
         session.close();
+        return list;
     }
 
     public static void getSchemata() {
