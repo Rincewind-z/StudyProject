@@ -24,8 +24,10 @@ public class Main5Lab {
                 lab3(args);
                 break;
             case "lab4":
+                lab4(args);
                 break;
             case "lab5":
+                lab5(args);
                 break;
         }
     }
@@ -119,43 +121,34 @@ public class Main5Lab {
     }
 
     private static void joinedTable(String[] args) {
-        switch (args[2]) {
-            case "generateTask":
-                generateProjectJoinedTable();
-                break;
-            default:
-                System.out.println("Ошибка");
+        if ("generateProject".equals(args[2])) {
+            generateProjectJoinedTable();
+        } else {
+            System.out.println("Ошибка");
         }
     }
 
     private static void mappedSuperclass(String[] args) {
-        switch (args[2]) {
-            case "generateTask":
-                generateProjectMappedSuperclass();
-                break;
-
-            default:
-                System.out.println("Ошибка");
+        if ("generateProject".equals(args[2])) {
+            generateProjectMappedSuperclass();
+        } else {
+            System.out.println("Ошибка");
         }
     }
 
     private static void singleTable(String[] args) {
-        switch (args[2]) {
-            case "generateTask":
-                generateProjectSingleTable();
-                break;
-            default:
-                System.out.println("Ошибка");
+        if ("generateProject".equals(args[2])) {
+            generateProjectSingleTable();
+        } else {
+            System.out.println("Ошибка");
         }
     }
 
     private static void tablePerClass(String[] args) {
-        switch (args[2]) {
-            case "generateTask":
-                generateProjectTablePerClass();
-                break;
-            default:
-                System.out.println("Ошибка");
+        if ("generateProject".equals(args[2])) {
+            generateProjectTablePerClass();
+        } else {
+            System.out.println("Ошибка");
         }
     }
 
@@ -191,5 +184,60 @@ public class Main5Lab {
         projectList.forEach(System.out::println);
     }
 
+    private static void lab4(String[] args) {
+        switch (args[1]) {
+            case "generateCustomer":
+                generateCustomer();
+                break;
+            case "generateFursuitPart":
+                generateFursuitPart();
+                break;
+            case "generateProject":
+                generateProject();
+                break;
+            default:
+                System.out.println("Ошибка");
+        }
+    }
+
+    private static void generateCustomer() {
+        var projectList = ru.sfedu.studyProject.lab4.util.GeneratorDrdr.generateCustomer(10);
+        ru.sfedu.studyProject.lab4.HibernateDataProvider dataProvider =
+                new ru.sfedu.studyProject.lab4.HibernateDataProvider();
+        projectList.forEach(dataProvider::createCustomer);
+        projectList.forEach(System.out::println);
+    }
+
+    private static void generateFursuitPart() {
+        var projectList = ru.sfedu.studyProject.lab4.util.GeneratorDrdr.generateFursuitPart(10);
+        ru.sfedu.studyProject.lab4.HibernateDataProvider dataProvider =
+                new ru.sfedu.studyProject.lab4.HibernateDataProvider();
+        projectList.forEach(dataProvider::createFursuitPart);
+        projectList.forEach(System.out::println);
+    }
+
+    private static void generateProject() {
+        var projectList = ru.sfedu.studyProject.lab4.util.GeneratorDrdr.generateProjects(10);
+        ru.sfedu.studyProject.lab4.HibernateDataProvider dataProvider =
+                new ru.sfedu.studyProject.lab4.HibernateDataProvider();
+        projectList.forEach(dataProvider::createProject);
+        projectList.forEach(System.out::println);
+    }
+
+    private static void lab5(String[] args) {
+        if ("generateProject".equals(args[1])) {
+            generateProjectLab5();
+        } else {
+            System.out.println("Ошибка");
+        }
+    }
+
+    private static void generateProjectLab5() {
+        var projectList = ru.sfedu.studyProject.lab5.util.GeneratorDrdr.generateProjects(10);
+        ru.sfedu.studyProject.lab5.HibernateDataProvider dataProvider =
+                new ru.sfedu.studyProject.lab5.HibernateDataProvider();
+        projectList.forEach(dataProvider::createProject);
+        projectList.forEach(System.out::println);
+    }
 
 }
