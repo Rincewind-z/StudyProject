@@ -21,6 +21,7 @@ public class Main5Lab {
                 lab2(args);
                 break;
             case "lab3":
+                lab3(args);
                 break;
             case "lab4":
                 break;
