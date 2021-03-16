@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 @Entity(name = "single_table_project")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(schema = "single_table")
 abstract public class Project {
 
   //

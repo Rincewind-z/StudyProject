@@ -1,17 +1,14 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 /**
  * Class FursuitPart
  */
-@Entity(name = "joined_table_fursuit_part")
-@Table(schema = "joined_table")
+@Entity(name = "lab5_fursuit_part")
+@Table(schema = "schema_lab5")
 public class FursuitPart {
 
   //
@@ -19,12 +16,15 @@ public class FursuitPart {
   //
   private long userId;
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private long id;
+  @ManyToOne(fetch = FetchType.EAGER)
+  private Fursuit fursuit;
   private Date dateOfCreation;
-  private String name;
-  private float progress;
-  private double cost;
+  @OneToOne(fetch = FetchType.EAGER,
+  cascade = CascadeType.PERSIST)
+  @JoinColumn(unique = true)
+  private FurPartDetails furPartDetails;
   
   //
   // Constructors
@@ -72,36 +72,12 @@ public class FursuitPart {
     return dateOfCreation;
   }
 
-  /**
-   * Set the value of name
-   * @param newVar the new value of name
-   */
-  public void setName (String newVar) {
-    name = newVar;
+  public FurPartDetails getFurPartDetails() {
+    return furPartDetails;
   }
 
-  /**
-   * Get the value of name
-   * @return the value of name
-   */
-  public String getName () {
-    return name;
-  }
-
-  /**
-   * Set the value of progress
-   * @param newVar the new value of progress
-   */
-  public void setProgress (float newVar) {
-    progress = newVar;
-  }
-
-  /**
-   * Get the value of progress
-   * @return the value of progress
-   */
-  public float getProgress () {
-    return progress;
+  public void setFurPartDetails(FurPartDetails furPartDetails) {
+    this.furPartDetails = furPartDetails;
   }
 
   public void setUserId (long newVar) {
@@ -112,28 +88,24 @@ public class FursuitPart {
     return userId;
   }
 
-  public double getCost() {
-    return cost;
+  public void setFursuit(Fursuit fursuit) {
+    this.fursuit = fursuit;
   }
 
-  public void setCost(double cost) {
-    this.cost = cost;
+  public Fursuit getFursuit() {
+    return fursuit;
   }
-
-  //
+//
   // Other methods
   //
-
-
   @Override
   public String toString() {
     return "FursuitPart{" +
             "userId=" + userId +
             ", id=" + id +
+            ", fursuit=" + fursuit +
             ", dateOfCreation=" + dateOfCreation +
-            ", name='" + name + '\'' +
-            ", progress=" + progress +
-            ", cost=" + cost +
+            ", furPartDetails=" + furPartDetails +
             '}';
   }
 
@@ -142,10 +114,11 @@ public class FursuitPart {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     FursuitPart that = (FursuitPart) o;
-    return userId == that.userId
-            && id == that.id && Float.compare(that.progress, progress) == 0
-            && Double.compare(that.cost, cost) == 0
-            && Objects.equals(dateOfCreation, that.dateOfCreation)
-            && Objects.equals(name, that.name);
+    return userId == that.userId && id == that.id && /*Objects.equals(fursuit, that.fursuit) && */Objects.equals(dateOfCreation, that.dateOfCreation) /*&& Objects.equals(furPartDetails, that.furPartDetails)*/;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(userId, id, /*fursuit,*/ dateOfCreation, furPartDetails);
   }
 }

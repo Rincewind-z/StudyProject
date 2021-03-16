@@ -1,8 +1,8 @@
-package ru.sfedu.studyProject.lab3.JoinedTable;
+package ru.sfedu.studyProject.lab5;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ru.sfedu.studyProject.lab3.JoinedTable.model.*;
+import ru.sfedu.studyProject.lab5.model.*;
 import ru.sfedu.studyProject.utils.HibernateUtil;
 
 import java.util.Optional;
@@ -183,4 +183,94 @@ public class HibernateDataProvider implements DataProvider {
         session.close();
         return Optional.ofNullable(customer);
     }
+
+    @Override
+    public boolean createUrl(URLs urLs) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(urLs);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean editUrl(URLs ediUrLs) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(ediUrLs);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean deleteUrl(URLs urLs) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(urLs);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public Optional<URLs> getUrl(long urlId) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        URLs urLs = session.get(URLs.class, urlId);
+        session.getTransaction().commit();
+        session.close();
+        return Optional.ofNullable(urLs);
+    }
+
+    @Override
+    public boolean createFPDetails(FurPartDetails furPartDetails) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(furPartDetails);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean editFPDetails(FurPartDetails furPartDetails) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(furPartDetails);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean deleteFPDetails(FurPartDetails furPartDetails) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(furPartDetails);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public Optional<FurPartDetails> getFPDetails(long furPartDetailsId) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        FurPartDetails furPartDetails = session.get(FurPartDetails.class, furPartDetailsId);
+        session.getTransaction().commit();
+        session.close();
+        return Optional.ofNullable(furPartDetails);
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
 import ru.sfedu.studyProject.core.enums.PaymentType;
 import ru.sfedu.studyProject.core.enums.ProjectType;
@@ -10,9 +10,9 @@ import java.util.Objects;
 /**
  * Class Project
  */
-@Entity(name = "joined_table_project")
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(schema = "joined_table")
+@Entity(name = "lab5_project")
+@Table(schema = "schema_lab5")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class Project {
 
   //
@@ -20,9 +20,10 @@ abstract public class Project {
   //
   private long userId;
   @Id
-  @GeneratedValue
   private long id;
- // private Customer customer;
+  @OneToOne(fetch = FetchType.EAGER, optional = false)
+  @PrimaryKeyJoinColumn
+  private Customer customer;
   private Date dateOfCreation;
   private Date deadline;
   private String name;
@@ -64,17 +65,18 @@ abstract public class Project {
    * Set the value of customer
    * @param newVar the new value of customer
    */
- /* public void setCustomer (Customer newVar) {
+  public void setCustomer (Customer newVar) {
     customer = newVar;
-  }*/
+    id = newVar.getId();
+  }
 
   /**
    * Get the value of customer
    * @return the value of customer
    */
- /* public Customer getCustomer () {
+  public Customer getCustomer () {
     return customer;
-  }*/
+  }
 
   /**
    * Set the value of dateOfCreation
@@ -189,9 +191,9 @@ abstract public class Project {
     return "Project{" +
             "userId=" + userId +
             ", id=" + id +
- //           ", customer=" + customer +
-            ", dateOfCreation=" + dateOfCreation +
-            ", deadline=" + deadline +
+            ", customer=" + customer +
+           // ", dateOfCreation=" + dateOfCreation +
+           // ", deadline=" + deadline +
             ", name='" + name + '\'' +
             ", progress=" + progress +
             ", paymentType=" + paymentType +
@@ -204,7 +206,7 @@ abstract public class Project {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Project project = (Project) o;
-    return userId == project.userId && id == project.id && Float.compare(project.progress, progress) == 0 && /*Objects.equals(customer, project.customer) && */Objects.equals(dateOfCreation, project.dateOfCreation) && Objects.equals(deadline, project.deadline) && Objects.equals(name, project.name) && paymentType == project.paymentType && projectType == project.projectType;
+    return userId == project.userId && id == project.id && Float.compare(project.progress, progress) == 0 && /*Objects.equals(customer, project.customer) && Objects.equals(dateOfCreation, project.dateOfCreation) && Objects.equals(deadline, project.deadline) &&*/ Objects.equals(name, project.name) && paymentType == project.paymentType && projectType == project.projectType;
   }
 /*
   @Override

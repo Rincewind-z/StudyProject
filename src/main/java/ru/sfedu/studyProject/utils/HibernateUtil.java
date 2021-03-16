@@ -8,8 +8,10 @@ import org.hibernate.service.ServiceRegistry;
 import ru.sfedu.studyProject.core.Constants;
 import ru.sfedu.studyProject.lab2.TestEntity;
 import ru.sfedu.studyProject.lab3.MappedSuperclass.model.*;
+import ru.sfedu.studyProject.lab5.model.URLs;
 
 import java.io.File;
+import java.util.Optional;
 
 public class HibernateUtil {
 
@@ -79,6 +81,16 @@ public class HibernateUtil {
             metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab4.model.Toy.class);
             metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab4.model.FursuitPart.class);
             metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab4.model.Project.class);
+
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.Material.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.Customer.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.Fursuit.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.Art.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.Toy.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.FursuitPart.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.Project.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.URLs.class);
+            metadataSources.addAnnotatedClass(ru.sfedu.studyProject.lab5.model.FurPartDetails.class);
 
             sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
 

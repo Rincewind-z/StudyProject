@@ -1,4 +1,4 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
 import ru.sfedu.studyProject.core.enums.ArtStyle;
 import ru.sfedu.studyProject.core.enums.ArtType;
@@ -10,8 +10,8 @@ import java.util.Objects;
 /**
  * Class Art
  */
-@Entity(name = "joined_table_art")
-@Table(schema = "joined_table")
+@Entity(name = "lab5_art")
+@Table(schema = "schema_lab5")
 public class Art extends Project {
 
   //

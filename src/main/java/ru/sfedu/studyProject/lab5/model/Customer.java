@@ -1,17 +1,14 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 /**
  * Class Customer
  */
-@Entity(name = "joined_table_customer")
-@Table(schema = "joined_table")
+@Entity(name = "lab5_customer")
+@Table(schema = "schema_lab5")
 public class Customer {
 
   //
@@ -20,11 +17,15 @@ public class Customer {
 
   private long userId;
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private long id;
+  @OneToOne(fetch = FetchType.EAGER)
+  private Project project;
   private Date dateOfCreation;
   private String name;
-  private String url;
+  @OneToOne(mappedBy = "customer",
+  cascade = CascadeType.PERSIST)
+  private URLs url = new URLs();
   private String phoneNumber;
   
   //
@@ -55,6 +56,15 @@ public class Customer {
    */
   public long getId () {
     return id;
+  }
+
+  public void setProject(Project project) {
+    id = project.getId();
+    this.project = project;
+  }
+
+  public Project getProject() {
+    return project;
   }
 
   /**
@@ -89,20 +99,12 @@ public class Customer {
     return name;
   }
 
-  /**
-   * Set the value of url
-   * @param newVar the new value of url
-   */
-  public void setUrl (String newVar) {
-    url = newVar;
+  public URLs getUrl() {
+    return url;
   }
 
-  /**
-   * Get the value of url
-   * @return the value of url
-   */
-  public String getUrl () {
-    return url;
+  public void setUrl(URLs url) {
+    this.url = url;
   }
 
   /**
@@ -149,7 +151,7 @@ public class Customer {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Customer customer = (Customer) o;
-    return userId == customer.userId && id == customer.id && Objects.equals(dateOfCreation, customer.dateOfCreation) && Objects.equals(name, customer.name) && Objects.equals(url, customer.url) && Objects.equals(phoneNumber, customer.phoneNumber);
+    return userId == customer.userId && id == customer.id && Objects.equals(dateOfCreation, customer.dateOfCreation) && Objects.equals(name, customer.name) && Objects.equals(phoneNumber, customer.phoneNumber);
   }
 
   @Override

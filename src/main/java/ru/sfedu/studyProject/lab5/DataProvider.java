@@ -1,6 +1,6 @@
-package ru.sfedu.studyProject.lab3.JoinedTable;
+package ru.sfedu.studyProject.lab5;
 
-import ru.sfedu.studyProject.lab3.JoinedTable.model.*;
+import ru.sfedu.studyProject.lab5.model.*;
 
 import java.util.Optional;
 
@@ -24,4 +24,14 @@ public interface DataProvider {
     boolean editCustomer (Customer editCustomer);
     boolean deleteCustomer (Customer customer);
     Optional<Customer> getCustomer (long customerId);
+
+    boolean createUrl (URLs urLs);
+    boolean editUrl (URLs urLs);
+    boolean deleteUrl (URLs urLs);
+    Optional<URLs> getUrl (long urlId);
+
+    boolean createFPDetails (FurPartDetails furPartDetails);
+    boolean editFPDetails (FurPartDetails furPartDetails);
+    boolean deleteFPDetails (FurPartDetails furPartDetails);
+    Optional<FurPartDetails> getFPDetails (long furPartDetailsId);
 }

@@ -1,17 +1,17 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
 import ru.sfedu.studyProject.core.enums.ToyStyle;
 import ru.sfedu.studyProject.core.enums.ToyType;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Class Toy
  */
-@Entity(name = "joined_table_toy")
-@Table (schema = "joined_table")
+@Entity(name = "lab5_toy")
+@Table (schema = "schema_lab5")
 public class Toy extends Project {
 
   //
@@ -19,7 +19,9 @@ public class Toy extends Project {
   //
   private ToyStyle toyStyle;
   private ToyType toyType;
-//  private Map<Material, Double> outgoings;
+  @ManyToMany(cascade = CascadeType.PERSIST)
+  @JoinTable(schema = "schema_lab5")
+  private Set<Material> outgoings;
 
   //
   // Constructors
@@ -67,21 +69,13 @@ public class Toy extends Project {
     return toyType;
   }
 
-  /**
-   * Set the value of outgoings
-   * @param newVar the new value of outgoings
-   */
- /* public void setOutgoings (Map<Material, Double> newVar) {
-    outgoings = newVar;
-  }*/
-
-  /**
-   * Get the value of outgoings
-   * @return the value of outgoings
-   */
- /* public Map<Material, Double> getOutgoings () {
+  public Set<Material> getOutgoings() {
     return outgoings;
-  }*/
+  }
+
+  public void setOutgoings(Set<Material> outgoings) {
+    this.outgoings = outgoings;
+  }
 
   @Override
   public String toString() {

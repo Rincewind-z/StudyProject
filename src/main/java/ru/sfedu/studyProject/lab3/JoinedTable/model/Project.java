@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 @Entity(name = "joined_table_project")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(schema = "joined_table")
 abstract public class Project {
 
   //

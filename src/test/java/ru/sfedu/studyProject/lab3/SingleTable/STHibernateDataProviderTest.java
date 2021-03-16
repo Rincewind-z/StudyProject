@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 
-class HibernateDataProviderTest {
+class STHibernateDataProviderTest {
 
-    private static final Logger log = LogManager.getLogger(HibernateDataProviderTest.class);
+    private static final Logger log = LogManager.getLogger(STHibernateDataProviderTest.class);
     private static final DataProvider dataProvider = new HibernateDataProvider();
 
     @Test

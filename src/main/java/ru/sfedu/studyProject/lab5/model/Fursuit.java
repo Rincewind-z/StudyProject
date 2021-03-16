@@ -1,16 +1,19 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
 import ru.sfedu.studyProject.core.enums.FursuitStyle;
 import ru.sfedu.studyProject.core.enums.FursuitType;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Class Fursuit
  */
-@Entity(name = "joined_table_fursuit")
-@Table(schema = "joined_table")
+@Entity(name = "lab5_fursuit")
+@Table(schema = "schema_lab5")
 public class Fursuit extends Project {
 
   //
@@ -18,7 +21,10 @@ public class Fursuit extends Project {
   //
 
   private FursuitType fursuitType;
- // private List<FursuitPart> partList;
+  @OneToMany(mappedBy = "fursuit",
+  fetch = FetchType.EAGER,
+  cascade = CascadeType.PERSIST)
+  private Set<FursuitPart> partList = new HashSet<>();
   private FursuitStyle fursuitStyle;
   
   //
@@ -51,23 +57,15 @@ public class Fursuit extends Project {
     return fursuitType;
   }
 
-  /**
-   * Set the value of partList
-   * @param newVar the new value of partList
-   */
- /* public void setPartList (List<FursuitPart> newVar) {
-    partList = newVar;
-  }*/
+    public void setPartList(Set<FursuitPart> partList) {
+        this.partList = partList;
+    }
 
-  /**
-   * Get the value of partList
-   * @return the value of partList
-   */
- /* public List<FursuitPart> getPartList () {
-    return partList;
-  }*/
+    public Set<FursuitPart> getPartList() {
+        return partList;
+    }
 
-  /**
+    /**
    * Set the value of fursuitStyle
    * @param newVar the new value of fursuitStyle
    */
@@ -97,17 +95,17 @@ public class Fursuit extends Project {
             '}';
   }
 
- /* @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    Fursuit fursuit = (Fursuit) o;
-    return fursuitType == fursuit.fursuitType && Objects.equals(partList, fursuit.partList) && fursuitStyle == fursuit.fursuitStyle;
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Fursuit fursuit = (Fursuit) o;
+        return fursuitType == fursuit.fursuitType && /*Objects.equals(partList, fursuit.partList) &&*/ fursuitStyle == fursuit.fursuitStyle;
+    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(super.hashCode(), fursuitType, partList, fursuitStyle);
-  }*/
+    @Override
+    public int hashCode() {
+        return Objects.hash(fursuitType, fursuitStyle);
+    }
 }

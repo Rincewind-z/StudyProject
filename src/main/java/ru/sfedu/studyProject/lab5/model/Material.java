@@ -1,20 +1,18 @@
-package ru.sfedu.studyProject.lab3.JoinedTable.model;
+package ru.sfedu.studyProject.lab5.model;
 
 import ru.sfedu.studyProject.core.enums.MaterialType;
 import ru.sfedu.studyProject.core.enums.Unit;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Class Material
  */
-@Entity(name = "joined_table_material")
-@Table(schema = "joined_table")
+@Entity(name = "lab5_material")
+@Table(schema = "schema_lab5")
 public class Material {
 
   //
@@ -31,6 +29,8 @@ public class Material {
   private String description;
   private Unit unit;
   private float inStock;
+  @ManyToMany(mappedBy = "outgoings")
+  private Set<Toy> toy;
   
   //
   // Constructors
@@ -181,6 +181,23 @@ public class Material {
   public long getUserId() {
     return userId;
   }
+
+  public String getMaterialName() {
+    return materialName;
+  }
+
+  public void setMaterialName(String materialName) {
+    this.materialName = materialName;
+  }
+
+  public Set<Toy> getToy() {
+    return toy;
+  }
+
+  public void setToy(Set<Toy> toy) {
+    this.toy = toy;
+  }
+
 //
   // Other methods
   //

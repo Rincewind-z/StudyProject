@@ -12,7 +12,8 @@ import java.util.Objects;
  */
 @Entity(name = "table_per_class_project")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-abstract public class Project {
+@Table(schema = "table_per_class")
+public class Project {
 
   //
   // Fields
