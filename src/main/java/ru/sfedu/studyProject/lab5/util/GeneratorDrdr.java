@@ -135,9 +135,9 @@ public class GeneratorDrdr {
         Random random = new Random();
         //List<FursuitPart> fursuitPartList = generateFursuitPart(3);
         //fursuitPartList.forEach(fursuitPart -> dataProvider.createFursuitPart(fursuitPart));
-        /*Customer customer = generateCustomer(1).get(0);
+        Customer customer = generateCustomer(1).get(0);
         dataProvider.createCustomer(customer);
-        fursuit.setCustomer(customer);*/
+        fursuit.setCustomer(customer);
         fursuit.setFursuitType(FursuitType.MINI_PARTIAL);
         fursuit.setFursuitStyle(FursuitStyle.TOONY);
         fursuit.setProjectType(ProjectType.FURSUIT);

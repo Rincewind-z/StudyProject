@@ -12,15 +12,16 @@ public class URLs {
     @Id
     @GeneratedValue(generator = "urlGenerator")
     @GenericGenerator(name = "urlGenerator",
-    strategy = "foreign",
-    parameters = @org.hibernate.annotations.Parameter (name = "property", value = "customer"))
+            strategy = "foreign",
+            parameters = @org.hibernate.annotations.Parameter(name = "property", value = "customer"))
     private long id;
-    @OneToOne()
+    @OneToOne(optional = false)
     @PrimaryKeyJoinColumn
     private Customer customer;
     private String url;
 
-    public URLs(){};
+    public URLs() {
+    }
 
     public String getUrl() {
         return url;
